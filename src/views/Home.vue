@@ -1,12 +1,15 @@
 <template>
-  <h1>This is the Home View</h1>
+  <div class="home">
+    <GoogleDrive />
+  </div>
 </template>
 
 <script>
-
+import GoogleDrive from '@/components/filepicker/GoogleDrive'
 export default {
   name: 'Home',
   components: {
+    GoogleDrive
   }
 }
 </script>
