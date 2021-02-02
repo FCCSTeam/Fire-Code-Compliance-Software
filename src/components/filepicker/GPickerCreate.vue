@@ -1,25 +1,11 @@
 <template>
-  <div id="GoogleDrive">
-    <h2>Click to open your Google Drive</h2>
-    <button @click="driveIconClicked()">Open Google Drive</button>
-    <FileContainer :fileName="fileName" :fileContent="fileContent" v-if="showFileContainer"
-    />
+  <div id="GPicker_Create">
+    <button @click="driveIconClicked()">Create A New Report</button>
   </div>
 </template>
 
 <script>
-import FileContainer from "./FileContainer";
 export default {
-  components: {
-    FileContainer,
-  },
-  mounted() {
-    //Include Googles API Script. Appends to documents <head>
-    let gDrive = document.createElement("script");
-    gDrive.setAttribute("type", "text/javascript");
-    gDrive.setAttribute("src", "https://apis.google.com/js/api.js");
-    document.head.appendChild(gDrive);
-  },
   data() {
     return {
       pickerApiLoaded: false,
@@ -27,7 +13,6 @@ export default {
       clientId: "1085587302993-vdlu23buqvcumu31ffkfmt5umi9i7g6s.apps.googleusercontent.com", //Google project OAuth Client ID
       scope: "https://www.googleapis.com/auth/drive", //scope is set for readonly
       oauthToken: null,
-      showFileContainer: false,
       fileName: null,
       fileContent: null,
     };
@@ -35,9 +20,9 @@ export default {
   methods: {
     //Called when user clicks on drive icon
     async driveIconClicked() {
-      console.log("Clicked");
+      //console.log("Clicked");
       await gapi.load("auth2", () => {
-        console.log("Auth2 Loaded");
+        //console.log("Auth2 Loaded");
         gapi.auth2.authorize(
           {
             client_id: this.clientId,
@@ -48,14 +33,14 @@ export default {
         );
       });
       gapi.load("picker", () => {
-        console.log("Picker Loaded");
+        //console.log("Picker Loaded");
         this.pickerApiLoaded = true;
         this.createPicker();
       });
     },
     //handles the result from the google Auth attempt. Creates picker if success
     handleAuthResult(authResult) {
-      console.log("Handle Auth result", authResult);
+      //console.log("Handle Auth result", authResult);
       if (authResult && !authResult.error) {
         this.oauthToken = authResult.access_token;
         this.createPicker();
@@ -63,18 +48,12 @@ export default {
     },
     //Creates the picker
     createPicker() {
-      console.log("Create Picker", google.picker);
+      //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
           .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
-          .addView( new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true))
-          // .setIncludeFolders(true)
-          // .setSelectFolderEnabled(true)
-          // )
           .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true))
-          //.addView(google.picker.ViewId.DOCS)
-          // .addView(google.picker.ViewId.FOLDERS)
-          //.addView(new google.picker.DocsUploadView())
+          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true))
           .setOAuthToken(this.oauthToken)
           .setDeveloperKey(this.developerKey)
           .setCallback(this.pickerCallback)
@@ -84,7 +63,7 @@ export default {
     },
     //callback from the picker
     async pickerCallback(data) {
-      console.log("PickerCallback", data);
+      //console.log("PickerCallback", data);
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         //get only first document of array of selected docs
         var doc = data[google.picker.Response.DOCUMENTS][0];
@@ -125,13 +104,11 @@ export default {
       {
         //content was retrieved from the GET Request
         this.fileContent = content;
-        this.showFileContainer = true;
       }
       else
       {
         //download file attempt failed
         this.fileContent = null;
-        this.showFileContainer = false;
       }
     },
   },

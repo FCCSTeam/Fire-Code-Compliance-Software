@@ -1,15 +1,15 @@
 <template>
-  <div class="home">
-    <GoogleDrive />
+  <div id="home">
+    <FileSelectionContainer />
   </div>
 </template>
 
 <script>
-import GoogleDrive from '@/components/filepicker/GoogleDrive'
+import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer.vue'
 export default {
   name: 'Home',
   components: {
-    GoogleDrive
+    FileSelectionContainer
   }
 }
 </script>
