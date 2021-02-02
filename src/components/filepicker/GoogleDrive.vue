@@ -25,7 +25,7 @@ export default {
       pickerApiLoaded: false,
       developerKey: "AIzaSyDtPr9R3LNpcMHxp4ZL7sZAJuRDPgRSe0I", //Google project API key
       clientId: "1085587302993-vdlu23buqvcumu31ffkfmt5umi9i7g6s.apps.googleusercontent.com", //Google project OAuth Client ID
-      scope: "https://www.googleapis.com/auth/drive.readonly", //scope is set for readonly
+      scope: "https://www.googleapis.com/auth/drive", //scope is set for readonly
       oauthToken: null,
       showFileContainer: false,
       fileName: null,
@@ -66,8 +66,15 @@ export default {
       console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
-          .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
-          .addView(google.picker.ViewId.DOCS)
+          .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
+          .addView( new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true))
+          // .setIncludeFolders(true)
+          // .setSelectFolderEnabled(true)
+          // )
+          .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true))
+          //.addView(google.picker.ViewId.DOCS)
+          // .addView(google.picker.ViewId.FOLDERS)
+          //.addView(new google.picker.DocsUploadView())
           .setOAuthToken(this.oauthToken)
           .setDeveloperKey(this.developerKey)
           .setCallback(this.pickerCallback)
