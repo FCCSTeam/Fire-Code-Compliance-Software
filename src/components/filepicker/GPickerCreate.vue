@@ -52,8 +52,15 @@ export default {
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
           .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
-          .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true))
-          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true))
+          .addView(new google.picker.DocsView()
+          .setParent('root')
+          .setIncludeFolders(true)
+          .setMimeTypes('application/vnd.google-apps.folder')
+          .setSelectFolderEnabled(true))
+          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS)
+          .setEnableDrives(true)
+          .setMimeTypes('application/vnd.google-apps.folder')
+          .setSelectFolderEnabled(true))
           .setOAuthToken(this.oauthToken)
           .setDeveloperKey(this.developerKey)
           .setCallback(this.pickerCallback)
@@ -63,54 +70,11 @@ export default {
     },
     //callback from the picker
     async pickerCallback(data) {
-      //console.log("PickerCallback", data);
-      if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
-        //get only first document of array of selected docs
-        var doc = data[google.picker.Response.DOCUMENTS][0];
-        if (doc) {
-          this.fileName = doc.name
-          //generate the download URL for this doc
-          //the alt=media is important for ensuring the content of the file is placed in response body
-          var downloadUrl =
-            "https://www.googleapis.com/drive/v2/files/" +
-            doc.id +
-            "?key=" +
-            this.developerKey +
-            " HTTP/1.1&alt=media";
-          this.downloadFile(downloadUrl, this.displayFileContent);
-        }
-      }
+      console.log("PickerCallback", data);
+      //TODO Get folder ID and create new file 
     },
-    //performs GET for the content of the file
-    async downloadFile(downloadUrl, callback) {
-      if (downloadUrl && this.oauthToken) {
-        var accessToken = this.oauthToken;
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", downloadUrl);
-        xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
-        xhr.onload = function () {
-          callback(xhr.responseText);
-        };
-        xhr.onerror = function () {
-          callback(null);
-        };
-        xhr.send();
-      } else {
-        callback(null);
-      }
-    },
-    displayFileContent(content) {
-      if (content)
-      {
-        //content was retrieved from the GET Request
-        this.fileContent = content;
-      }
-      else
-      {
-        //download file attempt failed
-        this.fileContent = null;
-      }
-    },
+
+
   },
 };
 </script>
