@@ -1,17 +1,16 @@
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
 import Home from '@/views/Home.vue'
-import GoogleDrive from '@/components/filepicker/GoogleDrive'
+import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer'
 
 describe('Home.vue', () => {
-  let HomeComp;
+  let parentComp;
 
   beforeEach(() => {
-    HomeComp = shallowMount(Home);
+    parentComp = shallowMount(Home);
   });
 
-  it('should render GoogleDrive Component on mount', () => {
-    expect(HomeComp.findComponent(GoogleDrive).exists()).to.be.true;
-  });
-  
+  it('should render FileSelectionContainer component on mount', () => {
+    expect(parentComp.findComponent(FileSelectionContainer).exists()).to.be.true;
+  });  
 });
