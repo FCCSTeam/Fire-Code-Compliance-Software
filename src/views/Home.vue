@@ -1,15 +1,15 @@
 <template>
   <div id="home">
-    <FileSelectionContainer />
+    <Login />
   </div>
 </template>
 
 <script>
-import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer.vue'
+import Login from '@/components/authentication/Login.vue'
 export default {
   name: 'Home',
   components: {
-    FileSelectionContainer
+    Login
   }
 }
 </script>
