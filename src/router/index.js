@@ -4,32 +4,51 @@ import Home from '../views/Home.vue'
 import  Userpage from '../views/Userpage.vue'
 import  Adminpage from '../views/Adminpage.vue'
 
+import { getActiveUser } from "@/js/auth/userAuth.js";
+
+
 Vue.use(VueRouter)
+
+const requireNoAuth = (to, from, next) => {
+  if(!getActiveUser())
+  {
+    next();
+  }
+  else{
+    next({ name: 'Userpage' })
+  }
+}
+
+const requireAuth = (to, from, next) => {
+  if(getActiveUser())
+  {
+    next()
+  }
+  else{
+    next({ name: "Home" });
+  }
+}
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    beforeEnter: requireNoAuth
   },
   {
     path: '/userpage',
     name: 'Userpage',
-    component: Userpage
+    component: Userpage,
+    beforeEnter: requireAuth
   },
   {
     path: '/adminpage',
     name: 'Adminpage',
-    component: Adminpage
+    component: Adminpage,
+    beforeEnter: requireAuth
   }
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
+
 ]
 
 const router = new VueRouter({
