@@ -7,7 +7,7 @@
 
 <script>
 import {projectAuth} from "@/firebase/config"
-//import {user} from "@/firebase/config"
+
 
 
 
@@ -27,7 +27,7 @@ export default {
             .then(res => 
             {
                 this.$router.replace({name: 'Home'})
-                //console.log("user has signed out" + user)
+                console.log("user has signed out:" + res.user.email)
             })
             .catch(err => 
             {

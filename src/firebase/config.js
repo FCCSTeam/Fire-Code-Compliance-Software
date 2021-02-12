@@ -15,19 +15,23 @@ const firebaseConfig = {
   const projectAuth = firebase.auth(app)
 
 
-
-  const user = projectAuth.onAuthStateChanged(user => 
+  let user = projectAuth.CurrentUser
+  
+  
+    projectAuth.onAuthStateChanged(_user => 
     {
-      if(user == null)
+      
+      user = _user
+      if(_user == null)
       {
         console.log("no user has signed in yet")
       }
       else
       {
-        console.log(user.email)
+        //console.log(user)
+        
       }
       
-
 
     })
 

@@ -15,6 +15,7 @@
 import {projectAuth} from "@/firebase/config"
 
 
+
 export default {
     name: 'Login',
   data() {
@@ -32,11 +33,15 @@ export default {
             projectAuth.signInWithEmailAndPassword(this.email, this.password)
             .then(res => 
             {
+                
+                console.log("the current user logged in is:" + res.user.email)
                 this.$router.replace({name: 'Userpage'})
+                
             
             })
             .catch(err => 
             {
+                console.log(err)
                 this.error = err
             })
         }
