@@ -6,10 +6,7 @@
 </template>
 
 <script>
-import {projectAuth} from "@/firebase/config"
-
-
-
+import { userLogout } from "@/js/auth/userAuth.js";
 
 export default {
     name: 'Logout', 
@@ -23,15 +20,15 @@ export default {
     {
         Logout()
         {
-            projectAuth.signOut()
-            .then(res => 
-            {
-                this.$router.replace({name: 'Home'})
-                console.log("user has signed out:" + res.user.email)
-            })
-            .catch(err => 
-            {
-                this.error = err
+            userLogout().then(res => {
+                if (res.error)
+                {
+                    this.error = res.error
+                }
+                else
+                {
+                    this.$router.replace({name: 'Home'})
+                }
             })
         }
 

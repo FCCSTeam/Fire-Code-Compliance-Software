@@ -11,28 +11,6 @@ const firebaseConfig = {
   };
   
   const app = firebase.initializeApp(firebaseConfig);
-
   const projectAuth = firebase.auth(app)
 
-
-  let user = projectAuth.CurrentUser
-  
-  
-    projectAuth.onAuthStateChanged(_user => 
-    {
-      
-      user = _user
-      if(_user == null)
-      {
-        console.log("no user has signed in yet")
-      }
-      else
-      {
-        //console.log(user)
-        
-      }
-      
-
-    })
-
-  export{user, projectAuth}
+  export{projectAuth}

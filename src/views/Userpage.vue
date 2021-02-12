@@ -9,7 +9,7 @@
 <script>
 import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer.vue'
 import Logout from '@/components/authentication/Logout.vue'
-import {user} from "@/firebase/config"
+import { getActiveUser } from "@/js/auth/userAuth.js"
 
 export default {
     name: 'Userpage',
@@ -20,7 +20,7 @@ export default {
     data()
     {
         return {
-           currentUser: user
+           currentUser: getActiveUser()
         }
     }
 
