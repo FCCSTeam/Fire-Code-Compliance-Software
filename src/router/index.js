@@ -5,7 +5,7 @@ import  Userpage from '../views/Userpage.vue'
 import  Adminpage from '../views/Adminpage.vue'
 
 import { getActiveUser } from "@/js/auth/userAuth.js";
-
+import { adminStatus } from "@/js/auth/userAccess.js";
 
 Vue.use(VueRouter)
 
@@ -29,6 +29,24 @@ const requireAuth = (to, from, next) => {
   }
 }
 
+const requireAdmin = async (to, from, next) => {
+  adminStatus(getActiveUser()).then(token => {
+    let isAdmin = token.isAdmin
+    if(isAdmin)
+    {
+      next()
+    }
+    else if (getActiveUser())
+    {
+      next({ name: "Userpage" });
+    }
+    else
+    {
+      next({ name: "Home" });
+    }
+  })
+}
+
 const routes = [
   {
     path: '/',
@@ -46,7 +64,7 @@ const routes = [
     path: '/adminpage',
     name: 'Adminpage',
     component: Adminpage,
-    beforeEnter: requireAuth
+    beforeEnter: requireAdmin
   }
 
 ]
