@@ -1,50 +1,64 @@
 <template>
-
+  <div id="addUser">
+    <h3>Create a User</h3>
     <b-form @submit.prevent="CreateUser">
-        
-        <h3>Create new User</h3>
-        <input type="email" required v-model="email" placeholder="Email">
-        <input type="password" required v-model="password" placeholder="Password">
-        <button> Create User </button>
-        <div v-if="error">{{error}}</div>
-    </b-form>
+        <label for="email">Email: </label>
+      <input type="email" required v-model="email" placeholder="Email..." />
 
+      <label for="password">Password: </label>
+      <input type="password" required v-model="password" placeholder="Create a Password..."/>
+
+        <label for="makeAdmin">Admin Account? </label>
+        <input type="checkbox" v-model="makeAdmin">
+
+      <button>Create User</button>
+      <div v-if="error">{{ error }}</div>
+    </b-form>
+  </div>
 </template>
 
 <script>
 import { createUser } from "@/js/auth/userAuth.js";
+import { makeUserAdmin } from "@/js/auth/userAccess.js";
 
 
 export default {
-    name: 'AddUser',
+  name: "AddUser",
   data() {
     return {
-      
-        email: "",
-        password: "",
-        error: null
-    }
+      email: "",
+      password: "",
+      makeAdmin: false,
+      error: null,
+    };
   },
-    methods:
-    {
-        CreateUser()
-        {
-            createUser(this.email,this.password).then((res) =>{
-                if(res.error)
-                {
-                    this.error = res.error
-                }
-                else
-                {
-                    console.log("user has been added successfully")
-                }
-            })
+  methods: {
+    CreateUser() {
+        this.error = null;
+      createUser(this.email, this.password).then((creationToken) => {
+        if (creationToken.error) {
+          this.error = creationToken.error;
+        } else {
+          console.log("user has been added successfully");
+          if (this.makeAdmin)
+          {
+              makeUserAdmin(creationToken.user).then((adminToken) => {
+                  if (adminToken.error)
+                  {
+                        this.error = adminToken.error;
+                  }
+                  else
+                  {
+                      console.log("User has been added as an admin")
+                  }
+              })
+          }
         }
-    }
-
-}
+      });
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>
