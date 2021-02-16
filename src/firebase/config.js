@@ -11,6 +11,7 @@ const firebaseConfig = {
   };
   
   const app = firebase.initializeApp(firebaseConfig);
-  const projectAuth = firebase.auth(app)
+  const projectAuth = firebase.auth(app);
+  //const projectFunctions = firebase.functions();
 
   export{projectAuth}
