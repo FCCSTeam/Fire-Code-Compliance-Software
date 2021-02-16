@@ -10,6 +10,7 @@
 import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer.vue'
 import Logout from '@/components/authentication/Logout.vue'
 import { getActiveUser } from "@/js/auth/userAuth.js"
+import { adminStatus } from '@/js/auth/userAccess.js'
 
 export default {
     name: 'Userpage',
@@ -22,6 +23,16 @@ export default {
         return {
            currentUser: getActiveUser()
         }
+    },
+    mounted()
+    {
+        adminStatus(this.currentUser).then(token => {
+            if (token.error){
+                console.log("Database Error: ", token.error)
+            }else{
+                console.log("Admin Status: ", token.isAdmin)
+            }
+        })
     }
 
 }

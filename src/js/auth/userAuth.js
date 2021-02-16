@@ -1,4 +1,5 @@
 import { projectAuth } from "@/firebase/config"
+import { makeAdmin } from './userAccess.js'
 
 //current active user
 var user = projectAuth.CurrentUser
