@@ -38,6 +38,20 @@ const userLogin = async (email, password) => {
     }
 }
 
+const createUser = async (email, password) => {
+    let userToken = { user: null, error: null }
+    try {
+        const response = await projectAuth.createUserWithEmailAndPassword(email, password)
+        //if no catch, user is found
+        userToken.user = response.user
+    } catch (err) {
+        userToken.error = err
+    }
+    finally {
+        return userToken
+    }
+}
+
 const userLogout = async () => {
     let logoutToken = { error: null }
     try {
@@ -51,4 +65,4 @@ const userLogout = async () => {
     }
 }
 
-export { getActiveUser, userLogin, userLogout }
+export { getActiveUser, userLogin, userLogout, createUser }
