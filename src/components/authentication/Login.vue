@@ -1,20 +1,45 @@
 <template>
-  <form @submit.prevent="Login">
-    <h3>Sign In</h3>
-    <div id="login-email">
-      <label for="email">Email: </label>
-      <input type="email" required v-model="email" placeholder="Email" />
-      <div class="error">{{ emailError }}</div>
-    </div>
-    <div id="login-password">
-      <label for="password">Password: </label>
-      <input type="password" required v-model="password" placeholder="Password"/>
-    </div>
-    <div id="login-submit">
-      <button>Login</button>
-      <div class="error">{{ submitError }}</div>
-    </div>
-  </form>
+  <div>
+    <span class="border border-light">
+
+
+    
+    <b-container fluid="md">
+    <b-row class="text-center">
+    <b-col></b-col>
+    
+    <b-col cols="5">
+
+        <h3 class="text-center">Login</h3>
+        <b-form>
+          <b-form-group id="input-group-1" label="Email Address:" label-for="input-1">
+            <b-form-input id="input-1" v-model="email" placeholder="Enter email" required> </b-form-input>
+            <div class="error">{{ emailError }}</div>
+          </b-form-group>
+
+          <label for="text-password">Password</label>
+            <b-form-input type="password" id="text-password" v-model="password" aria-describedby="password-help-block" placeholder="Enter password"></b-form-input>
+            <b-form-text id="password-help-block">
+            </b-form-text>
+          <br>
+          <div class="text-center" id="login-submit">
+            <b-button pill @click="Login">Login</b-button>
+            <div class="error">{{ submitError }}</div>
+          </div>
+
+        </b-form>  
+
+
+
+
+    </b-col>
+    <b-col></b-col>
+    </b-row>
+
+    </b-container>
+    </span>
+
+  </div>
 </template>
 
 <script>
