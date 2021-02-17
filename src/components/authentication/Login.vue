@@ -1,15 +1,15 @@
 <template>
   <div>
-    <span class="border border-light">
-
-
-    
-    <b-container fluid="md">
-    <b-row class="text-center">
+     
+    <b-container class="container" fluid>
+    <b-row class= "text-center">
     <b-col></b-col>
     
-    <b-col cols="5">
+    
+    <b-col>
+      <b-card>
 
+      
         <h3 class="text-center">Login</h3>
         <b-form>
           <b-form-group id="input-group-1" label="Email Address:" label-for="input-1">
@@ -31,13 +31,13 @@
 
 
 
-
+      </b-card>
     </b-col>
     <b-col></b-col>
     </b-row>
 
     </b-container>
-    </span>
+
 
   </div>
 </template>
@@ -91,6 +91,9 @@ export default {
 </script>
 
 <style>
+.container{
+  padding-top: 5%;
+}
 .error{
     color: red;
 }
