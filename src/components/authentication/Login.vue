@@ -1,44 +1,49 @@
 <template>
   <div>
-     
     <b-container class="container" fluid>
-    <b-row class= "text-center">
-    <b-col></b-col>
-    
-    
-    <b-col>
-      <b-card>
+      <b-row class="mt-5 text-center ">
 
-      
-        <h3 class="text-center">Login</h3>
-        <b-form>
-          <b-form-group id="input-group-1" label="Email Address:" label-for="input-1">
-            <b-form-input id="input-1" v-model="email" placeholder="Enter email" required> </b-form-input>
-            <div class="error">{{ emailError }}</div>
-          </b-form-group>
+        <b-col></b-col>
+        <b-col>
+          <b-card>
+            <h3 class="text-center">Login</h3>
+            <b-form>
+              <b-form-group
+                id="input-group-1"
+                label="Email Address:"
+                label-for="input-1"
+              >
+                <b-form-input
+                  id="input-1"
+                  v-model="email"
+                  placeholder="Enter email"
+                  required
+                >
+                </b-form-input>
+                <div class="error">{{ emailError }}</div>
+              </b-form-group>
 
-          <label for="text-password">Password</label>
-            <b-form-input type="password" id="text-password" v-model="password" aria-describedby="password-help-block" placeholder="Enter password"></b-form-input>
-            <b-form-text id="password-help-block">
-            </b-form-text>
-          <br>
-          <div class="text-center" id="login-submit">
-            <b-button pill @click="Login">Login</b-button>
-            <div class="error">{{ submitError }}</div>
-          </div>
+              <label for="text-password">Password</label>
+              <b-form-input
+                type="password"
+                id="text-password"
+                v-model="password"
+                aria-describedby="password-help-block"
+                placeholder="Enter password"
+              ></b-form-input>
+              <b-form-text id="password-help-block"> </b-form-text>
+              <br />
+              <div class="text-center" id="login-submit">
+                <b-button pill @click="Login">Login</b-button>
+                <div class="error">{{ submitError }}</div>
+              </div>
+            </b-form>
+          </b-card>
+        </b-col>
+        <b-col></b-col>
 
-        </b-form>  
-
-
-
-      </b-card>
-    </b-col>
-    <b-col></b-col>
-    </b-row>
-
+      </b-row>
     </b-container>
-
-
   </div>
 </template>
 
@@ -70,7 +75,7 @@ export default {
         this.emailError = "Enter a valid email address";
         noFormErrors = false;
       }
-      
+
       //send request to server if client side is good
       if (noFormErrors) {
         userLogin(this.email, this.password).then((res) => {
@@ -91,10 +96,10 @@ export default {
 </script>
 
 <style>
-.container{
+/* .container {
   padding-top: 5%;
-}
-.error{
-    color: red;
+} */
+.error {
+  color: red;
 }
 </style>
