@@ -1,13 +1,16 @@
 <template>
-  <div class="file-selection-container">
-    <div class="create-file-container section">
-      <h2>Click to create a new report file</h2>
-      <GPickerCreate />
-    </div>
-    <div class="open-file-container section">
-      <h2>Click to open an existing report file</h2>
-      <GPickerOpenExisting />
-    </div>
+  <div>
+    <b-container class="container">
+      <b-row class="mt-5 text-center justify-content-center">
+        <b-col class="col-lg-3">
+          <b-card>
+              <GPickerCreate />
+              <br>
+              <GPickerOpenExisting />
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -19,7 +22,7 @@ export default {
   name: "FileSelectionContainer",
   components: {
     GPickerOpenExisting,
-    GPickerCreate
+    GPickerCreate,
   },
   mounted() {
     //Include Googles API Script. Appends to documents <head>
@@ -31,18 +34,4 @@ export default {
 };
 </script>
 
-<style>
-.file-selection-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.file-selection-container .section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<style></style>
