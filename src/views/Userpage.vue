@@ -1,7 +1,8 @@
 <template>
   <div>
-      <NavBar />
-      <Sidemenu />
+      <!-- <NavBar />
+      <Sidemenu /> -->
+      <NavBar1 />
       <FileSelectionContainer />
       <Logout />
       <h3>Hello: {{currentUser.email}}</h3>
@@ -11,7 +12,7 @@
 <script>
 import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer.vue'
 import Logout from '@/components/authentication/Logout.vue'
-import NavBar from '@/components/navbar/NavBar.vue'
+import NavBar1 from '@/components/navbar/NavBar1.vue'
 import Sidemenu from '@/components/sidemenu/Sidemenu.vue'
 import { getActiveUser } from "@/js/auth/userAuth.js"
 import { adminStatus } from '@/js/auth/userAccess.js'
@@ -20,7 +21,7 @@ export default {
     name: 'Userpage',
     components: 
     {
-        FileSelectionContainer, Logout, NavBar, Sidemenu
+        FileSelectionContainer, Logout, NavBar1, Sidemenu
     }, 
     data()
     {
