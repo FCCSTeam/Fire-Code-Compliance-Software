@@ -4,17 +4,13 @@
       <b-row class="mt-5 text-center justify-content-center">
         <b-col class="col-lg-3">
           <b-card>
-            <GPickerCreate />
-            <GPickerOpenExisting />
+              <GPickerCreate />
+              <br>
+              <GPickerOpenExisting />
           </b-card>
         </b-col>
       </b-row>
     </b-container>
-     
-  
-      
-
-  
   </div>
 </template>
 
@@ -26,7 +22,7 @@ export default {
   name: "FileSelectionContainer",
   components: {
     GPickerOpenExisting,
-    GPickerCreate
+    GPickerCreate,
   },
   mounted() {
     //Include Googles API Script. Appends to documents <head>
@@ -38,6 +34,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
