@@ -1,48 +1,44 @@
 <template>
   <div>
-      <!-- <NavBar />
+    <!-- <NavBar />
       <Sidemenu /> -->
-      <NavBar1 />
-      <FileSelectionContainer />
-      <!-- <Logout /> -->
-      <h3>Hello: {{currentUser.email}}</h3>
+    <NavBar1 />
+    <FileSelectionContainer />
+    <!-- <Logout /> -->
+    <h3>Hello: {{ currentUser.email }}</h3>
   </div>
 </template>
 
 <script>
-import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer.vue'
+import FileSelectionContainer from "@/components/filepicker/FileSelectionContainer.vue";
 // import Logout from '@/components/authentication/Logout.vue'
-import NavBar1 from '@/components/navbar/NavBar1.vue'
-import Sidemenu from '@/components/sidemenu/Sidemenu.vue'
-import { getActiveUser } from "@/js/auth/userAuth.js"
-import { adminStatus } from '@/js/auth/userAccess.js'
+import NavBar1 from "@/components/navbar/NavBar1.vue";
+import Sidemenu from "@/components/sidemenu/Sidemenu.vue";
+import { getActiveUser } from "@/js/auth/userAuth.js";
+import { adminStatus } from "@/js/auth/userAccess.js";
 
 export default {
-    name: 'Userpage',
-    components: 
-    {
-        FileSelectionContainer,NavBar1, Sidemenu
-    }, 
-    data()
-    {
-        return {
-           currentUser: getActiveUser()
-        }
-    },
-    mounted()
-    {
-        adminStatus(this.currentUser).then(token => {
-            if (token.error){
-                console.log("Database Error: ", token.error)
-            }else{
-                console.log("Admin Status: ", token.isAdmin)
-            }
-        })
-    }
-
-}
+  name: "Userpage",
+  components: {
+    FileSelectionContainer,
+    NavBar1,
+    Sidemenu,
+  },
+  data() {
+    return {
+      currentUser: getActiveUser(),
+    };
+  },
+  mounted() {
+    adminStatus(this.currentUser).then((token) => {
+      if (token.error) {
+        console.log("Database Error: ", token.error);
+      } else {
+        console.log("Admin Status: ", token.isAdmin);
+      }
+    });
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
