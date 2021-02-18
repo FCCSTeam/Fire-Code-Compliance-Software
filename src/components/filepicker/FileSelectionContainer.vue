@@ -1,13 +1,20 @@
 <template>
-  <div class="file-selection-container">
-    <div class="create-file-container section">
-      <h2>Click to create a new report file</h2>
-      <GPickerCreate />
-    </div>
-    <div class="open-file-container section">
-      <h2>Click to open an existing report file</h2>
-      <GPickerOpenExisting />
-    </div>
+  <div>
+    <b-container class="container">
+      <b-row class="mt-5 text-center justify-content-center">
+        <b-col class="col-lg-3">
+          <b-card>
+            <GPickerCreate />
+            <GPickerOpenExisting />
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
+     
+  
+      
+
+  
   </div>
 </template>
 
@@ -32,17 +39,5 @@ export default {
 </script>
 
 <style>
-.file-selection-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-.file-selection-container .section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 </style>

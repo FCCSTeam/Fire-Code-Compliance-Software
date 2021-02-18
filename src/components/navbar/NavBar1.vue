@@ -4,17 +4,10 @@
     <b-navbar-nav>
       <b-nav-item href="#">FCCS</b-nav-item>
 
-      <!-- Navbar dropdowns -->
-      <b-nav-item-dropdown text="Lang" right>
-        <b-dropdown-item href="#">EN</b-dropdown-item>
-        <b-dropdown-item href="#">ES</b-dropdown-item>
-        <b-dropdown-item href="#">RU</b-dropdown-item>
-        <b-dropdown-item href="#">FA</b-dropdown-item>
-      </b-nav-item-dropdown>
 
       <b-nav-item-dropdown text="User" right>
-        <b-dropdown-item href="#">Account</b-dropdown-item>
         <b-dropdown-item href="#">Settings</b-dropdown-item>
+        <b-dropdown-item href="#" @click="Logout">Logout</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
   </b-navbar>
@@ -22,7 +15,35 @@
 </template>
 
 <script>
+import { userLogout } from "@/js/auth/userAuth.js";
 export default {
+    name: "NavBar1", 
+    data() 
+    {
+        return {
+           error: null
+        }
+    }, 
+    methods: 
+    {
+        Logout()
+        {
+            userLogout().then(res => {
+                if (res.error)
+                {
+                    this.error = res.error
+                }
+                else
+                {
+                    this.$router.replace({name: 'Home'})
+                }
+            })
+        }
+
+    }
+
+
+
 
 }
 </script>
