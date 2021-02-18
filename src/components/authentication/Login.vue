@@ -1,10 +1,8 @@
 <template>
   <div>
-    <b-container class="container" fluid>
-      <b-row class="mt-5 text-center ">
-
-        <b-col></b-col>
-        <b-col>
+    <b-container class="container">
+      <b-row class="mt-5 text-center justify-content-center">
+        <b-col class="col-lg-5">
           <b-card>
             <h3 class="text-center">Login</h3>
             <b-form>
@@ -40,8 +38,6 @@
             </b-form>
           </b-card>
         </b-col>
-        <b-col></b-col>
-
       </b-row>
     </b-container>
   </div>
