@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <b-navbar type="navbar navbar-dark" variant="primary">
+  <div id="navbar1">
+    <b-navbar type="dark" variant="primary">
       <b-navbar-brand>
         FCCS
       </b-navbar-brand>
 
-      <!-- <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          Testing
-        </b-navbar-nav>
-        <b-navbar-nav class="mr-auto">
+      <b-collapse id="nav-collapse" is-nav>   
+        <b-navbar-nav class="ml-auto"> 
           <b-nav-item-dropdown text="User" right>
-            <b-dropdown-item href="#">Settings</b-dropdown-item>
-            <b-dropdown-item href="#" @click="Logout">Logout</b-dropdown-item>
+            <b-dropdown-item href="">Settings</b-dropdown-item>
+            <b-dropdown-item href="" @click="Logout">Logout</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
-      </b-collapse> -->
+      </b-collapse>
+
     </b-navbar>
   </div>
 </template>
