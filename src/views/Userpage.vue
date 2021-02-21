@@ -1,16 +1,35 @@
 <template>
-  <div>
+  <div id="userpage">
     <!-- <NavBar />
       <Sidemenu /> -->
     <NavBar1 />
-    <FileSelectionContainer />
-    <!-- <Logout /> -->
-    <h3>Hello: {{ currentUser.email }}</h3>
+
+    <b-jumbotron header-level="4">
+      <template #header>
+        Project FCCS
+      </template>
+      <template class="lead" #lead>
+        <span class="font-italic">Hello </span>{{ currentUser.email }}
+      </template>
+      <hr class="my-4">
+      <p class="jumboText">
+        Lets begin! Would you like to create a new inspection report or open an existing one?
+      </p>
+      <GPickerContainer />
+    </b-jumbotron>
+
+
+    <!-- <b-container class="text-center">
+      <h3><span class="font-italic">Hello</span> {{ currentUser.email }}</h3>
+      <FileSelectionContainer />
+    </b-container> -->
   </div>
 </template>
 
 <script>
 import FileSelectionContainer from "@/components/filepicker/FileSelectionContainer.vue";
+import GPickerContainer from "@/components/filepicker/GPickerContainer.vue";
+
 // import Logout from '@/components/authentication/Logout.vue'
 import NavBar1 from "@/components/navbar/NavBar1.vue";
 import Sidemenu from "@/components/sidemenu/Sidemenu.vue";
@@ -23,6 +42,7 @@ export default {
     FileSelectionContainer,
     NavBar1,
     Sidemenu,
+    GPickerContainer,
   },
   data() {
     return {
@@ -41,4 +61,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.lead {
+  font-size: 140%;
+}
+.jumboText {
+  font-size: 120%;
+}
+</style>
