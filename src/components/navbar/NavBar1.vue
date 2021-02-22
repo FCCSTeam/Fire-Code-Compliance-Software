@@ -2,10 +2,12 @@
   <div id="navbar1">
     <b-navbar type="dark" variant="primary">
       <b-navbar-brand>
-        FCCS
+        <b-navbar-brand :to="{ path: '/' }">
+          <span> - FCCS - </span>
+        </b-navbar-brand>
       </b-navbar-brand>
 
-      <b-collapse id="nav-collapse" is-nav>   
+      <b-collapse id="nav-collapse" is-nav v-if="activeUser">   
         <b-navbar-nav class="ml-auto"> 
           <b-nav-item-dropdown text="User" right>
             <b-dropdown-item href="">Settings</b-dropdown-item>
@@ -20,10 +22,14 @@
 
 <script>
 import { userLogout } from "@/js/auth/userAuth.js";
+import { getActiveUser } from "@/js/auth/userAuth.js";
+
+
 export default {
   name: "NavBar1",
   data() {
     return {
+      activeUser: getActiveUser(),
       error: null,
     };
   },
