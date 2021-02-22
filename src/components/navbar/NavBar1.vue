@@ -7,15 +7,19 @@
         </b-navbar-brand>
       </b-navbar-brand>
 
-      <b-collapse id="nav-collapse" is-nav v-if="activeUser">   
-        <b-navbar-nav class="ml-auto"> 
-          <b-nav-item-dropdown text="User" right>
+      <b-collapse id="nav-collapse" is-nav v-if="activeUser">
+        <b-navbar-nav class="ml-auto">
+          <!-- Adminpage Link -->
+          <b-nav-item :to="{ path: '/adminpage' }" v-if="activeUser.isAdmin"
+            >Admin</b-nav-item
+          >
+          <!-- User Dropdown Menu -->
+          <b-nav-item-dropdown :text="activeUser.email" right>
             <b-dropdown-item href="">Settings</b-dropdown-item>
             <b-dropdown-item href="" @click="Logout">Logout</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
-
     </b-navbar>
   </div>
 </template>
@@ -23,7 +27,7 @@
 <script>
 import { userLogout } from "@/js/auth/userAuth.js";
 import { getActiveUser } from "@/js/auth/userAuth.js";
-
+import { adminStatus } from "@/js/auth/userAccess.js";
 
 export default {
   name: "NavBar1",
@@ -32,6 +36,13 @@ export default {
       activeUser: getActiveUser(),
       error: null,
     };
+  },
+  computed: {
+    getAdminStatus: function () {
+      adminStatus(this.activeUser).then((token) => {
+        return token.isAdmin;
+      });
+    },
   },
   methods: {
     Logout() {
