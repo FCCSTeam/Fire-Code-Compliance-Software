@@ -6,7 +6,16 @@ var user = projectAuth.CurrentUser
 
 //whenever firebase fires a user change
 projectAuth.onAuthStateChanged(_user => {
-    user = _user
+    adminStatus(_user).then(token => {
+        if (token.error)
+        {
+            user = null;
+        }
+        else
+        {
+            user = {..._user, isAdmin: token.isAdmin}
+        }
+    })
 })
 
 /**
@@ -21,7 +30,17 @@ const userLogin = async (email, password) => {
     try {
         const response = await projectAuth.signInWithEmailAndPassword(email, password)
         //if no catch, user is found
-        loginToken.user = response.user
+        await adminStatus(response.user).then(token => {
+            if (token.error)
+            {
+                loginToken.error = "Error trying to evaluate user priveledges"
+                user = null;
+            }
+            else
+            {
+                loginToken.user = {...response.user, isAdmin: token.isAdmin}
+            }
+        })
     } catch (err) {
         //failed to login
         if (err.code == 'auth/user-not-found' || err.code == 'auth/wrong-password') {
@@ -55,7 +74,9 @@ const userLogout = async () => {
 const createUser = async (email, password) => {
     let userToken = { user: null, error: null }
     try {
-        var accessGranted = adminStatus(getActiveUser()).isAdmin;
+        var accessGranted = await adminStatus(getActiveUser()).then(token => {
+            return token.isAdmin
+        });
         if (accessGranted)
         {
             const response = await projectAuth.createUserWithEmailAndPassword(email, password)
