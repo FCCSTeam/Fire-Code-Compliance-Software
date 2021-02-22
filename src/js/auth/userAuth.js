@@ -1,5 +1,5 @@
 import { projectAuth } from "@/firebase/config"
-import { makeAdmin } from './userAccess.js'
+import { adminStatus } from './userAccess.js'
 
 //current active user
 var user = projectAuth.CurrentUser
@@ -39,20 +39,6 @@ const userLogin = async (email, password) => {
     }
 }
 
-const createUser = async (email, password) => {
-    let userToken = { user: null, error: null }
-    try {
-        const response = await projectAuth.createUserWithEmailAndPassword(email, password)
-        //if no catch, user is found
-        userToken.user = response.user
-    } catch (err) {
-        userToken.error = err
-    }
-    finally {
-        return userToken
-    }
-}
-
 const userLogout = async () => {
     let logoutToken = { error: null }
     try {
@@ -63,6 +49,27 @@ const userLogout = async () => {
     }
     finally {
         return logoutToken
+    }
+}
+
+const createUser = async (email, password) => {
+    let userToken = { user: null, error: null }
+    try {
+        var accessGranted = adminStatus(getActiveUser()).isAdmin;
+        if (accessGranted)
+        {
+            const response = await projectAuth.createUserWithEmailAndPassword(email, password)
+            //if no catch, user is found
+            userToken.user = response.user
+        }else
+        {
+            userToken.error = "You do not have permission to do this!"
+        }
+    } catch (err) {
+        userToken.error = err
+    }
+    finally {
+        return userToken
     }
 }
 
