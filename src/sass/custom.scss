@@ -1,5 +1,8 @@
 //Add custom modifiers here
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 $primary: #8739F9;
+$font-family-sans-serif: 'Roboto',"Helvetica Neue", Arial, 'sans-serif';
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap-vue/src/index.scss';
