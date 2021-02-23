@@ -7,21 +7,18 @@ var user = projectAuth.CurrentUser
 //whenever firebase fires a user change
 projectAuth.onAuthStateChanged(_user => {
     user = _user;
-    processUser(_user)
-})
-
-const processUser = async (_user) => {
-    await adminStatus(_user).then(token => {
+    adminStatus(_user).then(token => {
         if (token.error)
         {
-            user = {..._user, isAdmin: false}
+            user = null;
         }
         else
         {
             user = {..._user, isAdmin: token.isAdmin}
         }
     })
-}
+})
+
 
 /**
  * Get active user
