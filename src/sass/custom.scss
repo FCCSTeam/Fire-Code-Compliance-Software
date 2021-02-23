@@ -1,8 +1,24 @@
 //Add custom modifiers here
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-$primary: #8739F9;
+//Main Colors
+$primary: rgb(11, 57, 184);
+$secondary: rgb(255, 255, 255);
+$tertiary: rgb(255, 255, 255);
+
+//whites
+$offWhite: #e9ecef;
+
+$success: rgb(88, 180, 88);
+$info: rgb(72, 125, 175);
+$warning: rgb(204, 164, 78);
+$danger: rgb(182, 62, 62);
+
+//Fonts
 $font-family-sans-serif: 'Roboto',"Helvetica Neue", Arial, 'sans-serif';
+$font-dark: rgb(7, 31, 97);
+$font-light: #e9ecef;
+$font-disabled: #adb5bd;
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap-vue/src/index.scss';
