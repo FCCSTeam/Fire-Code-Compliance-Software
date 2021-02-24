@@ -1,8 +1,6 @@
 <template>
   <div id="userpage">
-    <!-- <NavBar />
-      <Sidemenu /> -->
-    <NavBar1 />
+    <NavBar />
 
     <b-jumbotron header-level="4">
       <template #header>
@@ -17,12 +15,6 @@
       </p>
       <GPickerContainer />
     </b-jumbotron>
-
-
-    <!-- <b-container class="text-center">
-      <h3><span class="font-italic">Hello</span> {{ currentUser.email }}</h3>
-      <FileSelectionContainer />
-    </b-container> -->
   </div>
 </template>
 
@@ -31,7 +23,7 @@ import FileSelectionContainer from "@/components/filepicker/FileSelectionContain
 import GPickerContainer from "@/components/filepicker/GPickerContainer.vue";
 
 // import Logout from '@/components/authentication/Logout.vue'
-import NavBar1 from "@/components/navbar/NavBar1.vue";
+import NavBar from "@/components/navbar/NavBar.vue";
 import Sidemenu from "@/components/sidemenu/Sidemenu.vue";
 import { getActiveUser } from "@/js/auth/userAuth.js";
 import { adminStatus } from "@/js/auth/userAccess.js";
@@ -40,7 +32,7 @@ export default {
   name: "Userpage",
   components: {
     FileSelectionContainer,
-    NavBar1,
+    NavBar,
     Sidemenu,
     GPickerContainer,
   },

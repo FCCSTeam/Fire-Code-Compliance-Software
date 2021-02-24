@@ -1,6 +1,6 @@
 <template>
   <div id="adminpage">
-    <Navbar1 />
+    <Navbar />
     <div id="isAdminContainer" v-if="isAdmin">
       <b-jumbotron header-level="4">
         <template #header> Administrator Page </template>
@@ -31,12 +31,12 @@ import { getActiveUser } from "@/js/auth/userAuth.js";
 import { adminStatus } from "@/js/auth/userAccess.js";
 
 //components
-import Navbar1 from "@/components/navbar/NavBar1.vue";
+import Navbar from "@/components/navbar/NavBar.vue";
 
 export default {
   name: "Adminpage",
   components: {
-    Navbar1,
+    Navbar,
     AddUser,
   },
   data() {
