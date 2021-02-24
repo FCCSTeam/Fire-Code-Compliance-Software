@@ -1,22 +1,22 @@
 <template>
   <div id="navbar1">
-    <b-navbar type="dark" variant="primary">
+    <b-navbar class="px-5 d-flex align-items-center" variant="white" type="light">
       <b-navbar-brand>
         <b-navbar-brand :to="{ path: '/' }">
-          <span> - FCCS - </span>
+        <p id="logo" class="my-1"> <b-icon icon="building"></b-icon> Project FCCS</p>
         </b-navbar-brand>
       </b-navbar-brand>
 
       <b-collapse id="nav-collapse" is-nav v-if="activeUser">
         <b-navbar-nav class="ml-auto">
           <!-- Adminpage Link -->
-          <b-nav-item :to="{ path: '/adminpage' }" v-if="activeUser.isAdmin"
-            >Admin</b-nav-item
-          >
+          <b-nav-item :to="{ path: '/adminpage' }" v-if="activeUser.isAdmin" >
+            Admin
+          </b-nav-item>
           <!-- User Dropdown Menu -->
-          <b-nav-item-dropdown :text="activeUser.email" right>
+          <b-nav-item-dropdown class="text-dark" :text="activeUser.email" right>
             <b-dropdown-item href="">Settings</b-dropdown-item>
-            <b-dropdown-item href="" @click="Logout">Logout</b-dropdown-item>
+            <b-dropdown-item @click="Logout">Logout</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -58,4 +58,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+</style>
