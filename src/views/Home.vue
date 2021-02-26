@@ -1,44 +1,34 @@
 <template>
   <div id="home">
     <Navbar />
-    <b-container id="header" class="mx-5 my-5" fluid="true">
-      <b-row id="header-row">
-        <b-col cols=1></b-col>
-        <b-col
-          id="header-left"
-          class="d-flex justify-content-center align-items-center"
-        >
-          <b-jumbotron header-level="4" class="bg-white py-0">
-            <template #header>              
-              Fire Code <br />
-              Compliance Software
-            </template>
-            <template #lead> 
-              <h3 class="text-muted">Fire code building inspections made easy through the web</h3>
-            </template>
+    <b-container class="my-5" fluid="true">
+      <b-row id="title-row" class="" fluid>
+        <b-col class="col-1 mx-0 py-0"></b-col>
+        <b-col class="col-xs-auto d-flex justify-content-center">
+          <div class="header-container">
+            <div
+              class="title d-flex justify-content-start align-items-end py-0 mt-0 mb-1 px-0"
+            >
+              <b-icon
+                icon="building"
+                class="d-none d-md-block image-icon text-primary mb-1 mr-2"
+              ></b-icon>
+              <h1 class="title-text my-0 py-0">
+                Fire Code <br />
+                Compliance Software
+              </h1>
+            </div>
+            <h3 class="text-muted my-0">
+              Fire code building inspections made easy through the web
+            </h3>
             <b-button class="my-2 py-2 px-3" variant="primary"
               >Sign in</b-button
             >
-          </b-jumbotron>
-        </b-col>
-
-        <b-col
-          id="header-right"
-          class="d-none d-lg-flex justify-content-center"
-        >
-          <div
-            class="image-container bg-primary rounded-circle d-flex justify-content-center"
-          >
-            <b-icon
-              icon="building"
-              class="image-icon text-white align-self-center"
-            ></b-icon>
           </div>
         </b-col>
-        <b-col cols=1></b-col>
+        <b-col class="col-1 mx-0 py-0"></b-col>
       </b-row>
     </b-container>
-    <Login />
   </div>
 </template>
 
@@ -52,23 +42,23 @@ export default {
   components: {
     Navbar,
     Login,
-    FLogo
+    FLogo,
   },
 };
 </script>
 
 <style scoped>
-/* #flogo{
-  position: relative;  
-  width: 32vh;
-  height: 35vh;
-} */
-.image-container {
-  width: 30vh;
-  height: 30vh;
+.header-container{
+  height: 100%;
+}
+.title {
+  height: 50%;
+}
+.title-text {
+  white-space: nowrap;
 }
 .image-icon {
-  width: 60%;
-  height: 60%;
+  width: auto;
+  height: 100%;
 }
 </style>
