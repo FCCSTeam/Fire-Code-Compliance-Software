@@ -19,6 +19,8 @@ $theme-colors: (
 //Fonts
 $font-family-sans-serif: 'Roboto',"Helvetica Neue", Arial, 'sans-serif';
 
+//font sizes
+$enable-responsive-font-sizes: true;
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap-vue/src/index.scss';
