@@ -1,6 +1,6 @@
 <template>
   <div id="navbar1">
-    <b-navbar class="fixed-top px-5 d-flex align-items-center" variant="white" type="light">
+    <b-navbar class="fixed-top d-flex align-items-center px-sm-4 px-lg-5" variant="light" type="light">
       <b-navbar-brand>
         <b-navbar-brand :to="{ path: '/' }">
         <p id="logo" class="my-1"> <b-icon icon="building"></b-icon> Project FCCS</p>
