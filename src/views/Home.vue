@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <Navbar />
-    <b-container class="my-5" fluid="true">
+    <b-container class="my-5 mx-1" fluid="true">
       <b-row id="title-row" class="" fluid>
         <b-col class="col-1 mx-0 py-0"></b-col>
         <b-col class="col-xs-auto d-flex justify-content-center">
