@@ -7,13 +7,13 @@ $secondary: pink;
 $success: rgb(88, 180, 88);
 $info: rgb(72, 125, 175);
 $warning: rgb(204, 164, 78);
-$danger: rgb(182, 62, 62);
+$danger: rgb(211, 58, 58);
 $light: #f8f9fa; 
 $dark: rgb(22,22,22);
 
 //add to sass map new colors
 $theme-colors: (
-  "blue-gray": rgb(144, 148, 182)
+  "light-gray": rgb(200, 200, 200)
 );
 
 //Fonts
