@@ -21,7 +21,7 @@
             <h3 class="text-muted my-0">
               Fire code building inspections made easy through the web
             </h3>
-            <b-button class="my-2 py-2 px-3" variant="primary"
+            <b-button class="my-2 py-2 px-3" variant="primary" @click="showLoginModal()"
               >Sign in</b-button
             >
           </div>
@@ -29,21 +29,29 @@
         <b-col class="col-1 mx-0 py-0"></b-col>
       </b-row>
     </b-container>
+
+    <LoginModal ref="loginModalComponent"/>
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/navbar/NavBar.vue";
+import LoginModal from "@/components/authentication/ModalLogin.vue";
+
 import Login from "@/components/authentication/Login.vue";
-import FLogo from "@/components/FLogo.vue";
 
 export default {
   name: "Home",
   components: {
     Navbar,
     Login,
-    FLogo,
+    LoginModal
   },
+  methods: {
+    showLoginModal() {
+      this.$refs.loginModalComponent.show();
+    }
+  }
 };
 </script>
 
