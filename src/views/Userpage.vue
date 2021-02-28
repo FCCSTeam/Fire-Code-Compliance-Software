@@ -18,10 +18,18 @@
       <hr class="my-4" />
       <div>
         <h2>Your Drive</h2>
-        <p class="jumboText">
-          Click below to access your drive files
-        </p>
-        <a href="https://drive.google.com/drive/u/0/my-drive" target="_blank" class="text-white"><b-button class="py-2" variant="primary">Google Drive</b-button></a>
+        <p class="jumboText">Click below to access your drive files</p>
+        <a
+          href="https://drive.google.com/drive/u/0/my-drive"
+          target="_blank"
+          class="text-white"
+          ><b-button id="googleDriveButton" class="py-2" variant="primary"
+            >Google Drive</b-button
+          ></a
+        >
+        <b-tooltip target="googleDriveButton" triggers="hover">
+          Opens an external link
+        </b-tooltip>
       </div>
     </b-jumbotron>
   </div>
@@ -50,9 +58,7 @@ export default {
       currentUser: getActiveUser(),
     };
   },
-  methods: {
- 
-  },
+  methods: {},
   mounted() {
     adminStatus(this.currentUser).then((token) => {
       if (token.error) {
