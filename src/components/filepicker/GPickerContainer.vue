@@ -1,9 +1,7 @@
 <template>
-  <div id="gPickerContainer">
-        <b-row align-h="start">
-            <b-col xs md="auto" class="mt-2"><GPickerCreate /></b-col>
-            <b-col xs md="auto" class="mt-2"><GPickerOpenExisting /></b-col>
-        </b-row>
+  <div id="gPickerContainer" class="d-flex flex-column justify-content-start flex-sm-row align-items-sm-center">
+    <GPickerCreate />
+    <GPickerOpenExisting class="mt-2 mx-0 mt-sm-0 mx-sm-3"/>
   </div>
 </template>
 
@@ -27,4 +25,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#gPickerContainer {
+  font-size: 120%;
+}
+</style>
