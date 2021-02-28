@@ -1,19 +1,28 @@
 <template>
   <div id="userpage">
     <NavBar />
-
-    <b-jumbotron header-level="4">
-      <template #header>
-        Project FCCS
-      </template>
+    <b-jumbotron header-level="4" bg-variant="white">
+      <template #header> Project FCCS </template>
       <template class="lead" #lead>
-        <span class="font-italic">Hello </span>{{ currentUser.email }}
+        <span class="">Hello </span>{{ currentUser.email }}
       </template>
-      <hr class="my-4">
-      <p class="jumboText">
-        Lets begin! Would you like to create a new inspection report or open an existing one?
-      </p>
-      <GPickerContainer />
+      <hr class="my-4" />
+      <div>
+        <h2>Report Editor</h2>
+        <p class="jumboText">
+          Lets begin! Would you like to create a new inspection report or open
+          an existing one?
+        </p>
+        <GPickerContainer />
+      </div>
+      <hr class="my-4" />
+      <div>
+        <h2>Your Drive</h2>
+        <p class="jumboText">
+          Click below to access your drive files
+        </p>
+        <a href="https://drive.google.com/drive/u/0/my-drive" target="_blank" class="text-white"><b-button class="py-2" variant="primary">Google Drive</b-button></a>
+      </div>
     </b-jumbotron>
   </div>
 </template>
@@ -40,6 +49,9 @@ export default {
     return {
       currentUser: getActiveUser(),
     };
+  },
+  methods: {
+ 
   },
   mounted() {
     adminStatus(this.currentUser).then((token) => {
