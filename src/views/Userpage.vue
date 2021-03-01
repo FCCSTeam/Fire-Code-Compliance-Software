@@ -24,7 +24,7 @@
           target="_blank"
           class="text-white"
           ><b-button id="googleDriveButton" class="py-2" variant="primary"
-            >Google Drive</b-button
+            >Google Drive<b-icon icon="link45deg" class="ml-2"></b-icon></b-button
           ></a
         >
         <b-tooltip target="googleDriveButton" triggers="hover">
