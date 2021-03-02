@@ -26,7 +26,7 @@
         ></b-button>
         <b-collapse id="createUserForm" class="mt-2">
         <b-row>
-          <b-col class="col-md-10 col-xl-7">
+          <b-col class="col-md-10 col-xl-6">
             <b-card class="shadow my-3">
               <AddUserForm />
             </b-card>
