@@ -1,4 +1,5 @@
 import { projectAuth } from "@/firebase/config"
+import { authMaskAuth } from "@/firebase/config_authMask"
 import { adminStatus } from './userAccess.js'
 
 //current active user
@@ -81,7 +82,9 @@ const createUser = async (email, password) => {
         });
         if (accessGranted)
         {
-            const response = await projectAuth.createUserWithEmailAndPassword(email, password)
+            //use the secondary mask app to prevent the user on the main app from being logged out
+            const response = await authMaskAuth.createUserWithEmailAndPassword(email, password)
+            authMaskAuth.signOut()
             //if no catch, user is found
             userToken.user = response.user
         }else
