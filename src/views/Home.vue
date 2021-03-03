@@ -38,13 +38,10 @@
 import Navbar from "@/components/navbar/NavBar.vue";
 import LoginModal from "@/components/authentication/ModalLogin.vue";
 
-import Login from "@/components/authentication/Login.vue";
-
 export default {
   name: "Home",
   components: {
     Navbar,
-    Login,
     LoginModal
   },
   methods: {
