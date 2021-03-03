@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import  Userpage from '../views/Userpage.vue'
 import  Adminpage from '../views/Adminpage.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 
 import { getActiveUser } from "@/js/auth/userAuth.js";
 import { adminStatus } from "@/js/auth/userAccess.js";
@@ -65,8 +66,13 @@ const routes = [
     name: 'Adminpage',
     component: Adminpage,
     beforeEnter: requireAdmin
+  },
+  //make this the last one!
+  {
+    path: "*", 
+    name: 'PageNotFound',
+    component: PageNotFound,
   }
-
 ]
 
 const router = new VueRouter({
