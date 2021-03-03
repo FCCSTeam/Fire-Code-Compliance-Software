@@ -30,7 +30,7 @@
 
           <!-- for smaller screen -->
           <div class="d-sm-none">
-            <b-nav-item href=""> Settings </b-nav-item>
+            <b-nav-item :to="{ path: '/usersettings'}"> Account </b-nav-item>
             <b-nav-item @click="Logout"> Logout </b-nav-item>
           </div>
 
@@ -40,7 +40,7 @@
               :text="activeUser.email"
               toggle-class="nav-text"
             >
-              <b-dropdown-item href="">Settings</b-dropdown-item>
+              <b-dropdown-item :to="{ path: '/usersettings'}">Account</b-dropdown-item>
               <b-dropdown-item @click="Logout">Logout</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
