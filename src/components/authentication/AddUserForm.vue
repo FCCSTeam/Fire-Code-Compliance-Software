@@ -139,7 +139,6 @@ export default {
       //register user if all good
       if (this.validForm){
         this.register().then(() => {
-          console.log(this.submit.valid + " " + this.submit.error)
           if (this.submit.valid)
           {
             this.showUserRegisteredModal();
