@@ -58,16 +58,6 @@ export default {
       currentUser: getActiveUser(),
     };
   },
-  methods: {},
-  mounted() {
-    adminStatus(this.currentUser).then((token) => {
-      if (token.error) {
-        console.log("Database Error: ", token.error);
-      } else {
-        console.log("Admin Status: ", token.isAdmin);
-      }
-    });
-  },
 };
 </script>
 

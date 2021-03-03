@@ -26,7 +26,7 @@
       <b-collapse id="MainNavbarCollapse" is-nav v-if="activeUser">
         <b-navbar-nav class="ml-auto">
           <b-nav-item :to="{ path: '/' }"> Home </b-nav-item>
-          <b-nav-item :to="{ path: '/adminpage' }" v-if="activeUser.isAdmin">Admin</b-nav-item>
+          <b-nav-item :to="{ path: '/adminpage' }" v-if="privilege">Admin</b-nav-item>
 
           <!-- for smaller screen -->
           <div class="d-sm-none">
@@ -54,7 +54,7 @@
 <script>
 import { userLogout } from "@/js/auth/userAuth.js";
 import { getActiveUser } from "@/js/auth/userAuth.js";
-import { adminStatus } from "@/js/auth/userAccess.js";
+import { adminStatus } from "@/js/auth/userAccess.js"
 
 export default {
   name: "NavBar",
@@ -62,14 +62,8 @@ export default {
     return {
       activeUser: getActiveUser(),
       error: null,
+      privilege: false
     };
-  },
-  computed: {
-    getAdminStatus: function () {
-      adminStatus(this.activeUser).then((token) => {
-        return token.isAdmin;
-      });
-    },
   },
   methods: {
     Logout() {
@@ -81,6 +75,11 @@ export default {
         }
       });
     },
+  },
+  mounted() {
+    adminStatus(this.activeUser).then((token) => {
+      this.privilege = token.isAdmin;
+    });
   },
 };
 </script>
