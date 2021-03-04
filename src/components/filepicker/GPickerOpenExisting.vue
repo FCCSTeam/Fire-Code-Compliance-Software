@@ -86,7 +86,7 @@ export default {
     async downloadFile(downloadUrl, callback) {
       if (downloadUrl && this.oauthToken) {
         var accessToken = this.oauthToken;
-        var xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest(); 
         xhr.open("GET", downloadUrl);
         xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
         xhr.onload = function () {
@@ -105,6 +105,7 @@ export default {
       {
         //content was retrieved from the GET Request
         this.fileContent = content;
+        console.log(content)
       }
       else
       {

@@ -7,13 +7,11 @@ const firebaseConfig = {
   projectId: "fire-code-compliance-software",
   storageBucket: "fire-code-compliance-software.appspot.com",
   messagingSenderId: "1085587302993",
-  appId: "1:1085587302993:web:a4afba4eafa24ccd152670",
-  measurementId: "G-7EPQK3G2SK"
+  appId: "1:1085587302993:web:7fdfca95f878b8d5152670",
+  measurementId: "G-BXEZQLWTY3"
 };
 
-const app = firebase.initializeApp(firebaseConfig);
-const projectAuth = firebase.auth(app);
-const projectFirestore = firebase.firestore(app)
-//const projectFunctions = firebase.functions();
+const authMaskApp = firebase.initializeApp(firebaseConfig, "authMaskApp");
+const authMaskAuth = firebase.auth(authMaskApp);
 
-export { projectAuth, projectFirestore }
+export { authMaskAuth }

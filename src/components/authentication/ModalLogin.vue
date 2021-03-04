@@ -19,12 +19,12 @@
           >
             <b-form-input
               id="emailInput"
-              v-model="email"
               placeholder="Enter email"
               required
+              v-model="email.value"
             >
             </b-form-input>
-            <div class="text-danger">{{ emailError }}</div>
+            <div class="text-danger">{{ email.error }}</div>
           </b-form-group>
 
           <b-form-group
@@ -37,12 +37,12 @@
               type="password"
               id="text-password"
               class="mb-4"
-              v-model="password"
               placeholder="Enter password"
+              v-model="password.value"
             ></b-form-input>
           </b-form-group>          
           <b-form-text class="form-text text-center mb-3">* Your system administrator should provide you with an account *</b-form-text>
-          <div class="text-danger text-center mb-1">{{ submitError }}</div>
+          <div class="text-danger text-center mb-1">{{ submit.error }}</div>
         </b-form>
       </div>
     </b-modal>
@@ -56,11 +56,18 @@ export default {
   name: "Login",
   data() {
     return {
-      email: "",
-      password: "",
-      emailReg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
-      submitError: null,
-      emailError: null,
+      email: {
+        value: "",
+        reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
+        error: null,
+        valid: null,
+      },
+      password: {
+        value: "",
+      },
+      submit: {
+        error: null
+      }
     };
   },
   methods: {
@@ -74,31 +81,31 @@ export default {
       this.login();
     },
     login() {
-      var noFormErrors = true;
-      this.emailError = null;
-      this.submitError = null;
+      this.email.error = null;
+      this.email.valid = true;
+      this.submit.error = null;
 
       //client side verification
-      if (!this.email) {
-        this.emailError = "An email is required";
-        noFormErrors = false;
-      } else if (!this.emailReg.test(this.email)) {
-        this.emailError = "Enter a valid email address";
-        noFormErrors = false;
+      if (!this.email.value) {
+        this.email.error = "An email is required";
+        this.email.valid = false;
+      } else if (!this.email.reg.test(this.email.value)) {
+        this.email.error = "Enter a valid email address";
+        this.email.valid = false;
       }
 
       //send request to server if client side is good
-      if (noFormErrors) {
-        userLogin(this.email, this.password).then((res) => {
+      if (this.email.valid) {
+        userLogin(this.email.value, this.password.value).then((res) => {
           if (res.error) {
-            this.submitError = res.error;
+            this.submit.error = res.error;
           } else if (res.user) {
             //successful login
             this.$bvModal.hide(loginModal);
             this.$router.replace({ name: "Userpage" });
           } else {
             //something else went wrong with getting the user from firebase
-            this.submitError = "Something went wrong trying to login";
+            this.submit.error = "Something went wrong trying to login";
           }
         });
       }
@@ -107,7 +114,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-text{
   font-size: 90%;
 }

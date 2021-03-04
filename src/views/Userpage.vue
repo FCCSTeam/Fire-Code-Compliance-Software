@@ -24,7 +24,7 @@
           target="_blank"
           class="text-white"
           ><b-button id="googleDriveButton" class="py-2" variant="primary"
-            >Google Drive<b-icon icon="link45deg" class="ml-2"></b-icon></b-button
+            ><span class="mr-1">Google Drive</span><b-icon icon="box-arrow-in-up-right" class="ml-2 text-small"></b-icon></b-button
           ></a
         >
         <b-tooltip target="googleDriveButton" triggers="hover">
@@ -57,16 +57,6 @@ export default {
     return {
       currentUser: getActiveUser(),
     };
-  },
-  methods: {},
-  mounted() {
-    adminStatus(this.currentUser).then((token) => {
-      if (token.error) {
-        console.log("Database Error: ", token.error);
-      } else {
-        console.log("Admin Status: ", token.isAdmin);
-      }
-    });
   },
 };
 </script>
