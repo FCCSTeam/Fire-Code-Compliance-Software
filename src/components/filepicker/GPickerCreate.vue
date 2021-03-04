@@ -93,7 +93,8 @@ export default {
       //console.log("url", url);
       //TODO Get folder ID and create new file
 
-      var fileMetadata = {
+     //ALL THIS CAN BE TURNED INTO A FUNCTION AS WE ARE SAVING THE FOLDER ID
+     var fileMetadata = {
         name: "FCCSv3",
         mimeType: "text/plain",
       };
