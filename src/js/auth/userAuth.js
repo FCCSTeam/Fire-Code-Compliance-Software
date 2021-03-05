@@ -77,4 +77,23 @@ const createUser = async (email, password) => {
     }
 }
 
-export { getActiveUser, userLogin, userLogout, createUser }
+const changeUserPassword = async (newPassword) => {
+    let token = { error: null }
+    try {
+        await user.updatePassword(newPassword)
+    }catch(err)
+    {
+        if (err.code == 'auth/requires-recent-login')
+        {
+            token.error = "Please reauthenticate with the system before changing password"
+        }
+        else{
+            token.error = "There was an error trying to change your password"
+        }
+    }
+    finally{
+        return token;
+    }
+}
+
+export { getActiveUser, userLogin, userLogout, createUser,changeUserPassword }
