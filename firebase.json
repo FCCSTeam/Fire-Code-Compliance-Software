@@ -4,7 +4,8 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist",
+    "target": "projectfccs",
+    "public": "projectfccs/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
