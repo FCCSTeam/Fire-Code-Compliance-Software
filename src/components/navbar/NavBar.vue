@@ -16,7 +16,7 @@
         </b-navbar-brand>
       </b-navbar-brand>
 
-      <b-navbar-toggle target="MainNavbarCollapse">
+      <b-navbar-toggle target="MainNavbarCollapse" v-if="activeUser">
         <template #default="{ expanded }">
           <b-icon v-if="expanded" icon="grid-fill"></b-icon>
           <b-icon v-else icon="grid"></b-icon>
