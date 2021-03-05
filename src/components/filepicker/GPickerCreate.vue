@@ -124,6 +124,7 @@ export default {
       return file;
     },
   },
+  //watcher method
   watch: {
     fileResult: {
       handler(newVal) {
