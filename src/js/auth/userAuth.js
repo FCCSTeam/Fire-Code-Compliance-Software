@@ -85,7 +85,7 @@ const changeUserPassword = async (newPassword) => {
     {
         if (err.code == 'auth/requires-recent-login')
         {
-            token.error = "Please reauthenticate with the system before changing password"
+            token.error = "Please reauthenticate (logout and login) with the system before changing your password"
         }
         else{
             token.error = "There was an error trying to change your password"
