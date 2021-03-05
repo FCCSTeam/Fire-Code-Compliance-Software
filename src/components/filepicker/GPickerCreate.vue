@@ -17,10 +17,8 @@ export default {
         "1085587302993-vdlu23buqvcumu31ffkfmt5umi9i7g6s.apps.googleusercontent.com", //Google project OAuth Client ID
       scope: "https://www.googleapis.com/auth/drive", //scope is set for readonly
       oauthToken: null,
-      fileName: null,
-      fileContent: null,
-      dataFileId: null, 
-      folderId: null,  
+      fileResult: {id: null, parentId: null},
+      //folderId: null,
     };
   },
   methods: {
@@ -81,67 +79,57 @@ export default {
     },
     //callback from the picker
     async pickerCallback(data) {
-      var holder = null
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
-        var name = data.docs[0].name;
-        var url = data.docs[0].url;
-        var id = data.docs[0].id;
+        this.fileResult.parentId = data.docs[0].id;
       }
-      this.folderId = id; 
-      console.log('FOLDER ID: ', this.folderId)
-      //console.log("Selected Folder id: ", id);
-      //console.log("url", url);
-      //TODO Get folder ID and create new file
 
-     //ALL THIS CAN BE TURNED INTO A FUNCTION AS WE ARE SAVING THE FOLDER ID
-     var fileMetadata = {
-        name: "FCCSv3",
-        mimeType: "text/plain",
+
+      this.makeFile(this.fileResult.parentId, this.fileResult);
+
+    },
+    makeFile(folderId, dataFileId) {
+      var file;
+      var fileMetadata = {
+        name: "FCCSv3.json",
+        mimeType: "application/json",
       };
       var media = {
         mimeType: fileMetadata.MimeType,
       };
 
-      console.log("metadata: ", fileMetadata);
-      console.log("media: ", media);
-      
       gapi.client.load("drive", "v3", function () {
-        //console.log(gapi.client.drive.files.create());
-
-        gapi.client.drive.files.create({
-          name: fileMetadata.name,
-          mimeType: fileMetadata.mimeType,
-          parents: [id],
-          resource: fileMetadata,
-          params: {
-            uploadType: "media",
-          },
-          fields: "id",
-        }).then(function(result){
-          console.log('file created: ', result)
-          var request = gapi.client.request({
-            path: '/upload/drive/v3/files/' + result.result.id,
-            method: 'PATCH',
-            params: {
-              uploadType: 'media'
-            },
-            body : 'tester FCCS file' 
-        });
-        holder = result.result.id
-        //this.dataFileId = holder
-        console.log("THE ID OF THE FILE IS: ", holder)
-        //
-        request.execute(function (resp) {
-          //console.log(resp);
-        });
-          
-        })
-
-
+        gapi.client.drive.files
+          .create({
+            name: fileMetadata.name,
+            mimeType: fileMetadata.mimeType,
+            parents: [folderId],
+            resource: fileMetadata,
+            params: { uploadType: "media" },
+            fields: "id",
+          })
+          .then(function (result) {
+            var request = gapi.client.request({
+              path: "/upload/drive/v3/files/" + result.result.id,
+              method: "PATCH",
+              params: { uploadType: "media" },
+              body: "{}",
+            });
+            request.execute(function (resp) {
+              console.log("resp: ", resp);
+              dataFileId.id = result.result.id;
+            });
+          });
       });
-      
-      //console.log("THE ID OF THE FILE IS AFTER FUNCTION IS DONE: ", holder)
-      
+      console.log("in method makefile ", file);
+      return file;
+    },
+  },
+  watch: {
+    fileResult: {
+      handler(newVal) {
+        console.log(this.fileResult.id);
+      },
+      deep: true,
     },
   },
 };
