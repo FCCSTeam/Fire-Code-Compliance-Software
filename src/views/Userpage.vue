@@ -24,12 +24,22 @@
           target="_blank"
           class="text-white"
           ><b-button id="googleDriveButton" class="py-2" variant="primary"
-            ><span class="mr-1">Google Drive</span><b-icon icon="box-arrow-in-up-right" class="ml-2 text-small"></b-icon></b-button
-          ></a
-        >
+            ><span class="mr-1">Google Drive</span
+            ><b-icon
+              icon="box-arrow-in-up-right"
+              class="ml-2 text-small"
+            ></b-icon></b-button
+        ></a>
         <b-tooltip target="googleDriveButton" triggers="hover">
           Opens an external link
         </b-tooltip>
+      </div>
+      <hr class="my-4" />
+      <div>
+        <h2 class="d-flex">Change Your Password</h2>
+        <p class="jumboText">
+          If this is your first time logging on, you can change your password by going to the 'Account' tab
+        </p>
       </div>
     </b-jumbotron>
   </div>
