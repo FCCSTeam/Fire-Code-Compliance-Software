@@ -28,7 +28,7 @@
         <b-row>
           <b-col class="col-md-10 col-xl-6">
             <b-card class="shadow my-3">
-
+              <ChangePasswordForm />
             </b-card>
           </b-col>
         </b-row>
@@ -43,11 +43,13 @@ import { getActiveUser } from "@/js/auth/userAuth.js";
 
 //components
 import Navbar from "@/components/navbar/NavBar.vue";
+import ChangePasswordForm from "@/components/authentication/ChangePasswordForm.vue"
 
 export default {
-  name: "Adminpage",
+  name: "UserSettings",
   components: {
     Navbar,
+    ChangePasswordForm,
   },
   data() {
     return {
