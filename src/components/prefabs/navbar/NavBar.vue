@@ -47,7 +47,9 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+
     <div id="navbar-spacer">&nbsp;</div>
+    
   </div>
 </template>
 
