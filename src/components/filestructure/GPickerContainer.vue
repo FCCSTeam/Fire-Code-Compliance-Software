@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import GPickerOpenExisting from "@/components/filepicker/GPickerOpenExisting.vue";
-import GPickerCreate from "@/components/filepicker/GPickerCreate.vue";
+import GPickerOpenExisting from "@/components/filestructure/GPickerOpenExisting.vue";
+import GPickerCreate from "@/components/filestructure/GPickerCreate.vue";
 
 export default {
   name: "FileSelectionContainer",

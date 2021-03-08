@@ -3,7 +3,6 @@
     <b-button class="py-2" variant="primary" @click="driveIconClicked()"
       >Create A New Report</b-button
     >
-    <!-- <button @click="driveIconClicked()">Create A New Report</button> -->
   </div>
 </template>
 

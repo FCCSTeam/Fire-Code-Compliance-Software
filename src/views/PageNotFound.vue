@@ -14,7 +14,7 @@
 
 <script>
 // import Logout from '@/components/authentication/Logout.vue'
-import NavBar from "@/components/navbar/NavBar.vue";
+import NavBar from "@/components/prefabs/navbar/NavBar.vue";
 
 export default {
   name: "Userpage",

@@ -1,6 +1,5 @@
 <template>
   <div id="GPicker_OpenExisting">
-    <!-- <button @click="driveIconClicked()">Open Existing Report</button> -->
     <b-button class="py-2" variant="primary" @click="driveIconClicked()">Open Existing Report</b-button>
   </div>
 </template>

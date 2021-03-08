@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Navbar from "@/components/navbar/NavBar.vue";
+import Navbar from "@/components/prefabs/navbar/NavBar.vue";
 import LoginModal from "@/components/authentication/ModalLogin.vue";
 
 export default {

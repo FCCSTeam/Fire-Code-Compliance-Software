@@ -46,17 +46,15 @@
 </template>
 
 <script>
-import FileSelectionContainer from "@/components/filepicker/FileSelectionContainer.vue";
-import GPickerContainer from "@/components/filepicker/GPickerContainer.vue";
+import GPickerContainer from "@/components/filestructure/GPickerContainer.vue";
 
 // import Logout from '@/components/authentication/Logout.vue'
-import NavBar from "@/components/navbar/NavBar.vue";
+import NavBar from "@/components/prefabs/navbar/NavBar.vue";
 import { getActiveUser } from "@/js/auth/userAuth.js";
 
 export default {
   name: "Userpage",
   components: {
-    FileSelectionContainer,
     NavBar,
     GPickerContainer,
   },
