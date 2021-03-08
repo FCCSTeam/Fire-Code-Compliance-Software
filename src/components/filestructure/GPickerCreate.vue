@@ -35,6 +35,7 @@ export default {
     return {
       newFileName: "",
       newFileNameState: null,
+      tempFileName: "",
 
       pickerApiLoaded: false,
       developerKey: "AIzaSyDtPr9R3LNpcMHxp4ZL7sZAJuRDPgRSe0I", //Google project API key
@@ -69,6 +70,7 @@ export default {
         return;
       }
       console.log("The new file name: ", this.newFileName)
+      this.tempFileName = this.newFileName;
       this.driveIconClicked()
       
       this.resetModal();
@@ -142,9 +144,10 @@ export default {
       this.makeFile(this.fileResult.parentId, this.fileResult);
     },
     makeFile(folderId, dataFileId) {
+      console.log("File Name at makeFile: ", this.newFileName) //REMOVE
       var file;
       var fileMetadata = {
-        name: this.newFileName,
+        name: this.tempFileName,
         mimeType: "application/json",
       };
       var media = {
