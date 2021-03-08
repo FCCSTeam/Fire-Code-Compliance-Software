@@ -51,16 +51,13 @@ import GPickerContainer from "@/components/filepicker/GPickerContainer.vue";
 
 // import Logout from '@/components/authentication/Logout.vue'
 import NavBar from "@/components/navbar/NavBar.vue";
-import Sidemenu from "@/components/sidemenu/Sidemenu.vue";
 import { getActiveUser } from "@/js/auth/userAuth.js";
-import { adminStatus } from "@/js/auth/userAccess.js";
 
 export default {
   name: "Userpage",
   components: {
     FileSelectionContainer,
     NavBar,
-    Sidemenu,
     GPickerContainer,
   },
   data() {

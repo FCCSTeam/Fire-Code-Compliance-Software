@@ -17,7 +17,7 @@
 
 <script>
 import { Slide } from "vue-burger-menu";
-import SidemenuItem from "@/components/sidemenu/SidemenuItem.vue";
+import SidemenuItem from "@/components/reporteditor/sidemenu/SidemenuItem.vue";
 
 export default {
   components: {
