@@ -1,8 +1,31 @@
 <template>
   <div id="GPicker_Create">
-    <b-button class="py-2" variant="primary" @click="driveIconClicked()"
+    <b-button class="py-2" variant="primary" v-b-modal.modal-newfile-name
       >Create A New Report</b-button
     >
+    <b-modal
+      id="modal-newfile-name"
+      ref="modal"
+      title="Enter a file name"
+      @ok="handleOk"
+      @show="resetModal"
+      @hidden="resetModal"
+    >
+      <form ref="form" @submit.stop.prevent="handleSubmit">
+        <b-form-group
+          label-for="filename-input"
+          invalid-feedback="File Name required"
+          :state="newFileNameState"
+        >
+          <b-form-input
+            id="filename-input"
+            v-model="newFileName"
+            :state="newFileNameState"
+            required
+          ></b-form-input>
+        </b-form-group>
+      </form>
+    </b-modal>
   </div>
 </template>
 
@@ -10,17 +33,51 @@
 export default {
   data() {
     return {
+      newFileName: "",
+      newFileNameState: null,
+
       pickerApiLoaded: false,
       developerKey: "AIzaSyDtPr9R3LNpcMHxp4ZL7sZAJuRDPgRSe0I", //Google project API key
       clientId:
         "1085587302993-vdlu23buqvcumu31ffkfmt5umi9i7g6s.apps.googleusercontent.com", //Google project OAuth Client ID
       scope: "https://www.googleapis.com/auth/drive", //scope is set for readonly
       oauthToken: null,
-      fileResult: {id: null, parentId: null},
+      fileResult: { id: null, parentId: null },
       //folderId: null,
     };
   },
   methods: {
+    // MODAL methods
+    checkFormvalidity() {
+      const valid = this.$refs.form.checkValidity();
+      this.newFileNameState = valid;
+      return valid;
+    },
+    resetModal() {
+      this.newFileName = "";
+      this.newFileNameState = null;
+    },
+    handleOk(bvModalEvt) {
+      // Prevent Modal from closing
+      bvModalEvt.preventDefault();
+      // Trigger submit handler
+      this.handleSubmit();
+      },
+    handleSubmit() {
+      // Exit when the form isn't valid
+      if (!this.checkFormvalidity()) {
+        return;
+      }
+      console.log("The new file name: ", this.newFileName)
+      this.driveIconClicked()
+      
+      this.resetModal();
+
+      // Hide modal
+      this.$nextTick(() => {
+        this.$bvModal.hide("modal-newfile-name")
+      });
+    },
     //Called when user clicks on drive icon
     async driveIconClicked() {
       //console.log("Clicked");
@@ -82,14 +139,12 @@ export default {
         this.fileResult.parentId = data.docs[0].id;
       }
 
-
       this.makeFile(this.fileResult.parentId, this.fileResult);
-
     },
     makeFile(folderId, dataFileId) {
       var file;
       var fileMetadata = {
-        name: "FCCSv3.json",
+        name: this.newFileName,
         mimeType: "application/json",
       };
       var media = {
