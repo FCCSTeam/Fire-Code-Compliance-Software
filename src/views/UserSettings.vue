@@ -42,7 +42,7 @@
 import { getActiveUser } from "@/js/auth/userAuth.js";
 
 //components
-import Navbar from "@/components/navbar/NavBar.vue";
+import Navbar from "@/components/prefabs/navbar/Navbar.vue";
 import ChangePasswordForm from "@/components/authentication/ChangePasswordForm.vue"
 
 export default {

@@ -55,7 +55,7 @@ import { getActiveUser } from "@/js/auth/userAuth.js";
 import { adminStatus } from "@/js/auth/userAccess.js";
 
 //components
-import Navbar from "@/components/prefabs/navbar/NavBar.vue";
+import Navbar from "@/components/prefabs/navbar/Navbar.vue";
 import AddUserForm from "@/components/authentication/AddUserForm.vue";
 
 export default {

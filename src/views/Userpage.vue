@@ -49,7 +49,7 @@
 import GPickerContainer from "@/components/filestructure/GPickerContainer.vue";
 
 // import Logout from '@/components/authentication/Logout.vue'
-import NavBar from "@/components/prefabs/navbar/NavBar.vue";
+import NavBar from "@/components/prefabs/navbar/Navbar.vue";
 import { getActiveUser } from "@/js/auth/userAuth.js";
 
 export default {
