@@ -3,9 +3,9 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "hosting": {
+  "hosting": [{
     "target": "projectfccs",
-    "public": "projectfccs/dist",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -17,7 +17,7 @@
         "destination": "/index.html"
       }
     ]
-  },
+  }],
   "emulators": {
     "firestore": {
       "port": 8080

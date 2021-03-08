@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "fire-code-compliance-software"
+  },
+  "targets": {
+    "fire-code-compliance-software": {
+      "hosting": {
+        "projectfccs": [
+          "projectfccs"
+        ]
+      }
+    }
   }
 }
