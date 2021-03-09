@@ -3,6 +3,7 @@
     <b-modal
       id="passwordChangedModal"
       ref="passwordChangedModal"
+      :static="true"
       title="Success"
       ok-variant="primary"
       ok-title="Continue"

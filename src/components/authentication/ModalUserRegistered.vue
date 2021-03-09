@@ -3,6 +3,7 @@
     <b-modal
       id="userRegisteredModal"
       ref="userRegisteredModal"
+      :static="true"
       title="Success"
       ok-variant="primary"
       ok-title="Continue"
