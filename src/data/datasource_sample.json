@@ -1,0 +1,116 @@
+{
+    "fire_dept_access": { 
+        "grid_one": [
+            { "week" : 1, "inspectType": "Weekly", "sig": "KH", "date": "01/03/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "Weekly", "sig": "Kanan", "date": "01/10/21", "remark": "I luv FCCS" },
+            { "week" : 3, "inspectType": "Weekly", "sig": "M. Jenkins", "date": "01/17/21", "remark": "ROS" },
+            { "week" : 4, "inspectType": "Weekly", "sig": "Pingu", "date": "01/24/21", "remark": "Noot noot" },
+            { "week" : 5, "inspectType": "Weekly", "sig": "Cactus Jiang", "date": "01/31/21", "remark": "It's lit" },
+            
+            { "week" : 1, "inspectType": "Weekly", "sig": "KH", "date": "01/01/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "Weekly", "sig": "Kanan", "date": "01/08/21", "remark": "I really luv FCCS" },
+            { "week" : 3, "inspectType": "Weekly", "sig": "M. Jenkins", "date": "01/15/21", "remark": "cpmr.apb" },
+            { "week" : 4, "inspectType": "Weekly", "sig": "Pingu", "date": "01/22/21", "remark": "RTX ON" },
+            { "week" : 5, "inspectType": "Weekly", "sig": "Cactus Jiang", "date": "01/28/21", "remark": "La flame" }
+        ],
+        "grid_two": [
+            { "location": "Bergeon", "serviceDetails": "Need new building", "remarks": "This building is always full" },
+            { "location": "Curtis", "serviceDetails": "Delete the whole building", "remarks": "N/A" },
+            { "location": "Stong", "serviceDetails": "Delete the whole building", "remarks": "Elevator broken" },
+            { "location": "Lassonde", "serviceDetails": "Need more lab rooms", "remarks": "Trash" },
+            { "location": "Student Centre", "serviceDetails": "Somehow new and trash already", "remarks": "Yeet" }
+        ]
+    },
+
+    "fire_hazards": { 
+        "grid_one": [
+            { "week" : 1, "inspectType": "Weekly", "sig": "Greyling", "date": "01/03/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "Weekly", "sig": "Troll", "date": "01/10/21", "remark": "I luv FCCS" },
+            { "week" : 3, "inspectType": "Weekly", "sig": "Ghost", "date": "01/17/21", "remark": "ROS" },
+            { "week" : 4, "inspectType": "Weekly", "sig": "Draugr", "date": "01/24/21", "remark": "Noot noot" },
+            { "week" : 5, "inspectType": "Weekly", "sig": "Bonemass", "date": "01/31/21", "remark": "It's lit" },
+            
+            { "week" : 1, "inspectType": "Weekly", "sig": "Greyling", "date": "01/01/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "Weekly", "sig": "Troll", "date": "01/08/21", "remark": "I really luv FCCS" },
+            { "week" : 3, "inspectType": "Weekly", "sig": "Ghost", "date": "01/15/21", "remark": "cpmr.apb" },
+            { "week" : 4, "inspectType": "Weekly", "sig": "Draugr", "date": "01/22/21", "remark": "RTX ON" },
+            { "week" : 5, "inspectType": "Weekly", "sig": "Bonemass", "date": "01/28/21", "remark": "La flame" }
+        ],
+        "grid_two": [
+            { "location": "Meadows", "serviceDetails": "Need new building", "remarks": "Yeet1" },
+            { "location": "Black Forest", "serviceDetails": "Delete the whole building", "remarks": "Yeet2" },
+            { "location": "Swamp", "serviceDetails": "Delete the whole building", "remarks": "Yeet3" },
+            { "location": "Mountains", "serviceDetails": "Need more lab rooms", "remarks": "Yeet4" },
+            { "location": "Plains", "serviceDetails": "Somehow new and trash already", "remarks": "Yeet5" }
+        ]
+    }, 
+
+    "high_buildings": { 
+        "grid_one": [
+            { "week" : 1, "inspectType": "Bi-Weekly", "sig": "Itadori", "date": "01/03/21", "remark": "RIP" },
+            { "week" : 2, "inspectType": "Bi-Weekly", "sig": "Maki", "date": "01/10/21", "remark": "I will be clan leader" },
+            { "week" : 3, "inspectType": "Bi-Weekly", "sig": "Toudou", "date": "01/17/21", "remark": "Brother" },
+            { "week" : 4, "inspectType": "Bi-Weekly", "sig": "Gojou", "date": "01/24/21", "remark": "Yay" },
+            { "week" : 5, "inspectType": "Bi-Weekly", "sig": "Panda", "date": "01/31/21", "remark": "Yeeeeeeeet" },
+            
+            { "week" : 1, "inspectType": "Bi-Weekly", "sig": "Itadori", "date": "01/01/21", "remark": "Yeet69" },
+            { "week" : 2, "inspectType": "Bi-Weekly", "sig": "Maki", "date": "01/08/21", "remark": "Yeet69" },
+            { "week" : 3, "inspectType": "Bi-Weekly", "sig": "Toudou", "date": "01/15/21", "remark": "Yeet69" },
+            { "week" : 4, "inspectType": "Bi-Weekly", "sig": "Gojou", "date": "01/22/21", "remark": "Yeet69" },
+            { "week" : 5, "inspectType": "Bi-Weekly", "sig": "Panda", "date": "01/28/21", "remark": "Yeet69" }
+        ],
+        "grid_two": [
+            { "location": "Tokyo", "serviceDetails": "Need new building", "remarks": "Garbage city" },
+            { "location": "Kyoto", "serviceDetails": "Delete the whole building", "remarks": "Garbage city" },
+            { "location": "Leaf Village", "serviceDetails": "Delete the whole building", "remarks": "Garbage city" },
+            { "location": "Japan", "serviceDetails": "Need more lab rooms", "remarks": "Garbage city" },
+            { "location": "China", "serviceDetails": "Somehow new and trash already", "remarks": "Garbage city" }
+        ]
+    },
+
+    "means_egress": { 
+        "grid_one": [
+            { "week" : 1, "inspectType": "2-4 Months", "sig": "VAlheim", "date": "01/03/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "2-4 Months", "sig": "VAlheim", "date": "01/10/21", "remark": "I luv FCCS" },
+            { "week" : 3, "inspectType": "2-4 Months", "sig": "VAlheim", "date": "01/17/21", "remark": "ROS" },
+            { "week" : 4, "inspectType": "2-4 Months", "sig": "VAlheim", "date": "01/24/21", "remark": "Noot noot" },
+            { "week" : 5, "inspectType": "2-4 Months", "sig": "VAlheim", "date": "01/31/21", "remark": "It's lit" },
+            
+            { "week" : 1, "inspectType": "2-4 Months", "sig": "KH", "date": "01/01/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "2-4 Months", "sig": "Kanan", "date": "01/08/21", "remark": "I really luv FCCS" },
+            { "week" : 3, "inspectType": "2-4 Months", "sig": "M. Jenkins", "date": "01/15/21", "remark": "cpmr.apb" },
+            { "week" : 4, "inspectType": "2-4 Months", "sig": "Pingu", "date": "01/22/21", "remark": "RTX ON" },
+            { "week" : 5, "inspectType": "2-4 Months", "sig": "Cactus Jiang", "date": "01/28/21", "remark": "La flame" }
+        ],
+        "grid_two": [
+            { "location": "Bergeon 42069", "serviceDetails": "Need new building", "remarks": "This building is always full" },
+            { "location": "Curtis 42069", "serviceDetails": "Delete the whole building", "remarks": "N/A" },
+            { "location": "Stong 42069", "serviceDetails": "Delete the whole building", "remarks": "Elevator broken" },
+            { "location": "Lassonde 42069", "serviceDetails": "Need more lab rooms", "remarks": "Trash" },
+            { "location": "Student Centre 42069", "serviceDetails": "Somehow new and trash already", "remarks": "Yeet" }
+        ]
+    },
+
+    "smoke_alarms": { 
+        "grid_one": [
+            { "week" : 1, "inspectType": "Weekly", "sig": "KH", "date": "01/03/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "Weekly", "sig": "Kanan", "date": "01/10/21", "remark": "I luv FCCS" },
+            { "week" : 3, "inspectType": "Weekly", "sig": "M. Jenkins", "date": "01/17/21", "remark": "ROS" },
+            { "week" : 4, "inspectType": "Weekly", "sig": "Pingu", "date": "01/24/21", "remark": "Noot noot" },
+            { "week" : 5, "inspectType": "Weekly", "sig": "Cactus Jiang", "date": "01/31/21", "remark": "It's lit" },
+            
+            { "week" : 1, "inspectType": "Weekly", "sig": "KH", "date": "01/01/21", "remark": "N/A" },
+            { "week" : 2, "inspectType": "Weekly", "sig": "Kanan", "date": "01/08/21", "remark": "I really luv FCCS" },
+            { "week" : 3, "inspectType": "Weekly", "sig": "M. Jenkins", "date": "01/15/21", "remark": "cpmr.apb" },
+            { "week" : 4, "inspectType": "Weekly", "sig": "Pingu", "date": "01/22/21", "remark": "RTX ON" },
+            { "week" : 5, "inspectType": "Weekly", "sig": "Cactus Jiang", "date": "01/28/21", "remark": "La flame" }
+        ],
+        "grid_two": [
+            { "location": "Bergeon", "serviceDetails": "Need new building", "remarks": "This building is always full" },
+            { "location": "Curtis", "serviceDetails": "Delete the whole building", "remarks": "N/A" },
+            { "location": "Stong", "serviceDetails": "Delete the whole building", "remarks": "Elevator broken" },
+            { "location": "Lassonde", "serviceDetails": "Need more lab rooms", "remarks": "Trash" },
+            { "location": "Student Centre", "serviceDetails": "Somehow new and trash already", "remarks": "Yeet" }
+        ]
+    }
+}
