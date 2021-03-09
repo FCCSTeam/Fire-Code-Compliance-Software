@@ -1,7 +1,9 @@
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
 import Home from '@/views/Home.vue'
-import FileSelectionContainer from '@/components/filepicker/FileSelectionContainer'
+import Navbar from '@/components/prefabs/navbar/Navbar.vue'
+
+import '../setup.js' 
 
 describe('Home.vue', () => {
   let parentComp;
@@ -10,7 +12,7 @@ describe('Home.vue', () => {
     parentComp = shallowMount(Home);
   });
 
-  it('should render FileSelectionContainer component on mount', () => {
-    expect(parentComp.findComponent(FileSelectionContainer).exists()).to.be.true;
+  it('Navbar should render', () => {
+    expect(parentComp.findComponent(Navbar).exists()).to.be.true;
   });  
 });
