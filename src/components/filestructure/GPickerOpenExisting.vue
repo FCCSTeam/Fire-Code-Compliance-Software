@@ -8,6 +8,7 @@
 export default {
   data() {
     return {
+      authState: false,
       pickerApiLoaded: false,
       developerKey: "AIzaSyDtPr9R3LNpcMHxp4ZL7sZAJuRDPgRSe0I", //Google project API key
       clientId: "1085587302993-vdlu23buqvcumu31ffkfmt5umi9i7g6s.apps.googleusercontent.com", //Google project OAuth Client ID
@@ -18,19 +19,38 @@ export default {
     };
   },
   methods: {
+    isAuthorized()
+    {
+      if(this.authState)
+      {
+        return true
+      }
+      else
+      {
+        return false
+      }
+    },
     //Called when user clicks on drive icon
     async driveIconClicked() {
       //console.log("Clicked");
       await gapi.load("auth2", () => {
         //console.log("Auth2 Loaded");
-        gapi.auth2.authorize(
-          {
-            client_id: this.clientId,
-            scope: this.scope,
-            immediate: false,
-          },
-          this.handleAuthResult
-        );
+        if(!this.isAuthorized())
+        {
+          gapi.auth2.authorize(
+            {
+              client_id: this.clientId,
+              scope: this.scope,
+              immediate: false,
+            },
+            this.handleAuthResult
+          );
+          this.authState = true
+        }
+        else
+        {
+          this.createPicker()
+        }
       });
       gapi.load("picker", () => {
         //console.log("Picker Loaded");

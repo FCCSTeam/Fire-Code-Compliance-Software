@@ -37,6 +37,7 @@ export default {
       newFileNameState: null,
       tempFileName: "",
 
+      authState: false, 
       pickerApiLoaded: false,
       developerKey: "AIzaSyDtPr9R3LNpcMHxp4ZL7sZAJuRDPgRSe0I", //Google project API key
       clientId:
@@ -80,19 +81,40 @@ export default {
         this.$bvModal.hide("modal-newfile-name")
       });
     },
+    //method for checking authorization state
+    isAuthorized()
+    {
+      if(this.authState)
+      {
+        return true
+      }
+      else
+      {
+        return false
+      }
+    },
     //Called when user clicks on drive icon
     async driveIconClicked() {
       //console.log("Clicked");
       await gapi.load("auth2", () => {
         //console.log("Auth2 Loaded");
-        gapi.auth2.authorize(
-          {
-            client_id: this.clientId,
-            scope: this.scope,
-            immediate: false,
-          },
-          this.handleAuthResult
-        );
+        if(!this.isAuthorized())
+        {
+          gapi.auth2.authorize(
+            {
+              client_id: this.clientId,
+              scope: this.scope,
+              immediate: false,
+            },
+            this.handleAuthResult
+            
+          );
+          this.authState = true
+        }
+        else
+        {
+          this.createPicker()
+        }
       });
       gapi.load("picker", () => {
         //console.log("Picker Loaded");
@@ -139,9 +161,10 @@ export default {
     async pickerCallback(data) {
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         this.fileResult.parentId = data.docs[0].id;
+        this.makeFile(this.fileResult.parentId, this.fileResult);
       }
 
-      this.makeFile(this.fileResult.parentId, this.fileResult);
+      
     },
     makeFile(folderId, dataFileId) {
       console.log("File Name at makeFile: ", this.newFileName) //REMOVE
@@ -171,10 +194,10 @@ export default {
               params: { uploadType: "media" },
               body: "{}",
             });
-            request.execute(function (resp) {
-              console.log("resp: ", resp);
-              dataFileId.id = result.result.id;
-            });
+              request.execute(function (resp) {
+                console.log("resp: ", resp);
+                dataFileId.id = result.result.id;
+              });
           });
       });
       console.log("in method makefile ", file);
