@@ -30,14 +30,14 @@
 </template>
 
 <script>
-import json from '@/data/report_templateonlyT1sofar.json'
+import template from '@/data/report_templateonlyT1sofar.json'
+import {setFile } from "@/js/auth/data/storeFile.js";
 export default {
   data() {
     return {
       newFileName: "",
       newFileNameState: null,
       tempFileName: "",
-      template: json,
 
       authState: false, 
       pickerApiLoaded: false,
@@ -172,7 +172,8 @@ export default {
     makeFile(folderId, dataFileId) {
       console.log("File Name at makeFile: ", this.newFileName) //REMOVE
       var file;
-      var temp = this.template
+      var temp = template
+      setFile(temp)
       var fileMetadata = {
         name: this.tempFileName,
         mimeType: "application/json",
