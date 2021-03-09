@@ -30,12 +30,14 @@
 </template>
 
 <script>
+import json from '@/data/report_templateonlyT1sofar.json'
 export default {
   data() {
     return {
       newFileName: "",
       newFileNameState: null,
       tempFileName: "",
+      template: json,
 
       authState: false, 
       pickerApiLoaded: false,
@@ -162,6 +164,7 @@ export default {
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         this.fileResult.parentId = data.docs[0].id;
         this.makeFile(this.fileResult.parentId, this.fileResult);
+        this.$router.replace({ name: "ReportEditor" });
       }
 
       
@@ -169,6 +172,7 @@ export default {
     makeFile(folderId, dataFileId) {
       console.log("File Name at makeFile: ", this.newFileName) //REMOVE
       var file;
+      var temp = this.template
       var fileMetadata = {
         name: this.tempFileName,
         mimeType: "application/json",
@@ -192,7 +196,7 @@ export default {
               path: "/upload/drive/v3/files/" + result.result.id,
               method: "PATCH",
               params: { uploadType: "media" },
-              body: "{}",
+              body: temp,
             });
               request.execute(function (resp) {
                 console.log("resp: ", resp);

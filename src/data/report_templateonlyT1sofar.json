@@ -1,0 +1,638 @@
+{
+    "fire_dept_access": { 
+        "monthly": [
+            { "week" : "January", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            
+            { "week" : "February", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "March", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "April", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "May", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "June", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "July", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "August", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "September", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "October", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "November", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "December", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" }
+        ],
+        "locations": [
+            { "location": "", "serviceDetails": "", "remarks": "" }
+        ]
+    },
+
+    "fire_hazards": { 
+        "monthly": [
+            { "week" : "January", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            
+            { "week" : "February", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "March", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "April", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "May", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "June", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "July", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "August", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "September", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "October", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "November", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "December", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" }
+        ],
+        "locations": [
+            { "location": "", "serviceDetails": "", "remarks": "" }
+        ]
+    }, 
+
+    "high_buildings": { 
+        "monthly": [
+            { "week" : "January", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            
+            { "week" : "February", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "March", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "April", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "May", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "June", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "July", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "August", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "September", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "October", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "November", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "December", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" }
+        ],
+        "locations": [
+            { "location": "", "serviceDetails": "", "remarks": "" }
+        ]
+    },
+
+    "means_egress": { 
+        "monthly": [
+            { "week" : "January", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            
+            { "week" : "February", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "March", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "April", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "May", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "June", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "July", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "August", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "September", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "October", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "November", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "December", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" }
+        ],
+        "locations": [
+            { "location": "", "serviceDetails": "", "remarks": "" }
+        ]
+    },
+
+    "service_equipment_ducts_chimneys_smoke_venting": { 
+        "monthly": [
+            { "week" : "January", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            
+            { "week" : "February", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "March", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "April", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "May", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "June", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "July", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "August", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "September", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "October", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "November", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "December", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" }
+        ],
+        "locations": [
+            { "location": "", "serviceDetails": "", "remarks": "" }
+        ]
+    },
+
+    "smoke_alarms": { 
+        "monthly": [
+            { "week" : "January", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            
+            { "week" : "February", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "March", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "April", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "May", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "June", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "July", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "August", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "September", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "October", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "November", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "December", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" }
+        ],
+        "locations": [
+            { "location": "", "serviceDetails": "", "remarks": "" }
+        ]
+    },
+
+    "standpipe_hose_systems": { 
+        "monthly": [
+            { "week" : "January", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            
+            { "week" : "February", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "March", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "April", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "May", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "June", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "July", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "August", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "September", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "October", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "November", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" },
+			
+            { "week" : "December", "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 1, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 2, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 3, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 4, "inspectType": "", "sig": "", "date": "", "remark": "" },
+            { "week" : 5, "inspectType": "", "sig": "", "date": "", "remark": "" }
+        ],
+        "locations": [
+            { "location": "", "serviceDetails": "", "remarks": "" }
+        ]
+    }
+}

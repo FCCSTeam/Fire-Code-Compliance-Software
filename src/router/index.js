@@ -5,6 +5,7 @@ import Userpage from '../views/Userpage.vue'
 import Adminpage from '../views/Adminpage.vue'
 import UserSettings from '../views/UserSettings.vue'
 import PageNotFound from '../views/PageNotFound.vue'
+import ReportEditor from '../views/ReportEditor.vue'
 
 import { getActiveUser } from "@/js/auth/userAuth.js";
 import { adminStatus } from "@/js/auth/userAccess.js";
@@ -72,6 +73,12 @@ const routes = [
     path: '/usersettings',
     name: 'UserSettings',
     component: UserSettings,
+    beforeEnter: requireAuth
+  },
+  {
+    path: '/reporteditor',
+    name: 'ReportEditor',
+    component: ReportEditor,
     beforeEnter: requireAuth
   },
   //make this the last one!

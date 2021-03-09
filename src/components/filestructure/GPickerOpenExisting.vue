@@ -125,6 +125,7 @@ export default {
         //content was retrieved from the GET Request
         this.fileContent = content;
         console.log(content)
+        this.$router.replace({ name: "ReportEditor" });
       }
       else
       {
