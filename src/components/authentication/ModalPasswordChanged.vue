@@ -1,5 +1,5 @@
 <template>
-  <div id="passwordChangedModal">
+  <div id="passwordChangedModalContainer">
     <b-modal
       id="passwordChangedModal"
       ref="passwordChangedModal"

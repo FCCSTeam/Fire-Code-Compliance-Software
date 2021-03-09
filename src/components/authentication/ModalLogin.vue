@@ -1,8 +1,9 @@
 <template>
-  <div id="loginModal">
+  <div id="loginModalContainer">
     <b-modal
       id="loginModal"
       ref="loginModal"
+      :static="true"
       title="Login"
       ok-title="Login"
       ok-variant="primary"

@@ -1,5 +1,5 @@
 <template>
-  <div id="loginModal">
+  <div id="userRegisteredModalContainer">
     <b-modal
       id="userRegisteredModal"
       ref="userRegisteredModal"
