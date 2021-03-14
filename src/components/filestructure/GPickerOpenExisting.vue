@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import {setFile } from "@/js/auth/data/storeFile.js";
+
 export default {
   data() {
     return {
@@ -16,6 +18,7 @@ export default {
       oauthToken: null,
       fileName: null,
       fileContent: null,
+      FileId: null
     };
   },
   methods: {
@@ -91,6 +94,7 @@ export default {
           this.fileName = doc.name
           //generate the download URL for this doc
           //the alt=media is important for ensuring the content of the file is placed in response body
+          this.fileId = doc.id
           var downloadUrl =
             "https://www.googleapis.com/drive/v2/files/" +
             doc.id +
@@ -124,13 +128,17 @@ export default {
       {
         //content was retrieved from the GET Request
         this.fileContent = content;
-        console.log(content)
+        setFile(this.fileId, this.fileContent)
+
+        //console.log(content)
         this.$router.replace({ name: "ReportEditor" });
       }
       else
       {
         //download file attempt failed
         this.fileContent = null;
+        this.fileId = null; 
+        this.fileName = null; 
       }
     },
   },

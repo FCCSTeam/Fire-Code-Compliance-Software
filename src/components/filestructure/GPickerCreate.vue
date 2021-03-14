@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import template from '@/data/report_templateonlyT1sofar.json'
+import templateFile from '@/data/report_templateonlyT1sofar.json'
 import {setFile } from "@/js/auth/data/storeFile.js";
 export default {
   data() {
@@ -171,9 +171,8 @@ export default {
     },
     makeFile(folderId, dataFileId) {
       console.log("File Name at makeFile: ", this.newFileName) //REMOVE
-      var file;
-      var temp = template
-      setFile(temp)
+      var file; 
+      var baseReport = templateFile
       var fileMetadata = {
         name: this.tempFileName,
         mimeType: "application/json",
@@ -197,7 +196,7 @@ export default {
               path: "/upload/drive/v3/files/" + result.result.id,
               method: "PATCH",
               params: { uploadType: "media" },
-              body: temp,
+              body: baseReport,
             });
               request.execute(function (resp) {
                 console.log("resp: ", resp);
@@ -206,6 +205,7 @@ export default {
           });
       });
       console.log("in method makefile ", file);
+      setFile(dataFileId.id,file)
       return file;
     },
   },

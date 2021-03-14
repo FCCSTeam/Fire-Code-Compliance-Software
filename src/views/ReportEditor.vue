@@ -1,34 +1,36 @@
 <template>
 <div>
     <Navbar />
+    <Sidemenu />
+
 </div>
 </template>
 
 <script>
 import Navbar from "@/components/prefabs/navbar/Navbar.vue";
-import { getFile } from "@/js/auth/data/storeFile.js";
+import { getFileContent, getFileId } from "@/js/auth/data/storeFile.js";
+import Sidemenu from "@/components/reporteditor/sidemenu/Sidemenu.vue"
 
 export default {
     name: "ReportEditor",
-    components: {Navbar},
-  data() {
-    return {
+    components: {Navbar, Sidemenu},
+  // data() {
+  //   return {
+  //       //reportFile: getFileContent()
 
-    };
-  },
-  //mounted to set local/storage with file
-  //use computed to return something from method --> get file from local storage
+  //   };
+  // },
   mounted()
   {
+      console.log(getFileContent())
+      console.log(getFileId())
 
   },
-  computed()
-  {
-     
-  },
+  //TODO:
+  //saving (patching) edited file to google drive, sending file ID to allow patching
   methods: 
   {
-      
+
   }
 
 
