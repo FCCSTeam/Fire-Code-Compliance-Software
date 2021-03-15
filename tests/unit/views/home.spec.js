@@ -27,7 +27,7 @@ describe('Home.vue', () => {
     expect(wrapper.findComponent(BButton).exists()).to.be.true;
   });  
 
-  it('Login Modal available to renders', () => {
+  it('Login Modal available to render', () => {
     expect(wrapper.findComponent(LoginModal).exists()).to.be.true;
   });  
 
