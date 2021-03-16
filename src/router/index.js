@@ -7,6 +7,9 @@ import UserSettings from '../views/UserSettings.vue'
 import PageNotFound from '../views/PageNotFound.vue'
 import ReportEditor from '../views/ReportEditor.vue'
 
+import TestView from '../views/TestView.vue'
+
+
 import { getActiveUser } from "@/js/auth/userAuth.js";
 import { adminStatus } from "@/js/auth/userAccess.js";
 
@@ -80,6 +83,11 @@ const routes = [
     name: 'ReportEditor',
     component: ReportEditor,
     beforeEnter: requireAuth
+  },
+  {
+    path: '/testview',
+    name: 'TestView',
+    component: TestView,
   },
   //make this the last one!
   {
