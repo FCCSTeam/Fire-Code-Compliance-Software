@@ -1,5 +1,5 @@
 <template>
-  <div id="userpage">
+  <div id="pageNotFound">
     <NavBar />
     <b-jumbotron header-level="4" bg-variant="white">
       <template #header>Oops!</template>
@@ -17,7 +17,7 @@
 import NavBar from "@/components/prefabs/navbar/Navbar.vue";
 
 export default {
-  name: "Userpage",
+  name: "PageNotFound",
   components: {
     NavBar,
   }

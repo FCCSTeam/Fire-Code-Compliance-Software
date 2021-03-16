@@ -3,7 +3,7 @@
     <b-navbar
       class="shadow-sm d-flex align-items-center pb-1 px-sm-4 px-lg-5"
       fixed="top"
-      variant="secondary"
+      variant="light"
       type="light"
       toggleable="sm"
     >
