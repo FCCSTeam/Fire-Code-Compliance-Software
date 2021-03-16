@@ -75,8 +75,8 @@ export default {
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
           .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
-          .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true))
-          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true))
+          .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
+          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
           .setOAuthToken(this.oauthToken)
           .setDeveloperKey(this.developerKey)
           .setCallback(this.pickerCallback)
