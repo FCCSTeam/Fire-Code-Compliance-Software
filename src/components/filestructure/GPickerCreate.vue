@@ -47,6 +47,7 @@ export default {
       scope: "https://www.googleapis.com/auth/drive", //scope is set for readonly
       oauthToken: null,
       fileResult: { id: null, parentId: null },
+      fileContent : null
       //folderId: null,
     };
   },
@@ -205,7 +206,7 @@ export default {
           });
       });
       console.log("in method makefile ", file);
-      setFile(dataFileId.id,file)
+      this.fileContent = file
       return file;
     },
   },
@@ -214,6 +215,7 @@ export default {
     fileResult: {
       handler(newVal) {
         console.log(this.fileResult.id);
+        setFile(this.fileResult.id,this.fileContent)
       },
       deep: true,
     },
