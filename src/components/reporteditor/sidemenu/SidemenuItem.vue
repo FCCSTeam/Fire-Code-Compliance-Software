@@ -1,5 +1,5 @@
 <template>
-  <a id="home" href="#" >
+  <a class="sidemenuitem">
     <span>{{ title }}</span>
   </a>
 </template>

@@ -3,7 +3,7 @@
 
 //Override existing colors
 $primary: rgb(0, 38, 144);
-$secondary: rgb(255, 255, 255);
+$secondary: rgb(58, 60, 63);
 $success: rgb(88, 180, 88);
 $info: #17a2b8;
 $warning: #ffc107;
@@ -13,7 +13,8 @@ $dark: rgb(22,22,22);
 
 //add to sass map new colors
 $theme-colors: (
-  "light-gray": rgb(200, 200, 200)
+  "light-gray": rgb(200, 200, 200),
+  "dark-gray": #343a40
 );
 
 //Fonts

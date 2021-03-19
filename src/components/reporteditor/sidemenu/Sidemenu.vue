@@ -1,32 +1,7 @@
 <template>
   <Slide class="sidemenu-container">
-    <SidemenuItem title="Fire Department Acesss" v-bind:id="1"></SidemenuItem>
-    <SidemenuItem title="Fire Hazards" v-bind:id="2"></SidemenuItem>
-    <SidemenuItem title="High Buildings" v-bind:id="3"></SidemenuItem>
-    <SidemenuItem
-      title="Means of Egress and Fire Separation"
-      v-bind:id="4"
-    ></SidemenuItem>
-    <SidemenuItem
-      title="Service Equipment, Ducts, Chimneys and Smoke Venting"
-      v-bind:id="5"
-    ></SidemenuItem>
-    <SidemenuItem title="Smoke Alarms" v-bind:id="6"></SidemenuItem>
-    <SidemenuItem title="Standpipe Hosing Systems" v-bind:id="7"></SidemenuItem>
-    <SidemenuItem
-      title="Automatic Sprinkler Systems"
-      v-bind:id="8"
-    ></SidemenuItem>
-    <SidemenuItem
-      title="Emergency Lighting Fixtures and Power System"
-      v-bind:id="9"
-    ></SidemenuItem>
-    <SidemenuItem title="Fire Water Supplies" v-bind:id="10"></SidemenuItem>
-    <SidemenuItem
-      title="Automatic Fire Alarm Systems"
-      v-bind:id="11"
-    ></SidemenuItem>
-    <SidemenuItem title="Fire Extinguishers" v-bind:id="12"></SidemenuItem>
+    <h3>Record Books</h3>
+    <SidemenuItem v-for="recordBook in recordBooks" :key="recordBook" :title="recordBook" v-bind:id="recordBooks.indexOf(recordBook)"></SidemenuItem>
   </Slide>
 </template>
 
@@ -39,15 +14,42 @@ export default {
     Slide,
     SidemenuItem,
   },
+  data() {
+    return {
+      recordBooks: [
+        "Fire Department Access",
+        "Fire Hazards",
+        "High Buildings",
+        "Means of Egress and Fire Separation",
+        "Service Equipment, Ducts, Chimneys and Smoke Venting",
+        "Smoke Alarms",
+        "Standpipe Hosing Systems",
+        "Automatic Sprinkler Systems",
+        "Emergency Lighting Fixtures and Power System",
+        "Fire Water Supplies",
+        "Automatic Fire Alarm Systems",
+        "Fire Extinguishers"
+      ],
+    };
+  },
 };
 </script>
 
 <style>
 .bm-menu {
   top: 73px !important ;
+  background-color: var(--light) !important;
+  padding: 0; 
 }
 .bm-burger-button {
-  top: 80px !important ;
-  left: 1.25rem !important; 
+  top: 100px !important ;
+  left: 1.25rem !important;
+}
+
+.bm-item-list > * {
+  padding: 1em 0.5em;
+}
+.bm-item-list > * > span {
+  color: var(--gray-dark);
 }
 </style>
