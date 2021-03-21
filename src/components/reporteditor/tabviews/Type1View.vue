@@ -6,12 +6,13 @@
 <div>
   <b-tabs content-class="mt-3">
     <b-tab v-for="(tab,index) in recordBook.tabs" :key="index" :title="tab">
-        <component v-bind:is="'Type1_' + tab" :recordBookData="recordBook.data"></component>
+        <component v-bind:is="'Type1_' + tab" :recordBook="recordBook"></component>
     </b-tab>
   </b-tabs>
 </div>
 
-  </div>
+
+</div>
 </template>
 
 <script>
@@ -29,11 +30,6 @@ export default {
       required: true,
     },
   },
-  computed: {
-    getVariableName(variable) {
-      return Object.keys({variable})[0]
-    }
-  }
 };
 </script>
 
