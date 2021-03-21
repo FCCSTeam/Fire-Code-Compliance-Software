@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import templateFile from '@/data/report_templateonlyT1sofar.json'
+import templateFile from '@/data/FCCS.json'
 import {setFile } from "@/js/auth/data/storeFile.js";
 export default {
   data() {
