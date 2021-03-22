@@ -71,6 +71,7 @@ export default {
 }
 
 #sidebar-button-container {
+  z-index: 3;
   position: fixed;
   left: 0;
   top: 73px;

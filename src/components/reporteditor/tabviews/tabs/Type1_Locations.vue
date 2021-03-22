@@ -9,7 +9,7 @@
 export default {
   name: "Type1Locations",
     props: {
-    recordBookData: {
+    recordBook: {
       type: Object,
       required: true,
     },
@@ -17,7 +17,7 @@ export default {
   computed : {
     getData()
     {
-      return this.recordBookData.locations
+      return this.recordBook.data.locations
     }
   }
 }

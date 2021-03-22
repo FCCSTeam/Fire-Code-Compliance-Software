@@ -30,8 +30,13 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import templateFile from '@/data/report_templateonlyT1sofar.json'
 import {setFile } from "@/js/filestructure/storeFile.js";
+=======
+import templateFile from '@/data/FCCS.json'
+import {setFile } from "@/js/auth/data/storeFile.js";
+>>>>>>> ca83babd866e3bab8dd776280db63f1d4441d12a
 export default {
   data() {
     return {
