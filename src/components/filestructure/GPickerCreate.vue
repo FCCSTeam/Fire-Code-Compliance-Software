@@ -31,7 +31,7 @@
 
 <script>
 import templateFile from '@/data/report_templateonlyT1sofar.json'
-import {setFile } from "@/js/auth/data/storeFile.js";
+import {setFile } from "@/js/filestructure/storeFile.js";
 export default {
   data() {
     return {

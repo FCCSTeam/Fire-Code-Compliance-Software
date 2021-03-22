@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {setFile } from "@/js/auth/data/storeFile.js";
+import {setFile } from "@/js/filestructure/storeFile.js";
 
 export default {
   data() {
