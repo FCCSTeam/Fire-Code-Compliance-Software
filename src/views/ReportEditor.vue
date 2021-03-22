@@ -24,7 +24,7 @@
 
 <script>
 import Navbar from "@/components/prefabs/navbar/Navbar.vue";
-import { getFileContent, getFileId } from "@/js/auth/data/storeFile.js";
+import { getFileContent, getFileId } from "@/js/filestructure/storeFile.js";
 import {
   getRecordBooks,
   getActiveTab,
