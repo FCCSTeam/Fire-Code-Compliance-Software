@@ -11,8 +11,8 @@
       :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Add Month/Week Entry"
-      ok-title="Continue"
+      title="Enter Month/Week Entry"
+      ok-title="Apply"
       ok-variant="primary"
       ok-only
       @ok="handleOk"
@@ -78,12 +78,11 @@
 </template>
 
 <script>
-import { getMonths, getWeeks } from "@/js/reporteditor/ModalData.js";
+import { getMonths, getWeeks, getErrorMessages } from "@/js/reporteditor/ModalData.js";
 import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
 export default {
-  name: "modalType1Monthly",
   components: {
     ModalButton,
     CreateEntryButton,
@@ -111,8 +110,6 @@ export default {
       weeks: getWeeks(),
       entry: {},
       error: null,
-      errorMessages: {duplicate: "Another entry with this month and week already exists"}
-
     };
   },
   computed: {
@@ -139,7 +136,7 @@ export default {
       for (const entry of this.recordBook.data.monthly) {
         if (entry.key) {
           if (entry.key == this.getNewEntryKey && entry.flag == true) {
-            this.error = errorMessages.duplicate;
+            this.error = getErrorMessages().duplicate;
             this.entryData.flag = true;
             break;
           }
@@ -155,7 +152,7 @@ export default {
       for (const entry of this.recordBook.data.monthly) {
         if (entry.key) {
           if (entry.key == this.getNewEntryKey && entry.flag == true) {
-            this.error = errorMessages.duplicate;
+            this.error = getErrorMessages().duplicate;
             break;
           }
         }
