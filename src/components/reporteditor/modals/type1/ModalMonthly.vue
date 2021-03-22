@@ -1,14 +1,14 @@
 <template>
-  <div id="modalType1MonthlyContainer">
+  <div class="modalContainer">
     <div v-if="isCreate">
-      <CreateEntryButton @trigger="$refs[getKey].show()" />
+      <CreateEntryButton @trigger="$refs[getUniqueID].show()" />
     </div>
     <div v-else>
-      <ModalButton @trigger="$refs[getKey].show()" />
+      <ModalButton @trigger="$refs[getUniqueID].show()" />
     </div>
     <b-modal
-      :id="getKey"
-      :ref="getKey"
+      :id="getUniqueID"
+      :ref="getUniqueID"
       size="lg"
       :static="true"
       title="Add Month/Week Entry"
@@ -18,8 +18,7 @@
       @ok="handleOk"
       :no-close-on-backdrop="true"
     >
-      <!-- <h1>Key: {{ getKey }}</h1> -->
-      <b-form class="modalType1MonthlyBody px-2">
+      <b-form class="px-2">
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="month" label="Month: ">
@@ -112,21 +111,23 @@ export default {
       weeks: getWeeks(),
       entry: {},
       error: null,
+      errorMessages: {duplicate: "Another entry with this month and week already exists"}
+
     };
   },
   computed: {
-    getKey() {
+    getUniqueID() {
       return this.uniqueID;
     },
+    getNewEntryKey() {
+      return this.entry.month + "," + this.entry.week
+    }
   },
   methods: {
-    show() {
-      this.$refs.modalType1Monthly.show();
-    },
     handleOk(bvModalEvt) {
       // Prevent modal from closing
       bvModalEvt.preventDefault();
-
+      this.error = null;
       if (this.isCreate) {
         this.createNewEntry();
       } else {
@@ -134,16 +135,11 @@ export default {
       }
     },
     updateCurrentEntry() {
-      //DUP CHECKING
-      this.error = null;
       this.entryData.flag = false; //to ignore itself during duplicate checking
-      let newKey = this.entry.month + "," + this.entry.week;
-
       for (const entry of this.recordBook.data.monthly) {
         if (entry.key) {
-          if (entry.key == newKey && entry.flag == true) {
-            this.error =
-              "Another entry with this month and week already exists";
+          if (entry.key == this.getNewEntryKey && entry.flag == true) {
+            this.error = errorMessages.duplicate;
             this.entryData.flag = true;
             break;
           }
@@ -151,54 +147,22 @@ export default {
       }
       if (!this.error) {
         //TODO make changes to data
-        for (const entry of this.recordBook.data.monthly) {
-          if (entry.key) {
-            if (entry.key === newKey) {
-              entry.month = this.entry.month;
-              entry.week = this.entry.week;
-              entry.inspectType = this.entry.type;
-              entry.sig = this.entry.signature;
-              entry.date = this.entry.date;
-              entry.remarks = this.entry.remarks;
-              entry.flag = true;
-            }
-          }
-        }
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getKey);
-        });
+        this.updateRecordBook();
+        this.closeModal();
       }
     },
     createNewEntry() {
-      this.error = null;
-      let newKey = this.entry.month + "," + this.entry.week;
       for (const entry of this.recordBook.data.monthly) {
         if (entry.key) {
-          if (entry.key == newKey && entry.flag == true) {
-            this.error =
-              "Another entry with this month and week already exists";
+          if (entry.key == this.getNewEntryKey && entry.flag == true) {
+            this.error = errorMessages.duplicate;
             break;
           }
         }
       }
       if (!this.error) {
-        //TODO make changes to data
-        for (const entry of this.recordBook.data.monthly) {
-          if (entry.key) {
-            if (entry.key === newKey && entry.flag == false) {
-              entry.month = this.entry.month;
-              entry.week = this.entry.week;
-              entry.inspectType = this.entry.type;
-              entry.sig = this.entry.signature;
-              entry.date = this.entry.date;
-              entry.remarks = this.entry.remarks;
-              entry.flag = true;
-            }
-          }
-        }
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getKey);
-        });
+        this.updateRecordBook();
+        this.closeModal();
         this.defaultModal();
       }
     },
@@ -213,6 +177,26 @@ export default {
       };
       this.error = null;
     },
+    updateRecordBook(){
+        for (const entry of this.recordBook.data.monthly) {
+          if (entry.key) {
+            if (entry.key === this.getNewEntryKey) {
+              entry.month = this.entry.month;
+              entry.week = "Week " + this.entry.week;
+              entry.inspectType = this.entry.type;
+              entry.sig = this.entry.signature;
+              entry.date = this.entry.date;
+              entry.remark = this.entry.remarks;
+              entry.flag = true;
+            }
+          }
+        }
+    },
+    closeModal(){
+        this.$nextTick(() => {
+          this.$bvModal.hide(this.getUniqueID);
+        });
+    }
   },
   mounted() {
     if (this.isCreate) {
@@ -227,7 +211,7 @@ export default {
         type: this.entryData.inspectType,
         signature: this.entryData.sig,
         date: this.entryData.date,
-        remarks: this.entryData.remarks,
+        remarks: this.entryData.remark,
       };
     }
   },
