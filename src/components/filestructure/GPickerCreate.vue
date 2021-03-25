@@ -212,9 +212,9 @@ export default {
   watch: {
     fileResult: {
       handler(newVal) {
-        if(this.fileResult.fileId && this.fileResult.parentId && this.fileResult.fileContent && this.fileResult.fileName)
+        if(this.fileResult.fileId && this.fileResult.parentId && this.fileResult.fileContent)
         {
-          setFile(this.fileResult.fileId, this.fileResult.fileContent, this.fileResult.fileName)
+          setFile(this.fileResult.fileId, this.fileResult.fileContent)
           this.$router.replace({ name: "ReportEditor" });
         }
         console.log(this.fileResult.id);

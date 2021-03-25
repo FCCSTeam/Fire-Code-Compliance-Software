@@ -1,9 +1,9 @@
 
 //TODO:
 //make reportfile into an object
-var reportFile = {fileId: null, content: null, name: null}; 
+var reportFile = {fileId: null, content: null}; 
 
-const setFile = (id,content, name) =>
+const setFile = (id,content) =>
 {
     let token = { error: null }
     if (id && content)
@@ -12,7 +12,6 @@ const setFile = (id,content, name) =>
         {
             reportFile.content = JSON.parse(content)
             reportFile.fileId = id
-            reportFile.name = name
         } 
         catch(err)
         {
@@ -26,11 +25,6 @@ const setFile = (id,content, name) =>
     }
     return token
     
-}
-
-const getName = () =>
-{
-    return reportFile.name
 }
 
 const getFile = () =>
@@ -49,4 +43,4 @@ const getFileContent = () =>
 }
 
 
-export {setFile, getFileContent, getFileId, getFile, getName}
+export {setFile, getFileContent, getFileId, getFile}
