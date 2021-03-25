@@ -1,25 +1,24 @@
 <template>
-  <div id="modalType1MonthlyContainer">
+  <div class="modalContainer">
     <div v-if="isCreate">
-      <CreateEntryButton @trigger="$refs[getKey].show()" />
+      <CreateEntryButton @trigger="$refs[getUniqueID].show()" />
     </div>
     <div v-else>
-      <ModalButton @trigger="$refs[getKey].show()" />
+      <ModalButton @trigger="$refs[getUniqueID].show()" />
     </div>
     <b-modal
-      :id="getKey"
-      :ref="getKey"
+      :id="getUniqueID"
+      :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Add Week Entry"
-      ok-title="Continue"
+      title="Enter Week Entry"
+      ok-title="Apply"
       ok-variant="primary"
       ok-only
       @ok="handleOk"
       :no-close-on-backdrop="true"
     >
-      <!-- <h1>Key: {{ getKey }}</h1> -->
-      <b-form class="modalType1MonthlyBody px-2"> 
+      <b-form class="px-2"> 
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="month" label="Month: ">
@@ -49,15 +48,15 @@
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-            <b-form-group label-for="id" label="Type and ID Num: ">
+            <b-form-group label-for="id" label="Type and ID #: ">
               <b-form-input v-model="entry.id"></b-form-input>
             </b-form-group>
           </b-col>
         </b-row>
-<!-- 3rd row -->
+
         <b-row align-h="between">
           <b-col cols="12" md="6">
-            <b-form-group label-for="type" label="Inspection Check Test:  ">
+            <b-form-group label-for="type" label="Inspection Check Test: ">
               <b-form-input v-model="entry.type"></b-form-input>
             </b-form-group>
           </b-col>
@@ -67,7 +66,6 @@
             </b-form-group>
           </b-col>
         </b-row>
-
 
         <b-row>
           <b-col cols="12">
@@ -83,12 +81,12 @@
 </template>
 
 <script>
-import { getMonths, getWeeks } from "@/js/reporteditor/ModalData.js";
+import { getMonths, getWeeks, getErrorMessages } from "@/js/reporteditor/ModalData.js";
 import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
 export default {
-  name: "AutoSprinklerWeeklyModal",
+  namee: "Modal_ASS_2_Weekly",
   components: {
     ModalButton,
     CreateEntryButton,
@@ -119,18 +117,22 @@ export default {
     };
   },
   computed: {
-    getKey() {
+    getUniqueID() {
       return this.uniqueID;
     },
+    getNewEntryKey() {
+      return this.entry.month + "," + this.entry.week
+    },
+    getRecordBookTabData(){
+      return this.recordBook.data.weekly
+    }
+
   },
   methods: {
-    show() {
-      this.$refs.modalType1Monthly.show();
-    },
     handleOk(bvModalEvt) {
       // Prevent modal from closing
       bvModalEvt.preventDefault();
-
+      this.error = null;
       if (this.isCreate) {
         this.createNewEntry();
       } else {
@@ -138,87 +140,71 @@ export default {
       }
     },
     updateCurrentEntry() {
-      //DUP CHECKING
-      this.error = null;
       this.entryData.flag = false; //to ignore itself during duplicate checking
-      let newKey = this.entry.month + "," + this.entry.week;
-
-      for (const entry of this.recordBook.data.weekly) {
+      for (const entry of this.getRecordBookTabData) {
         if (entry.key) {
-          if (entry.key == newKey && entry.flag == true) {
-            this.error =
-              "Another entry with this month and week already exists";
+          if (entry.key == this.getNewEntryKey && entry.flag == true) {
+            this.error = getErrorMessages().duplicate;
             this.entryData.flag = true;
             break;
           }
         }
       }
       if (!this.error) {
-        //TODO make changes to data
-        for (const entry of this.recordBook.data.weekly) {
-          if (entry.key) {
-            if (entry.key === newKey) {
-              entry.month = this.entry.month;
-              entry.week = this.entry.week;
-              entry.loc = this.entry.loc;
-              entry.id = this.entry.id;
-              entry.inspectType = this.entry.type;
-              entry.sig = this.entry.signature;
-              entry.remarks = this.entry.remarks;
-              entry.flag = true;
-            }
-          }
-        }
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getKey);
-        });
+        this.updateRecordBook();
+        this.closeModal();
       }
     },
     createNewEntry() {
-      this.error = null;
-      let newKey = this.entry.month + "," + this.entry.week;
-      for (const entry of this.recordBook.data.weekly) {
+      for (const entry of this.getRecordBookTabData) {
         if (entry.key) {
-          if (entry.key == newKey && entry.flag == true) {
-            this.error =
-              "Another entry with this month and week already exists";
+          if (entry.key == this.getNewEntryKey && entry.flag == true) {
+            this.error = getErrorMessages().duplicate;
             break;
           }
         }
       }
       if (!this.error) {
-        //TODO make changes to data
-        for (const entry of this.recordBook.data.weekly) {
-          if (entry.key) {
-            if (entry.key === newKey && entry.flag == false) {
-              entry.month = this.entry.month;
-              entry.week = this.entry.week;
-              entry.loc = this.entry.loc;
-              entry.id = this.entry.id;
-              entry.inspectType = this.entry.type;
-              entry.sig = this.entry.signature;
-              entry.remarks = this.entry.remarks;
-              entry.flag = true;
-            }
-          }
-        }
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getKey);
-        });
+        this.updateRecordBook();
+        this.closeModal();
         this.defaultModal();
       }
     },
+    //Resets a modal to default/empty values
     defaultModal() {
       this.entry = {
         month: getMonths()[0],
         week: getWeeks()[0],
+        loc: "",
+        id: "",
         type: "",
         signature: "",
-        date: "",
-        remarks: "",
+        remarks: ""
       };
       this.error = null;
     },
+    updateRecordBook(){
+      //Goes into the recordBook in the .js file and updates the books data with modal input
+        for (const entry of this.getRecordBookTabData) {
+          if (entry.key) {
+            if (entry.key === this.getNewEntryKey) {
+              entry.month = this.entry.month;
+              entry.week = "Week " + this.entry.week;
+              entry.loc = this.entry.loc;
+              entry.id = this.entry.id;
+              entry.inspectType = this.entry.type;
+              entry.sig = this.entry.signature;
+              entry.remark = this.entry.remarks;
+              entry.flag = true;
+            }
+          }
+        }
+    },
+    closeModal(){
+        this.$nextTick(() => {
+          this.$bvModal.hide(this.getUniqueID);
+        });
+    }
   },
   mounted() {
     if (this.isCreate) {
@@ -234,7 +220,7 @@ export default {
         id: this.entryData.id,
         type: this.entryData.inspectType,
         signature: this.entryData.sig,
-        remarks: this.entryData.remarks,
+        remarks: this.entryData.remark     
       };
     }
   },

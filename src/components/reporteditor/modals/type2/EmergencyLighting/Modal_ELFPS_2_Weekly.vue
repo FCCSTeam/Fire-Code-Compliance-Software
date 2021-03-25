@@ -11,7 +11,7 @@
       :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Enter Month/Week Entry"
+      title="Enter Week Entry"
       ok-title="Apply"
       ok-variant="primary"
       ok-only
@@ -84,6 +84,7 @@ import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
 export default {
+  name: "Modal_ELFPS_2_Weekly",
   components: {
     ModalButton,
     CreateEntryButton,
@@ -179,7 +180,9 @@ export default {
     updateRecordBook(){
         for (const entry of this.recordBook.data.weekly) {
           if (entry.key) {
+                          console.log("WOJERFWOI")
             if (entry.key === this.getNewEntryKey) {
+              console.log("WOJERFWOI")
               entry.month = this.entry.month;
               entry.week = "Week " + this.entry.week;
               entry.generator = this.entry.generator;

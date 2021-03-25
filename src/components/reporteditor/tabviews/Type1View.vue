@@ -1,7 +1,6 @@
 <template>
   <div id="Type1View">
     <h1 class="pb-2">{{ recordBook.title }}</h1>
-    <!-- <p>{{recordBook.data}}</p> -->
 
 <div>
   <b-tabs content-class="mt-3">
