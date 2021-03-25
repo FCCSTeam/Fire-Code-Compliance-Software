@@ -14,7 +14,7 @@ describe('PageNotFound.vue', () => {
   });
 
   it('Correct web page rendered', () => {
-    expect(wrapper.find("#userpage").exists()).to.be.true;
+    expect(wrapper.find("#pageNotFound").exists()).to.be.true;
   });  
 
   it('Navbar renders', () => {
