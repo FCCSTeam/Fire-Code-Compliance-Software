@@ -60,6 +60,7 @@ export default {
     },
     initData() {
       initRecordBook(getFileContent());
+      console.log('YOU HAVE REACHED HERE',getFileId())
     },
   },
 };
