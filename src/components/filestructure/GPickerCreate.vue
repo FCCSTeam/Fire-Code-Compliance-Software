@@ -32,6 +32,7 @@
 <script>
 import templateFile from '@/data/FCCS.json'
 import { setFile } from "@/js/filestructure/storeFile.js";
+
 export default {
   data() {
     return {
