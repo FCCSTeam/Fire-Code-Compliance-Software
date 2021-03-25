@@ -47,12 +47,12 @@
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="valve" label="Fire Water Main Valves: ">
-              <b-form-input v-model="entry.loc"></b-form-input>
+              <b-form-input v-model="entry.valve"></b-form-input>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
             <b-form-group label-for="id" label="Standpipe Pumps: ">
-              <b-form-input v-model="entry.id"></b-form-input>
+              <b-form-input v-model="entry.pipe"></b-form-input>
             </b-form-group>
           </b-col>
         </b-row>
@@ -141,7 +141,7 @@ export default {
     },
     updateCurrentEntry() {
       this.entryData.flag = false; //to ignore itself during duplicate checking
-      for (const entry of this.recordBook.data.weekly) {
+      for (const entry of this.recordBook.data.weekly6Monthly) {
         if (entry.key) {
           if (entry.key == newKey && entry.flag == true) {
             this.error = getErrorMessages().duplicate;
@@ -157,7 +157,7 @@ export default {
       }
     },
     createNewEntry() {
-      for (const entry of this.recordBook.data.weekly) {
+      for (const entry of this.recordBook.data.weekly6Monthly) {
         if (entry.key) {
           if (entry.key == this.getNewEntryKey && entry.flag == true) {
             this.error = getErrorMessages().duplicate;
@@ -176,15 +176,16 @@ export default {
       this.entry = {
         month: getMonths()[0],
         week: getWeeks()[0],
+        valve: "",
+        pipe: "",
         type: "",
         signature: "",
-        date: "",
-        remarks: "",
+        remarks: "" 
       };
       this.error = null;
     },
     updateRecordBook(){
-        for (const entry of this.recordBook.data.monthly) {
+        for (const entry of this.recordBook.data.weekly6Monthly) {
           if (entry.key) {
             if (entry.key === this.getNewEntryKey) {
               entry.month = this.entry.month;
