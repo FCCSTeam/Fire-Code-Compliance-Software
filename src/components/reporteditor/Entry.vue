@@ -1,12 +1,17 @@
 <template>
   <div class="entry-container">
-    <b-container class=" mx-0 px-0 mb-2" v-if="entryData.flag === true">
+    <b-container class=" mx-0 px-0 mb-2" v-if="ignoreFlag || entryData.flag === true">
       <b-list-group horizontal>
         <b-list-group-item
           class="flex-fill nowrap"
           v-for="i in previewScope"
           :key="i"
         >
+          <!-- <span>
+          {{
+            Object.keys(entryData)[i - 1] + ": "
+          }}
+          </span> -->
           <span>
           {{
             entryData[Object.keys(entryData)[i - 1]]
@@ -34,10 +39,22 @@ export default {
       type: Number,
       required: true,
     },
+    ignoreFlag: {
+      type: Boolean,
+    }
   },
   methods : {
     deleteEntry(){
-      this.entryData.flag = false;
+      if (this.ignoreFlag)
+      {
+        //this entry does not use a flag. Info is actually deleted rather than hidden
+        this.$emit('deleteEntry')
+      }
+      else
+      {
+        //this entry uses a flag to show/hide info
+        this.entryData.flag = false;
+      }
     }
   }
 };
