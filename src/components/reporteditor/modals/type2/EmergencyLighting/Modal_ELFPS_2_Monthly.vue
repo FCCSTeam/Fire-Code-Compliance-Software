@@ -84,6 +84,7 @@ import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
 export default {
+  name: "Modal_ELFPS_2_Monthly",
   components: {
     ModalButton,
     CreateEntryButton,

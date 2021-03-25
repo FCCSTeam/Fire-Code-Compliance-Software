@@ -91,6 +91,7 @@ import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
 export default {
+  name: "Modal_FWS_2_Weekly_6_Monthly",
   components: {
     ModalButton,
     CreateEntryButton,
