@@ -67,7 +67,7 @@ export default {
   data() {
     return {
       currentUser: getActiveUser(),
-      isAdmin: false,
+      isAdmin: true,
       createUserCollapsed: false,
     };
   },

@@ -5,6 +5,8 @@ import { localVue } from '../setup.js'
 //components to test
 import ReportEditor from '@/views/ReportEditor.vue'
 import Navbar from '@/components/prefabs/navbar/Navbar.vue'
+import Sidemenu from '@/components/reporteditor/sidemenu/Sidemenu.vue'
+import Sidebar from '@/components/reporteditor/sidemenu/Sidebar.vue'
 import { BButton, BModal } from 'bootstrap-vue';
 
 describe('ReportEditor.vue', () => {
@@ -20,7 +22,15 @@ describe('ReportEditor.vue', () => {
 
   it('Navbar renders', () => {
     expect(wrapper.findComponent(Navbar).exists()).to.be.true;
-  });  
+  });
+
+  // it('Sidebar button renders', () => {
+  //   expect(wrapper.findComponent(BButton).exists()).to.be.true;
+  // });  
+
+  // it('Sidemenu renders', () => {
+  //   expect(wrapper.findComponent(Sidebar).exists()).to.be.true;
+  // });  
 
 });
 
