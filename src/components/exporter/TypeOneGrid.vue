@@ -8,11 +8,11 @@
     <!-- Doc 1, Sheet 1: Monthly -->
     <ejs-grid ref='firDepAcc_g1' id='FirstGrid' :dataSource='firDepAcc_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireDept' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="Week #" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="Inspection type" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="Signature" textAlign="Left"></e-column>
-        <e-column field="date" headerText="Date of Inspection" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
+        <e-column field="sig" headerText="" textAlign="Left"></e-column>
+        <e-column field="date" headerText="" textAlign="Left"></e-column>
+        <e-column field="remark" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
     <!-- Doc 1, Sheet 2: Locations-->
@@ -20,7 +20,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
     
@@ -31,11 +31,11 @@
     <!-- Doc 2, Sheet 1: Monthly -->
     <ejs-grid ref='firHaz_g1' id='ThirdGrid' :dataSource='firHaz_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireHaz' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="Week #" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="Inspection Type" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="Signature" textAlign="Left"></e-column>
-        <e-column field="date" headerText="Date of Inspection" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
+        <e-column field="sig" headerText="" textAlign="Left"></e-column>
+        <e-column field="date" headerText="" textAlign="Left"></e-column>
+        <e-column field="remark" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -44,7 +44,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -55,11 +55,11 @@
     <!-- Doc 3, Sheet 1: Monthly -->
     <ejs-grid ref='HighBld_g1' id='FifthGrid' :dataSource='HighBld_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportHighBld' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="Week #" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="Inspection Type" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="Signature" textAlign="Left"></e-column>
-        <e-column field="date" headerText="Date of Inspection" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
+        <e-column field="sig" headerText="" textAlign="Left"></e-column>
+        <e-column field="date" headerText="" textAlign="Left"></e-column>
+        <e-column field="remark" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -68,7 +68,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -79,11 +79,11 @@
     <!-- Doc 4, Sheet 1: Monthly -->
     <ejs-grid ref='meanEgr_g1' id='SeventhGrid' :dataSource='meanEgr_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportMeanEg' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="Week #" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="Inspection Type" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="Signature" textAlign="Left"></e-column>
-        <e-column field="date" headerText="Date of Inspection" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
+        <e-column field="sig" headerText="" textAlign="Left"></e-column>
+        <e-column field="date" headerText="" textAlign="Left"></e-column>
+        <e-column field="remark" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -92,7 +92,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -103,11 +103,11 @@
     <!-- Doc 5, Sheet 1: Monthly -->
     <ejs-grid ref='servEquip_g1' id='NinthGrid' :dataSource='servEquip_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportServEqp' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="Week #" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="Inspection Type" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="Signature" textAlign="Left"></e-column>
-        <e-column field="date" headerText="Date of Inspection" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
+        <e-column field="sig" headerText="" textAlign="Left"></e-column>
+        <e-column field="date" headerText="" textAlign="Left"></e-column>
+        <e-column field="remark" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -116,7 +116,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -127,11 +127,11 @@
     <!-- Doc 6, Sheet 1: Monthly -->
     <ejs-grid ref='smokeAlarm_g1' id='EleventhGrid' :dataSource='smokeAlarm_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportSmokeAlarms' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="Week #" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="Inspection Type" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="Signature" textAlign="Left"></e-column>
-        <e-column field="date" headerText="Date of Inspection" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
+        <e-column field="sig" headerText="" textAlign="Left"></e-column>
+        <e-column field="date" headerText="" textAlign="Left"></e-column>
+        <e-column field="remark" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -140,7 +140,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -151,11 +151,11 @@
     <!-- Doc 7, Sheet 1: Monthly -->
     <ejs-grid ref='stdPipe_g1' id='ThriteenthGrid' :dataSource='stdPipe_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportStandPipe' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="Week #" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="Inspection Type" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="Signature" textAlign="Left"></e-column>
-        <e-column field="date" headerText="Date of Inspection" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
+        <e-column field="sig" headerText="" textAlign="Left"></e-column>
+        <e-column field="date" headerText="" textAlign="Left"></e-column>
+        <e-column field="remark" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -164,7 +164,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="Remarks" textAlign="Left"></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
       </e-columns>
     </ejs-grid>
   </div>
