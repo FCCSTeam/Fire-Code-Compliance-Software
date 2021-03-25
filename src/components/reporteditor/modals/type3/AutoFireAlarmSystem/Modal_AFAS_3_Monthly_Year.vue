@@ -43,25 +43,24 @@
 
         <b-row align-h="between">
           <b-col cols="12" md="6">
-            <b-form-group label-for="generator" label="Diesel Generators: ">
-              <b-form-input v-model="entry.generator"></b-form-input>
-            </b-form-group>
-          </b-col>
-          <b-col cols="12" md="6">
-            <b-form-group label-for="level" label="Fuel Level, Batteries, Misc: ">
-              <b-form-input v-model="entry.level"></b-form-input>
-            </b-form-group>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="12" md="6">
-            <b-form-group label-for="type" label="Inspection Check Test Weekly: ">
+            <b-form-group label-for="type" label="Inspection Check Test: ">
               <b-form-input v-model="entry.type"></b-form-input>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
             <b-form-group label-for="signature" label="Signature: ">
               <b-form-input v-model="entry.signature"></b-form-input>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="6">
+            <b-form-group label-for="date" label="Date: ">
+              <b-form-datepicker
+                v-model="entry.date"
+                today-button
+                close-button
+              ></b-form-datepicker>
             </b-form-group>
           </b-col>
         </b-row>
@@ -134,7 +133,7 @@ export default {
     },
     updateCurrentEntry() {
       this.entryData.flag = false; //to ignore itself during duplicate checking
-      for (const entry of this.recordBook.data.weekly) {
+      for (const entry of this.recordBook.data.monthly_year) {
         if (entry.key) {
           if (entry.key == this.getNewEntryKey && entry.flag == true) {
             this.error = getErrorMessages().duplicate;
@@ -150,7 +149,7 @@ export default {
       }
     },
     createNewEntry() {
-      for (const entry of this.recordBook.data.weekly) {
+      for (const entry of this.recordBook.data.monthly_year) {
         if (entry.key) {
           if (entry.key == this.getNewEntryKey && entry.flag == true) {
             this.error = getErrorMessages().duplicate;
@@ -168,24 +167,33 @@ export default {
       this.entry = {
         month: getMonths()[0],
         week: getWeeks()[0],
-        generator: "",
-        level: "",
-        type: "",
-        signature: "",
+        type_1A: "",
+        type_1B: "",
+        type_2A: "",
+        type_2B: "",
+        type_2C: "",
+        type_2D: "",
+        type_3A: "",
+        type_4A: "",
+        type_4B: "",
+        alarmType: "",
+        locationEmergPhone: "",
+        locationVoicePage: "", 
+        sig: "",
+        date: "",
         remarks: "",
       };
       this.error = null;
     },
     updateRecordBook(){
-        for (const entry of this.recordBook.data.weekly) {
+        for (const entry of this.recordBook.data.monthly_year) {
           if (entry.key) {
             if (entry.key === this.getNewEntryKey) {
               entry.month = this.entry.month;
               entry.week = "Week " + this.entry.week;
-              entry.generator = this.entry.generator;
-              entry.level = this.entry.level; 
               entry.inspectType = this.entry.type;
               entry.sig = this.entry.signature;
+              entry.date = this.entry.date;
               entry.remark = this.entry.remarks;
               entry.flag = true;
             }
@@ -208,10 +216,9 @@ export default {
       this.entry = {
         month: keys[0],
         week: keys[1],
-        generator: this.entryData.generator,
-        level: this.entryData.level,
         type: this.entryData.inspectType,
         signature: this.entryData.sig,
+        date: this.entryData.date,
         remarks: this.entryData.remark,
       };
     }

@@ -166,7 +166,6 @@ export default {
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         this.fileResult.parentId = data.docs[0].id;
         this.makeFile(this.fileResult.parentId, this.fileResult);
-        this.$router.replace({ name: "ReportEditor" });
       }
 
       
@@ -202,21 +201,22 @@ export default {
             });
               request.execute(function (resp) {
                 console.log("resp: ", resp);
-                dataFileId.id = result.result.id;
+                dataFileId.id = result.result.id; 
               });
           });
       });
-      console.log("in method makefile ", file);
       this.fileContent = file
-      return file;
+      setFile(this.fileResult.id,this.fileContent)
+      console.log('STUFF INSIDE FILECONTENT', this.fileContent)
+      this.$router.replace({ name: "ReportEditor" });
     },
   },
   //watcher method
   watch: {
     fileResult: {
       handler(newVal) {
-        console.log(this.fileResult.id);
-        setFile(this.fileResult.id,this.fileContent)
+        console.log('we are here:', this.fileResult.id);
+       
       },
       deep: true,
     },
