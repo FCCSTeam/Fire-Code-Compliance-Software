@@ -11,7 +11,7 @@
       :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Enter Month/Week Entry"
+      title="Enter Monthly Entry"
       ok-title="Apply"
       ok-variant="primary"
       ok-only

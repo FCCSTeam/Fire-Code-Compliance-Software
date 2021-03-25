@@ -180,6 +180,7 @@ export default {
     updateRecordBook(){
         for (const entry of this.recordBook.data.weekly) {
           if (entry.key) {
+                          console.log("WOJERFWOI")
             if (entry.key === this.getNewEntryKey) {
               console.log("WOJERFWOI")
               entry.month = this.entry.month;

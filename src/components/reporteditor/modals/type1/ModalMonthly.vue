@@ -163,6 +163,7 @@ export default {
         this.defaultModal();
       }
     },
+    //Resets a modal to default/empty values
     defaultModal() {
       this.entry = {
         month: getMonths()[0],
@@ -175,6 +176,7 @@ export default {
       this.error = null;
     },
     updateRecordBook(){
+      //Goes into the recordBook in the .js file and updates the books data with modal input
         for (const entry of this.recordBook.data.monthly) {
           if (entry.key) {
             if (entry.key === this.getNewEntryKey) {
