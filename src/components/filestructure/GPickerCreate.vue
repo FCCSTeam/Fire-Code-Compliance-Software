@@ -32,7 +32,6 @@
 <script>
 import templateFile from '@/data/FCCS.json'
 import { setFile } from "@/js/filestructure/storeFile.js";
-
 export default {
   data() {
     return {
@@ -47,8 +46,7 @@ export default {
         "1085587302993-vdlu23buqvcumu31ffkfmt5umi9i7g6s.apps.googleusercontent.com", //Google project OAuth Client ID
       scope: "https://www.googleapis.com/auth/drive", //scope is set for readonly
       oauthToken: null,
-      fileResult: { id: null, parentId: null },
-      fileContent : null
+      fileResult: { fileId: null, parentId: null, fileContent: null, fileName: null },
       //folderId: null,
     };
   },
@@ -165,15 +163,15 @@ export default {
     async pickerCallback(data) {
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         this.fileResult.parentId = data.docs[0].id;
-        this.makeFile(this.fileResult.parentId, this.fileResult);
+        this.makeFile(this.fileResult);
       }
 
       
     },
-    makeFile(folderId, dataFileId) {
+    makeFile(resultFile) {
       console.log("File Name at makeFile: ", this.newFileName) //REMOVE
-      var file; 
       var baseReport = templateFile
+      resultFile.fileContent = JSON.stringify(baseReport)
       var fileMetadata = {
         name: this.tempFileName,
         mimeType: "application/json",
@@ -187,7 +185,7 @@ export default {
           .create({
             name: fileMetadata.name,
             mimeType: fileMetadata.mimeType,
-            parents: [folderId],
+            parents: [resultFile.parentId],
             resource: fileMetadata,
             params: { uploadType: "media" },
             fields: "id",
@@ -201,22 +199,25 @@ export default {
             });
               request.execute(function (resp) {
                 console.log("resp: ", resp);
-                dataFileId.id = result.result.id; 
+                resultFile.fileId = result.result.id;
+                resultFile.fileName = result.result.name;
               });
           });
       });
-      this.fileContent = file
-      setFile(this.fileResult.id,this.fileContent)
-      console.log('STUFF INSIDE FILECONTENT', this.fileContent)
-      this.$router.replace({ name: "ReportEditor" });
+      
+      //
     },
   },
   //watcher method
   watch: {
     fileResult: {
       handler(newVal) {
-        console.log('we are here:', this.fileResult.id);
-       
+        if(this.fileResult.fileId && this.fileResult.parentId && this.fileResult.fileContent && this.fileResult.fileName)
+        {
+          setFile(this.fileResult.fileId, this.fileResult.fileContent, this.fileResult.fileName)
+          this.$router.replace({ name: "ReportEditor" });
+        }
+        console.log(this.fileResult.id);
       },
       deep: true,
     },
