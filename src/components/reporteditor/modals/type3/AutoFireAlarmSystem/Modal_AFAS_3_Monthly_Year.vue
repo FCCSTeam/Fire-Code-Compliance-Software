@@ -11,7 +11,7 @@
       :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Enter Month/Week Entry"
+      title="Enter Month Entry"
       ok-title="Apply"
       ok-variant="primary"
       ok-only
@@ -43,31 +43,121 @@
 
         <b-row align-h="between">
           <b-col cols="12" md="6">
-            <b-form-group label-for="type" label="Inspection Check Test: ">
-              <b-form-input v-model="entry.type"></b-form-input>
+            <b-form-group label-for="entry_1A" label="Inspect (1A): ">
+              <b-form-select
+                v-model="entry.entry_1A"
+                :options="tests" 
+                class=""
+              ></b-form-select>
             </b-form-group>
           </b-col>
+          <b-col cols="12" md="6">
+            <b-form-group label-for="entry_1B" label="Inspect (1B): ">
+              <b-form-select
+                v-model="entry.entry_1B"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row align-h="between">
+          <b-col cols="12" md="3">
+            <b-form-group label-for="alarmType" label="Fire Alarm Location: ">
+              <b-form-input v-model="entry.alarmType"></b-form-input>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="2">
+            <b-form-group label-for="entry_2A" label="2A: ">
+              <b-form-select
+                v-model="entry.entry_2A"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+         <b-col cols="12" md="2">
+            <b-form-group label-for="entry_2B" label="2B: ">
+              <b-form-select
+                v-model="entry.entry_2B"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="2">
+            <b-form-group label-for="entry_2C" label="2C: ">
+              <b-form-select
+                v-model="entry.entry_2C"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="2">
+            <b-form-group label-for="entry_2D" label="2D: ">
+              <b-form-select
+                v-model="entry.entry_2D"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12">
+            <b-form-group label-for="entry_3A" label="Signal Receiving Centre (3A): ">
+              <b-form-select
+                v-model="entry.entry_3A"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12" md="3">
+            <b-form-group label-for="locationEmergPhone" label="Loc. of Emerg. Phone: ">
+              <b-form-input v-model="entry.locationEmergPhone"></b-form-input>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="3">
+            <b-form-group label-for="entry_4A" label="4A: ">
+              <b-form-select
+                v-model="entry.entry_2D"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="3">
+            <b-form-group label-for="locationVoicePage" label="Loc. of Voice Pager: ">
+              <b-form-input v-model="entry.locationVoicePage"></b-form-input>
+            </b-form-group>
+          </b-col>
+          <b-col cols="12" md="3">
+            <b-form-group label-for="entry_4B" label="4B: ">
+              <b-form-select
+                v-model="entry.entry_2D"
+                :options="tests"
+                class=""
+              ></b-form-select>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <b-row>
           <b-col cols="12" md="6">
             <b-form-group label-for="signature" label="Signature: ">
               <b-form-input v-model="entry.signature"></b-form-input>
             </b-form-group>
           </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="6">
+          <b-col cols="12" md="6">
             <b-form-group label-for="date" label="Date: ">
               <b-form-datepicker
                 v-model="entry.date"
                 today-button
                 close-button
               ></b-form-datepicker>
-            </b-form-group>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="12">
-            <b-form-group label-for="remarks" label="Remarks: ">
-              <b-form-input v-model="entry.remarks"></b-form-input>
             </b-form-group>
           </b-col>
         </b-row>
@@ -110,6 +200,7 @@ export default {
       weeks: getWeeks(),
       entry: {},
       error: null,
+      tests: ["S", "U", "N/A", "N/T "],
     };
   },
   computed: {
@@ -167,15 +258,15 @@ export default {
       this.entry = {
         month: getMonths()[0],
         week: getWeeks()[0],
-        type_1A: "",
-        type_1B: "",
-        type_2A: "",
-        type_2B: "",
-        type_2C: "",
-        type_2D: "",
-        type_3A: "",
-        type_4A: "",
-        type_4B: "",
+        entry_1A: "",
+        entry_1B: "",
+        entry_2A: "",
+        entry_2B: "",
+        entry_2C: "",
+        entry_2D: "",
+        entry_3A: "",
+        entry_4A: "",
+        entry_4B: "",
         alarmType: "",
         locationEmergPhone: "",
         locationVoicePage: "", 
@@ -191,11 +282,22 @@ export default {
             if (entry.key === this.getNewEntryKey) {
               entry.month = this.entry.month;
               entry.week = "Week " + this.entry.week;
-              entry.inspectType = this.entry.type;
               entry.sig = this.entry.signature;
               entry.date = this.entry.date;
               entry.remark = this.entry.remarks;
               entry.flag = true;
+              entry.entry_1A = this.entry_1A;
+              entry.entry_1B = this.entry_1B;
+              entry.entry_2A = this.entry_2A;
+              entry.entry_2B = this.entry_2B;
+              entry.entry_2C = this.entry_2C;
+              entry.entry_2D = this.entry_2D;
+              entry.entry_3A = this.entry_3A;
+              entry.entry_4A = this.entry_4A;
+              entry.entry_4B = this.entry_4B;
+              entry.alarmType = this.alarmType;
+              entry.locationEmergPhone = this.locationEmergPhone;
+              entry.locationVoicePage = this.locationVoicePage;
             }
           }
         }
@@ -216,10 +318,21 @@ export default {
       this.entry = {
         month: keys[0],
         week: keys[1],
-        type: this.entryData.inspectType,
         signature: this.entryData.sig,
         date: this.entryData.date,
         remarks: this.entryData.remark,
+        entry_1A: this.entryData.entry_1A,
+        entry_1B: this.entryData.entry_1B,
+        entry_2A: this.entryData.entry_2A,
+        entry_2B: this.entryData.entry_2B,
+        entry_2C: this.entryData.entry_2C,
+        entry_2D: this.entryData.entry_2D,
+        entry_3A: this.entryData.entry_3A,
+        entry_4A: this.entryData.entry_4A,
+        entry_4B: this.entryData.entry_4B,
+        alarmType: this.entryData.alarmType,
+        locationEmergPhone: this.entryData.locationEmergPhone,
+        locationVoicePage: this.entryData.locationVoicePage, 
       };
     }
   },
