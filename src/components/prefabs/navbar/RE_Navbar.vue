@@ -16,11 +16,9 @@
         </b-navbar-brand>
       </b-navbar-brand>
 
-      <b-collapse id="MainNavbarCollapse" is-nav v-if="activeUser">
         <b-navbar-nav class="ml-auto">
             <Modal_RE_Navbar_Exit />
         </b-navbar-nav>
-      </b-collapse>
     </b-navbar>
 
     <div id="navbar-spacer">&nbsp;</div>
