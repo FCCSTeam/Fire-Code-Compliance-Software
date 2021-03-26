@@ -8,11 +8,12 @@
       size="md"
       :static="true"
       title="Exit Report Editor?"
-      ok-title="Exit"
+      ok-title="Exit to Home Screen"
       ok-variant="primary"
       @ok="handleOk"
     >
-    <p class="text-danger">Unsaved changes will be lost!</p>
+    <span class="text-danger">Unsaved changes will be lost!</span><br>
+    <div class="text-secondary mt-2">Ensure all changes are saved to the cloud by clicking the save icon! </div>
     </b-modal>
   </div>
 </template>
