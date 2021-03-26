@@ -8,19 +8,19 @@
     <!-- Doc 1, Sheet 1: Monthly -->
     <ejs-grid ref='firDepAcc_g1' id='FirstGrid' :dataSource='firDepAcc_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireDept' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="" textAlign="Left"></e-column>
-        <e-column field="date" headerText="" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
     <!-- Doc 1, Sheet 2: Locations-->
     <ejs-grid ref='firDepAcc_g2' id='SecondGrid' :dataSource='firDepAcc_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireDept' v-show='showGrid'>
       <e-columns>
-        <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
+        <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
     
@@ -31,20 +31,20 @@
     <!-- Doc 2, Sheet 1: Monthly -->
     <ejs-grid ref='firHaz_g1' id='ThirdGrid' :dataSource='firHaz_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireHaz' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="" textAlign="Left"></e-column>
-        <e-column field="date" headerText="" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
     <!-- Doc 2, Sheet 2: Locations-->
     <ejs-grid ref='firHaz_g2' id='FourthGrid' :dataSource='firHaz_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireHaz' v-show='showGrid'>
       <e-columns>
-        <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
+        <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -55,20 +55,20 @@
     <!-- Doc 3, Sheet 1: Monthly -->
     <ejs-grid ref='HighBld_g1' id='FifthGrid' :dataSource='HighBld_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportHighBld' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="" textAlign="Left"></e-column>
-        <e-column field="date" headerText="" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
     <!-- Doc 3, Sheet 2: Locations-->
     <ejs-grid ref='HighBld_g2' id='SixthGrid' :dataSource='HighBld_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportHighBld' v-show='showGrid'>
       <e-columns>
-        <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
+        <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -79,20 +79,20 @@
     <!-- Doc 4, Sheet 1: Monthly -->
     <ejs-grid ref='meanEgr_g1' id='SeventhGrid' :dataSource='meanEgr_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportMeanEg' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="" textAlign="Left"></e-column>
-        <e-column field="date" headerText="" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
     <!-- Doc 4, Sheet 2: Locations-->
     <ejs-grid ref='meanEgr_g2' id='EighthGrid' :dataSource='meanEgr_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportMeanEg' v-show='showGrid'>
       <e-columns>
-        <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
+        <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -103,20 +103,20 @@
     <!-- Doc 5, Sheet 1: Monthly -->
     <ejs-grid ref='servEquip_g1' id='NinthGrid' :dataSource='servEquip_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportServEqp' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="" textAlign="Left"></e-column>
-        <e-column field="date" headerText="" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
     <!-- Doc 5, Sheet 2: Locations-->
     <ejs-grid ref='servEquip_g2' id='TenthGrid' :dataSource='servEquip_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportServEqp' v-show='showGrid'>
       <e-columns>
-        <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
+        <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -127,20 +127,20 @@
     <!-- Doc 6, Sheet 1: Monthly -->
     <ejs-grid ref='smokeAlarm_g1' id='EleventhGrid' :dataSource='smokeAlarm_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportSmokeAlarms' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="" textAlign="Left"></e-column>
-        <e-column field="date" headerText="" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
     <!-- Doc 6, Sheet 2: Locations-->
     <ejs-grid ref='smokeAlarm_g2' id='TwelfthGrid' :dataSource='smokeAlarm_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportSmokeAlarms' v-show='showGrid'>
       <e-columns>
-        <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
+        <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
@@ -151,20 +151,20 @@
     <!-- Doc 7, Sheet 1: Monthly -->
     <ejs-grid ref='stdPipe_g1' id='ThriteenthGrid' :dataSource='stdPipe_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportStandPipe' v-show="showGrid">
       <e-columns>
-        <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="inspectType" headerText="" textAlign="Left"></e-column>
-        <e-column field="sig" headerText="" textAlign="Left"></e-column>
-        <e-column field="date" headerText="" textAlign="Left"></e-column>
-        <e-column field="remark" headerText="" textAlign="Left"></e-column>
+        <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="inspectType" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
 
     <!-- Doc 7, Sheet 2: Locations-->
     <ejs-grid ref='stdPipe_g2' id='FourteenthGrid' :dataSource='stdPipe_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportStandPipe' v-show='showGrid'>
       <e-columns>
-        <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left"></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left"></e-column>
+        <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+        <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
   </div>

@@ -11,10 +11,10 @@
         <!-- Doc 1, Sheet 1: Legend_Devices-->
         <ejs-grid ref='fire_alarm_g1' id='FirstGrid' :dataSource='fire_alarm_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
-                <e-column field="device" headerText="Device" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="description" headerText="Description" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="type" headerText="Type" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="modelNum" headerText="Model Number" textAlign="Left" :isPrimaryKey='true'></e-column>
+                <e-column field="device" headerText="Device" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+                <e-column field="description" headerText="Description" textAlign="Left" width=120></e-column>
+                <e-column field="type" headerText="Type" textAlign="Left" width=120></e-column>
+                <e-column field="modelNum" headerText="Model Number" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
 
@@ -22,20 +22,20 @@
         <!-- Header Titles sometimes are too long-->
         <ejs-grid ref='fire_alarm_g3' id='ThirdGrid' :dataSource='fire_alarm_s3' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
-                <e-column field="week" headerText="Week" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="1A" headerText="1A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="1B" headerText="1B" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="alarmType" headerText="Alarm Type" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2A" headerText="2A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2B" headerText="2B" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2C" headerText="2C" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2D" headerText="2D" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="3A" headerText="3A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="locationEmergPhone" headerText="Phone Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="4A" headerText="4A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="locationVoicePage" headerText="Voice Page Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="4B" headerText="4B" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="sig" headerText="sig" textAlign="Left" :isPrimaryKey='true'></e-column>
+                <e-column field="week" headerText="Week" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+                <e-column field="1A" headerText="1A" textAlign="Left" width=120></e-column>
+                <e-column field="1B" headerText="1B" textAlign="Left" width=120></e-column>
+                <e-column field="alarmType" headerText="Alarm Type" textAlign="Left" width=120></e-column>
+                <e-column field="2A" headerText="2A" textAlign="Left" width=120></e-column>
+                <e-column field="2B" headerText="2B" textAlign="Left" width=120></e-column>
+                <e-column field="2C" headerText="2C" textAlign="Left" width=120></e-column>
+                <e-column field="2D" headerText="2D" textAlign="Left" width=120></e-column>
+                <e-column field="3A" headerText="3A" textAlign="Left" width=120></e-column>
+                <e-column field="locationEmergPhone" headerText="Phone Location" textAlign="Left" width=120></e-column>
+                <e-column field="4A" headerText="4A" textAlign="Left" width=120></e-column>
+                <e-column field="locationVoicePage" headerText="Voice Page Location" textAlign="Left" width=120></e-column>
+                <e-column field="4B" headerText="4B" textAlign="Left" width=120></e-column>
+                <e-column field="sig" headerText="sig" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
 
@@ -43,20 +43,20 @@
 
         <ejs-grid ref='fire_alarm_g5' id='FifthGrid' :dataSource='fire_alarm_s5' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
-                <e-column field="week" headerText="Week" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="1A" headerText="1A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="1B" headerText="1B" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="alarmType" headerText="Alarm Type" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2A" headerText="2A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2B" headerText="2B" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2C" headerText="2C" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="2D" headerText="2D" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="3A" headerText="3A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="locationEmergPhone" headerText="Phone Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="4A" headerText="4A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="locationVoicePage" headerText="Voice Page Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="4B" headerText="4B" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="sig" headerText="Signature" textAlign="Left" :isPrimaryKey='true'></e-column>
+                <e-column field="week" headerText="Week" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+                <e-column field="1A" headerText="1A" textAlign="Left" width=120></e-column>
+                <e-column field="1B" headerText="1B" textAlign="Left" width=120></e-column>
+                <e-column field="alarmType" headerText="Alarm Type" textAlign="Left" width=120></e-column>
+                <e-column field="2A" headerText="2A" textAlign="Left" width=120></e-column>
+                <e-column field="2B" headerText="2B" textAlign="Left" width=120></e-column>
+                <e-column field="2C" headerText="2C" textAlign="Left" width=120></e-column>
+                <e-column field="2D" headerText="2D" textAlign="Left" width=120></e-column>
+                <e-column field="3A" headerText="3A" textAlign="Left" width=120></e-column>
+                <e-column field="locationEmergPhone" headerText="Phone Location" textAlign="Left" width=120></e-column>
+                <e-column field="4A" headerText="4A" textAlign="Left" width=120></e-column>
+                <e-column field="locationVoicePage" headerText="Voice Page Location" textAlign="Left" width=120></e-column>
+                <e-column field="4B" headerText="4B" textAlign="Left" width=120></e-column>
+                <e-column field="sig" headerText="Signature" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
 
@@ -64,15 +64,15 @@
 
          <ejs-grid ref='fire_alarm_g8' id='EighthGrid' :dataSource='fire_alarm_s8' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
-                <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="deviceType" headerText="Device Type" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="A" headerText="A" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="B1" headerText="B1" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="B2" headerText="B2" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="C" headerText="C" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="D" headerText="D" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="E" headerText="E" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="remarks" headerText="Remarks" textAlign="Left" :isPrimaryKey='true'></e-column>
+                <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+                <e-column field="deviceType" headerText="Device Type" textAlign="Left" width=120></e-column>
+                <e-column field="A" headerText="A" textAlign="Left" width=120></e-column>
+                <e-column field="B1" headerText="B1" textAlign="Left" width=120></e-column>
+                <e-column field="B2" headerText="B2" textAlign="Left" width=120></e-column>
+                <e-column field="C" headerText="C" textAlign="Left" width=120></e-column>
+                <e-column field="D" headerText="D" textAlign="Left" width=120></e-column>
+                <e-column field="E" headerText="E" textAlign="Left" width=120></e-column>
+                <e-column field="remarks" headerText="Remarks" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
         
@@ -80,9 +80,9 @@
 
         <ejs-grid ref='fire_alarm_g9' id='NinthGrid' :dataSource='fire_alarm_s9' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
-                <e-column field="location" headerText="Location" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="deviceType" headerText="Device Type" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="remark" headerText="Remark" textAlign="Left" :isPrimaryKey='true'></e-column>
+                <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+                <e-column field="deviceType" headerText="Device Type" textAlign="Left" width=120></e-column>
+                <e-column field="remark" headerText="Remark" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
 
@@ -92,25 +92,25 @@
         <!-- Doc 2, Sheet 1: Monthly -->
         <ejs-grid ref='firExt_g1' id='SixthGrid' :dataSource='firExt_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireExtinguisher' v-show="showGrid">
             <e-columns>
-                <e-column field="week" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-                <e-column field="sig" headerText="" textAlign="Left"></e-column>
-                <e-column field="date" headerText="" textAlign="Left"></e-column>
-                <e-column field="remark" headerText="" textAlign="Left"></e-column>
+                <e-column field="week" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+                <e-column field="sig" headerText="" textAlign="Left" width=120></e-column>
+                <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+                <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
 
         <!-- Doc 2, Sheet 2: Locations-->
         <ejs-grid ref='firExt_g2' id='SeventhGrid' :dataSource='firExt_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireExtinguisher' v-show='showGrid'>
         <e-columns>
-            <e-column field="location" headerText="" textAlign="Left" :isPrimaryKey='true'></e-column>
-            <e-column field="date" headerText="" textAlign="Left"></e-column>
-            <e-column field="serialNum" headerText="" textAlign="Left"></e-column>
-            <e-column field="sizeTypeLabel" headerText="" textAlign="Left"></e-column>
-            <e-column field="items" headerText="" textAlign="Left"></e-column>
-            <e-column field="annualService" headerText="" textAlign="Left"></e-column>
-            <e-column field="sixYearMain" headerText="" textAlign="Left"></e-column>
-            <e-column field="hydrostatic" headerText="" textAlign="Left"></e-column>
-            <e-column field="remark" headerText="" textAlign="Left"></e-column>
+            <e-column field="location" headerText="" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
+            <e-column field="date" headerText="" textAlign="Left" width=120></e-column>
+            <e-column field="serialNum" headerText="" textAlign="Left" width=120></e-column>
+            <e-column field="sizeTypeLabel" headerText="" textAlign="Left" width=120></e-column>
+            <e-column field="items" headerText="" textAlign="Left" width=120></e-column>
+            <e-column field="annualService" headerText="" textAlign="Left" width=120></e-column>
+            <e-column field="sixYearMain" headerText="" textAlign="Left" width=120></e-column>
+            <e-column field="hydrostatic" headerText="" textAlign="Left" width=120></e-column>
+            <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
         </e-columns>
         </ejs-grid>
     </div>
