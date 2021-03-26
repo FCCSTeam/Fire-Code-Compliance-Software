@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import Navbar from "@/components/prefabs/navbar/Navbar.vue";
+import Navbar from "@/components/prefabs/navbar/RE_Navbar.vue";
 import { getFileContent, getFileId } from "@/js/filestructure/storeFile.js";
 import {
   getRecordBooks,
