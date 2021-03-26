@@ -11,7 +11,7 @@
       :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Enter Month/Week Entry"
+      title="Fire Extinguisher - Enter Montly Entry"
       ok-title="Apply"
       ok-variant="primary"
       ok-only
@@ -56,7 +56,6 @@
             </b-form-group>
           </b-col>
         </b-row>
-
          <!-- 3rd row -->
         <b-row>
           <b-col cols="12">
