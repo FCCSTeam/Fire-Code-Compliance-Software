@@ -14,6 +14,7 @@
           an existing one?
         </p>
         <GPickerContainer />
+        <p class="text-muted my-3">Note: <i>It is recommended to use your device in landscape mode when using the report editor</i></p>
       </div>
       <hr class="my-4" />
       <div>
