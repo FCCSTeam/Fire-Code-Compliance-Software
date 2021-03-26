@@ -1,29 +1,48 @@
 <template>
   <div id="reporteditor">
     <Navbar />
-    <div id="sidebar-button-container" class="bg-light shadow">
-      <b-button
-        id="sidebar-burgerMenu"
-        pill
-        class="d-flex justify-content-center align-items-center m-2 m-md-3"
-        variant="outline-secondary"
-        type="light"
-        v-b-toggle.recordbook-sidebar
-        ><b-icon icon="list"></b-icon
-      ></b-button>
+    <div
+      id="sidebar-button-container"
+      class="bg-light shadow d-flex flex-column justify-content-between"
+    >
+      <div>
+        <b-button
+          id="sidebar-burgerMenu"
+          pill
+          class="d-flex justify-content-center align-items-center m-2 m-md-3"
+          variant="outline-secondary"
+          type="light"
+          v-b-toggle.recordbook-sidebar
+          ><b-icon icon="list"></b-icon
+        ></b-button>
+      </div>
+
+      <div
+        id="sidebar-bottom-buttons"
+        class="d-flex flex-column align-items-center"
+      >
+        <b-button variant="light" class="d-flex flex-column align-items-center mb-2">
+          <b-icon class="sidemenu-button my-1" icon="cloud-arrow-up"></b-icon>
+          <span class="sidemenu-button-text text-secondary">SAVE</span>
+        </b-button>
+
+        <b-button variant="light" class="d-flex flex-column align-items-center">
+          <b-icon class="sidemenu-button my-1 py-1" icon="box-arrow-up"></b-icon>
+          <span class="sidemenu-button-text text-secondary">EXPORT</span>
+        </b-button>
+      </div>
     </div>
-    <Sidebar @update="retrieveActiveTab" />
 
     <div id="recordBookView" class="mx-md-3 mt-3">
       <component v-bind:is="activeTab.page" :recordBook="activeTab"></component>
     </div>
 
-    <!-- <Type1View /> -->
+    <Sidebar @update="retrieveActiveTab" />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/prefabs/navbar/Navbar.vue";
+import Navbar from "@/components/prefabs/navbar/RE_Navbar.vue";
 import { getFileContent, getFileId } from "@/js/filestructure/storeFile.js";
 import {
   getRecordBooks,
@@ -60,7 +79,7 @@ export default {
     },
     initData() {
       initRecordBook(getFileContent());
-      console.log('YOU HAVE REACHED HERE',getFileId())
+      console.log("YOU HAVE REACHED HERE", getFileId());
     },
   },
 };
@@ -75,12 +94,21 @@ export default {
   z-index: 3;
   position: fixed;
   left: 0;
-  top: 73px;
+  top: 0;
+  padding: 80px 0 20px 0;
   min-height: 100%;
 }
 
 #recordBookView {
   position: relative;
   left: 95px;
+}
+
+.sidemenu-button {
+  font-size: 220% !important;
+}
+
+.sidemenu-button-text {
+  font-size: 85% !important;
 }
 </style>
