@@ -1,5 +1,5 @@
 <template>
-  <div id="type2-weekly">
+  <div id="type2-weekly6Monthly">
     <div v-for="i in 12" :key="i">
       <h2 class="mb-3 mt-5">
         {{ getData[Object.keys(getData)[(i - 1) * 7 + 4]].week }}
