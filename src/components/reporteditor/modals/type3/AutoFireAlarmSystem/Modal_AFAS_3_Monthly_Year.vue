@@ -200,7 +200,7 @@ export default {
       weeks: getWeeks(),
       entry: {},
       error: null,
-      tests: ["S", "U", "N/A", "N/T "],
+      tests: ["S", "U", "N/A", "N/T"],
     };
   },
   computed: {
