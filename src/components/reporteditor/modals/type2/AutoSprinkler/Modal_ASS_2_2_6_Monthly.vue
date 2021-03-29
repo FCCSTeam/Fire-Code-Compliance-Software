@@ -1,5 +1,5 @@
 <template>
-  <div id="modalType2Weekly6Monthly">
+  <div class="modalContainer">
     <div v-if="isCreate">
       <CreateEntryButton @trigger="$refs[getUniqueID].show()" />
     </div>
@@ -18,11 +18,9 @@
       @ok="handleOk"
       :no-close-on-backdrop="true"
     >
-      <!-- <h1>Key: {{ getKey }}</h1> -->
       <b-form class="px-2"> 
         <b-row align-h="between">
           <b-col cols="12" md="6">
-            <!--Select month and week inputs for modal (1st row) -->
             <b-form-group label-for="month" label="Month: ">
               <b-form-select
                 v-model="entry.month"
@@ -42,25 +40,23 @@
             </b-form-group>
           </b-col>
         </b-row>
-        <!-- 1st + 2nd column in Excel (2nd row) --> 
-        <!-- label-for = key, label = value --> 
+
         <b-row align-h="between">
           <b-col cols="12" md="6">
-            <b-form-group label-for="valve" label="Fire Water Main Valves: ">
-              <b-form-input v-model="entry.valve"></b-form-input>
+            <b-form-group label-for="loc" label="Sprinkler System Riser Location: ">
+              <b-form-input v-model="entry.loc"></b-form-input>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-            <b-form-group label-for="id" label="Standpipe Pumps: ">
-              <b-form-input v-model="entry.pipe"></b-form-input>
+            <b-form-group label-for="id" label="Type and ID #: ">
+              <b-form-input v-model="entry.id"></b-form-input>
             </b-form-group>
           </b-col>
         </b-row>
 
-        <!-- 3rd row -->
         <b-row align-h="between">
           <b-col cols="12" md="6">
-            <b-form-group label-for="type" label="Inspection Check Test:  ">
+            <b-form-group label-for="type" label="Inspection Check Test: ">
               <b-form-input v-model="entry.type"></b-form-input>
             </b-form-group>
           </b-col>
@@ -71,7 +67,6 @@
           </b-col>
         </b-row>
 
-         <!-- 4th row -->
         <b-row>
           <b-col cols="12">
             <b-form-group label-for="remarks" label="Remarks: ">
@@ -91,7 +86,7 @@ import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
 export default {
-  name: "Modal_FWS_2_Weekly_6_Monthly",
+  name: "Modal_ASS_2_2_6_Monthly",
   components: {
     ModalButton,
     CreateEntryButton,
@@ -127,7 +122,11 @@ export default {
     },
     getNewEntryKey() {
       return this.entry.month + "," + this.entry.week
+    },
+    getRecordBookTabData(){
+      return this.recordBook.data.monthly
     }
+
   },
   methods: {
     handleOk(bvModalEvt) {
@@ -142,7 +141,7 @@ export default {
     },
     updateCurrentEntry() {
       this.entryData.flag = false; //to ignore itself during duplicate checking
-      for (const entry of this.recordBook.data.weekly6Monthly) {
+      for (const entry of this.getRecordBookTabData) {
         if (entry.key) {
           if (entry.key == this.getNewEntryKey && entry.flag == true) {
             this.error = getErrorMessages().duplicate;
@@ -152,20 +151,18 @@ export default {
         }
       }
       if (!this.error) {
-        //TODO make changes to data
         this.updateRecordBook();
         this.closeModal();
       }
     },
     createNewEntry() {
-      for (const entry of this.recordBook.data.weekly6Monthly) {
+      for (const entry of this.getRecordBookTabData) {
         if (entry.key) {
           if (entry.key == this.getNewEntryKey && entry.flag == true) {
             this.error = getErrorMessages().duplicate;
             break;
           }
         }
-      
       }
       if (!this.error) {
         this.updateRecordBook();
@@ -173,26 +170,28 @@ export default {
         this.defaultModal();
       }
     },
+    //Resets a modal to default/empty values
     defaultModal() {
       this.entry = {
         month: getMonths()[0],
         week: getWeeks()[0],
-        valve: "",
-        pipe: "",
+        loc: "",
+        id: "",
         type: "",
         signature: "",
-        remarks: "" 
+        remarks: ""
       };
       this.error = null;
     },
     updateRecordBook(){
-        for (const entry of this.recordBook.data.weekly6Monthly) {
+      //Goes into the recordBook in the .js file and updates the books data with modal input
+        for (const entry of this.getRecordBookTabData) {
           if (entry.key) {
             if (entry.key === this.getNewEntryKey) {
               entry.month = this.entry.month;
               entry.week = "Week " + this.entry.week;
-              entry.valve = this.entry.valve;
-              entry.pipe = this.entry.pipe;
+              entry.loc = this.entry.loc;
+              entry.id = this.entry.id;
               entry.inspectType = this.entry.type;
               entry.sig = this.entry.signature;
               entry.remark = this.entry.remarks;
@@ -217,11 +216,11 @@ export default {
       this.entry = {
         month: keys[0],
         week: keys[1],
-        valve: this.entryData.valve,
-        pipe: this.entryData.pipe,
+        loc: this.entryData.loc,
+        id: this.entryData.id,
         type: this.entryData.inspectType,
         signature: this.entryData.sig,
-        remarks: this.entryData.remarks,
+        remarks: this.entryData.remark     
       };
     }
   },

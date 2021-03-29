@@ -52,7 +52,6 @@ import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 import { getErrorMessages } from "@/js/reporteditor/ModalData.js";
 
 export default {
-  name: "Modal_ELFPS_2_Locations",
   components: {
     ModalButton,
     CreateEntryButton,
