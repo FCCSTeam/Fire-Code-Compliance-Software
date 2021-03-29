@@ -88,6 +88,8 @@ export default {
     //initTabs
     setActiveTab(getRecordBooks()[0]);
     this.retrieveActiveTab();
+    //check loaded file for errors
+    this.checkFile()
     //initData
     this.initData();
   },
@@ -96,6 +98,11 @@ export default {
   methods: {
     retrieveActiveTab() {
       this.activeTab = getActiveTab();
+    },
+    checkFile() {
+      if (!(getFileContent() && getFileId() && getName() )) {
+        alert("No file loaded! Please relaunch the report editor")
+      }
     },
     initData() {
       initRecordBook();

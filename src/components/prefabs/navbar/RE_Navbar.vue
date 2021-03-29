@@ -16,6 +16,15 @@
         </b-navbar-brand>
       </b-navbar-brand>
 
+        <div v-if="error">
+          <span class="text-danger"> 
+            {{error}}
+          </span>
+        </div>
+        <div v-else>
+          <span class="text-secondary">Now Editing: <span class="text-muted font-italic">{{ getFileName }}</span></span>
+        </div>
+
         <b-navbar-nav class="ml-auto">
             <Modal_RE_Navbar_Exit />
         </b-navbar-nav>
@@ -27,9 +36,7 @@
 </template>
 
 <script>
-import { userLogout } from "@/js/auth/userAuth.js";
-import { getActiveUser } from "@/js/auth/userAuth.js";
-import { adminStatus } from "@/js/auth/userAccess.js"
+import { getName } from "@/js/filestructure/storeFile.js"
 
 import Modal_RE_Navbar_Exit from '@/components/prefabs/navbar/modals/Modal_RE_Navbar_Exit.vue'
 
@@ -40,26 +47,22 @@ export default {
   },
   data() {
     return {
-      activeUser: getActiveUser(),
       error: null,
-      privilege: false
     };
   },
-  methods: {
-    Logout() {
-      userLogout().then((res) => {
-        if (res.error) {
-          this.error = res.error;
-        } else {
-          this.$router.replace({ name: "Home" });
-        }
-      });
-    },
-  },
-  mounted() {
-    adminStatus(this.activeUser).then((token) => {
-      this.privilege = token.isAdmin;
-    });
+  computed : {
+    getFileName(){
+      if (getName())
+      {
+        this.error = null;
+        return getName()
+      }
+      else
+      {
+        this.error = "No File Detected! Please relaunch the editor."
+        return ""
+      }
+    }
   },
 };
 </script>
