@@ -128,7 +128,7 @@ export default {
       {
         //content was retrieved from the GET Request
         this.fileContent = content;
-        setFile(this.fileId, this.fileContent)
+        setFile(this.fileId, this.fileContent, this.fileName)
 
         //console.log(content)
         this.$router.replace({ name: "ReportEditor" });
