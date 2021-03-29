@@ -36,8 +36,8 @@ export default {
   data() {
     return {
       newFileName: "",
-      newFileNameState: null,
       tempFileName: "",
+      newFileNameState: null,
 
       authState: false, 
       pickerApiLoaded: false,
@@ -72,8 +72,8 @@ export default {
       if (!this.checkFormvalidity()) {
         return;
       }
-      console.log("The new file name: ", this.newFileName)
       this.tempFileName = this.newFileName;
+      this.fileResult.fileName = this.tempFileName;
       this.driveIconClicked()
       
       this.resetModal();
@@ -97,9 +97,7 @@ export default {
     },
     //Called when user clicks on drive icon
     async driveIconClicked() {
-      //console.log("Clicked");
       await gapi.load("auth2", () => {
-        //console.log("Auth2 Loaded");
         if(!this.isAuthorized())
         {
           gapi.auth2.authorize(
@@ -127,7 +125,6 @@ export default {
     },
     //handles the result from the google Auth attempt. Creates picker if success
     handleAuthResult(authResult) {
-      //console.log("Handle Auth result", authResult);
       if (authResult && !authResult.error) {
         this.oauthToken = authResult.access_token;
         this.createPicker();
@@ -169,13 +166,15 @@ export default {
       
     },
     makeFile(resultFile) {
-      console.log("File Name at makeFile: ", this.newFileName) //REMOVE
       var baseReport = templateFile
+
       resultFile.fileContent = JSON.stringify(baseReport)
+
       var fileMetadata = {
         name: this.tempFileName,
         mimeType: "application/json",
       };
+      
       var media = {
         mimeType: fileMetadata.MimeType,
       };
@@ -200,8 +199,13 @@ export default {
               request.execute(function (resp) {
                 console.log("resp: ", resp);
                 resultFile.fileId = result.result.id;
-                resultFile.fileName = result.result.name;
-              });
+              }),
+              function(error){
+                if (error)
+                {
+                  alert('There was an error with creating the file please try again')
+                }
+              }
           });
       });
       
@@ -212,12 +216,11 @@ export default {
   watch: {
     fileResult: {
       handler(newVal) {
-        if(this.fileResult.fileId && this.fileResult.parentId && this.fileResult.fileContent)
+        if(this.fileResult.fileId && this.fileResult.parentId && this.fileResult.fileContent && this.fileResult.fileName)
         {
-          setFile(this.fileResult.fileId, this.fileResult.fileContent)
+          setFile(this.fileResult.fileId, this.fileResult.fileContent, this.fileResult.fileName)
           this.$router.replace({ name: "ReportEditor" });
         }
-        console.log(this.fileResult.id);
       },
       deep: true,
     },
