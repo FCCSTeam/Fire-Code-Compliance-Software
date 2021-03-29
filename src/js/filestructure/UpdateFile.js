@@ -1,8 +1,9 @@
+import { getFileContent, getFileId } from '@/js/filestructure/storeFile.js'
 
-
-const patchFile = (content, id) =>
+const patchFile = () =>
 {
-    console.log("Inside patchfile")
+    let content = getFileContent()
+    let id = getFileId()
     var request = gapi.client.request(
         {
             path: "/upload/drive/v3/files/" + id,
@@ -12,6 +13,7 @@ const patchFile = (content, id) =>
         })
         request.execute(function (resp)
         {
+            //return error token 
             console.log(resp)
         })
 }

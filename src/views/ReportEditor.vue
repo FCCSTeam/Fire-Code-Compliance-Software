@@ -21,13 +21,20 @@
         id="sidebar-bottom-buttons"
         class="d-flex flex-column align-items-center"
       >
-        <b-button variant="light" class="d-flex flex-column align-items-center mb-2">
+        <b-button
+          variant="light"
+          class="d-flex flex-column align-items-center mb-2"
+          @click="saveButtonClicked()"
+        >
           <b-icon class="sidemenu-button my-1" icon="cloud-arrow-up"></b-icon>
           <span class="sidemenu-button-text text-secondary">SAVE</span>
         </b-button>
 
         <b-button variant="light" class="d-flex flex-column align-items-center">
-          <b-icon class="sidemenu-button my-1 py-1" icon="box-arrow-up"></b-icon>
+          <b-icon
+            class="sidemenu-button my-1 py-1"
+            icon="box-arrow-up"
+          ></b-icon>
           <span class="sidemenu-button-text text-secondary">EXPORT</span>
         </b-button>
       </div>
@@ -38,17 +45,30 @@
     </div>
 
     <Sidebar @update="retrieveActiveTab" />
+    <div class="toasts">
+      <b-toast
+        id="save-success-toast"
+        title="Success"
+        variant="success"
+        static
+        auto-hide-delay="1750"
+      >
+        <span class="py-2 px-1 text-secondary">File successfully saved to Drive.</span>
+      </b-toast>
+    </div>
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/prefabs/navbar/RE_Navbar.vue";
 import { getFileContent, getFileId } from "@/js/filestructure/storeFile.js";
+
 import {
   getRecordBooks,
   getActiveTab,
   setActiveTab,
   initRecordBook,
+  saveRecordBooks,
 } from "@/js/reporteditor/RecordBookData.js";
 import Sidebar from "@/components/reporteditor/sidemenu/Sidebar.vue";
 
@@ -78,8 +98,11 @@ export default {
       this.activeTab = getActiveTab();
     },
     initData() {
-      initRecordBook(getFileContent());
-      console.log("YOU HAVE REACHED HERE", getFileId());
+      initRecordBook();
+    },
+    saveButtonClicked() {
+      saveRecordBooks();
+      this.$bvToast.show("save-success-toast");
     },
   },
 };
@@ -110,5 +133,13 @@ export default {
 
 .sidemenu-button-text {
   font-size: 85% !important;
+}
+
+.toasts {
+  position: fixed;
+  top: 75px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

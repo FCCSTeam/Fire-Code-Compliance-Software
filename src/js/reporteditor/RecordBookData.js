@@ -1,3 +1,6 @@
+import { patchFile } from '@/js/filestructure/UpdateFile.js'
+import { getFileContent } from '@/js/filestructure/storeFile.js'
+
 const recordBooks =
     [
         {id: "FDA_1", title: "Fire Department Access", page: "Type1View", tabs: ['Monthly','Locations'], data: {}},
@@ -26,11 +29,21 @@ const setActiveTab = (recordBook) => {
     activeTab = recordBook;
 }
 
-const initRecordBook = (data) => {
+const initRecordBook = () => {
+    let data = getFileContent()
     var i;
     for (i = 0; i < recordBooks.length; i++) {
         recordBooks[i].data = data[Object.keys(data)[i]] 
     }
 }
 
-export { initRecordBook, getRecordBooks , getActiveTab, setActiveTab}
+const saveRecordBooks = () => {
+    let data = getFileContent()
+    var i;
+    for (i = 0; i < recordBooks.length; i++) {
+        data[Object.keys(data)[i]] = recordBooks[i].data
+    }
+    patchFile() //TODO: ERROR HANDLE
+}
+
+export { initRecordBook, getRecordBooks , getActiveTab, setActiveTab, saveRecordBooks}
