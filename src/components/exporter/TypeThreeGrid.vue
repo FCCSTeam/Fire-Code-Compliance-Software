@@ -23,18 +23,18 @@
         <ejs-grid ref='fire_alarm_g3' id='ThirdGrid' :dataSource='fire_alarm_s3' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
                 <e-column field="week" headerText="Week" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
-                <e-column field="1A" headerText="1A" textAlign="Left" width=120></e-column>
-                <e-column field="1B" headerText="1B" textAlign="Left" width=120></e-column>
+                <e-column field="entry_1A" headerText="1A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_1B" headerText="1B" textAlign="Left" width=120></e-column>
                 <e-column field="alarmType" headerText="Alarm Type" textAlign="Left" width=120></e-column>
-                <e-column field="2A" headerText="2A" textAlign="Left" width=120></e-column>
-                <e-column field="2B" headerText="2B" textAlign="Left" width=120></e-column>
-                <e-column field="2C" headerText="2C" textAlign="Left" width=120></e-column>
-                <e-column field="2D" headerText="2D" textAlign="Left" width=120></e-column>
-                <e-column field="3A" headerText="3A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2A" headerText="2A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2B" headerText="2B" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2C" headerText="2C" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2D" headerText="2D" textAlign="Left" width=120></e-column>
+                <e-column field="entry_3A" headerText="3A" textAlign="Left" width=120></e-column>
                 <e-column field="locationEmergPhone" headerText="Phone Location" textAlign="Left" width=120></e-column>
-                <e-column field="4A" headerText="4A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_4A" headerText="4A" textAlign="Left" width=120></e-column>
                 <e-column field="locationVoicePage" headerText="Voice Page Location" textAlign="Left" width=120></e-column>
-                <e-column field="4B" headerText="4B" textAlign="Left" width=120></e-column>
+                <e-column field="entry_4B" headerText="4B" textAlign="Left" width=120></e-column>
                 <e-column field="sig" headerText="sig" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
@@ -44,18 +44,18 @@
         <ejs-grid ref='fire_alarm_g5' id='FifthGrid' :dataSource='fire_alarm_s5' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
                 <e-column field="week" headerText="Week" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
-                <e-column field="1A" headerText="1A" textAlign="Left" width=120></e-column>
-                <e-column field="1B" headerText="1B" textAlign="Left" width=120></e-column>
+                <e-column field="entry_1A" headerText="1A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_1B" headerText="1B" textAlign="Left" width=120></e-column>
                 <e-column field="alarmType" headerText="Alarm Type" textAlign="Left" width=120></e-column>
-                <e-column field="2A" headerText="2A" textAlign="Left" width=120></e-column>
-                <e-column field="2B" headerText="2B" textAlign="Left" width=120></e-column>
-                <e-column field="2C" headerText="2C" textAlign="Left" width=120></e-column>
-                <e-column field="2D" headerText="2D" textAlign="Left" width=120></e-column>
-                <e-column field="3A" headerText="3A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2A" headerText="2A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2B" headerText="2B" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2C" headerText="2C" textAlign="Left" width=120></e-column>
+                <e-column field="entry_2D" headerText="2D" textAlign="Left" width=120></e-column>
+                <e-column field="entry_3A" headerText="3A" textAlign="Left" width=120></e-column>
                 <e-column field="locationEmergPhone" headerText="Phone Location" textAlign="Left" width=120></e-column>
-                <e-column field="4A" headerText="4A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_4A" headerText="4A" textAlign="Left" width=120></e-column>
                 <e-column field="locationVoicePage" headerText="Voice Page Location" textAlign="Left" width=120></e-column>
-                <e-column field="4B" headerText="4B" textAlign="Left" width=120></e-column>
+                <e-column field="entry_4B" headerText="4B" textAlign="Left" width=120></e-column>
                 <e-column field="sig" headerText="Signature" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
@@ -66,12 +66,12 @@
             <e-columns>
                 <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
                 <e-column field="deviceType" headerText="Device Type" textAlign="Left" width=120></e-column>
-                <e-column field="A" headerText="A" textAlign="Left" width=120></e-column>
-                <e-column field="B1" headerText="B1" textAlign="Left" width=120></e-column>
-                <e-column field="B2" headerText="B2" textAlign="Left" width=120></e-column>
-                <e-column field="C" headerText="C" textAlign="Left" width=120></e-column>
-                <e-column field="D" headerText="D" textAlign="Left" width=120></e-column>
-                <e-column field="E" headerText="E" textAlign="Left" width=120></e-column>
+                <e-column field="entry_A" headerText="A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_B1" headerText="B1" textAlign="Left" width=120></e-column>
+                <e-column field="entry_B2" headerText="B2" textAlign="Left" width=120></e-column>
+                <e-column field="entry_C" headerText="C" textAlign="Left" width=120></e-column>
+                <e-column field="entry_D" headerText="D" textAlign="Left" width=120></e-column>
+                <e-column field="entry_E" headerText="E" textAlign="Left" width=120></e-column>
                 <e-column field="remarks" headerText="Remarks" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>

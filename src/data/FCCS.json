@@ -1562,12 +1562,12 @@
         ],
     
         "devices": [
-            { "location" : "Building Name", "deviceType": "DEVICE", "A": "A", "B1": "B1", "B2": "B2", "C": "C", "D": "D", "E": "E", "remarks": "REMARKS", "flag" : false },
-            { "location" : "", "deviceType": "TYPE", "A": "", "B1": "", "B2": "", "C": "", "D": "", "E": "", "remarks": "", "flag" : false },
-            { "location" : "", "deviceType": "", "A": "", "B1": "", "B2": "", "C": "", "D": "", "E": "", "remarks": "", "flag" : false },
-            { "location" : "Locations", "deviceType": "", "A": "", "B1": "", "B2": "", "C": "", "D": "", "E": "", "remarks": "", "flag" : false },
+            { "location" : "Building Name", "deviceType": "DEVICE", "entry_A": "A", "entry_B1": "B1", "entry_B2": "B2", "entry_C": "C", "entry_D": "D", "entry_E": "E", "remarks": "REMARKS", "flag" : false },
+            { "location" : "", "deviceType": "TYPE", "entry_A": "", "entry_B1": "", "entry_B2": "", "entry_C": "", "entry_D": "", "entry_E": "", "remarks": "", "flag" : false },
+            { "location" : "", "deviceType": "", "entry_A": "", "entry_B1": "", "entry_B2": "", "entry_C": "", "entry_D": "", "entry_E": "", "remarks": "", "flag" : false },
+            { "location" : "Locations", "deviceType": "", "entry_A": "", "entry_B1": "", "entry_B2": "", "entry_C": "", "entry_D": "", "entry_E": "", "remarks": "", "flag" : false },
             
-            { "location" : "", "deviceType": "", "A": "", "B1": "", "B2": "", "C": "", "D": "", "E": "", "remarks": "", "flag" : false }
+            { "location" : "", "deviceType": "", "entry_A": "", "entry_B1": "", "entry_B2": "", "entry_C": "", "entry_D": "", "entry_E": "", "remarks": "", "flag" : false }
         ],
     
         "locations": [
