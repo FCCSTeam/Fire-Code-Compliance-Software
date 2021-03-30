@@ -75,10 +75,11 @@ import Sidebar from "@/components/reporteditor/sidemenu/Sidebar.vue";
 //imports for tab views
 import Type1View from "@/components/reporteditor/tabviews/Type1View.vue";
 import Type2View from "@/components/reporteditor/tabviews/Type2View.vue";
+import Type3View from "@/components/reporteditor/tabviews/Type3View.vue";
 
 export default {
   name: "ReportEditor",
-  components: { Navbar, Sidebar, Type1View, Type2View },
+  components: { Navbar, Sidebar, Type1View, Type2View, Type3View },
   data() {
     return {
       activeTab: getActiveTab(),
