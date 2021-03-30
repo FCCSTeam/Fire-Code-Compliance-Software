@@ -34,64 +34,63 @@
               ></b-form-datepicker>
             </b-form-group>
           </b-col>
-        </b-row>
 
-        <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="serialNum" label="Serial #: ">
               <b-form-input v-model="entry.serialNum"></b-form-input>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-             <b-form-group label-for="sizeTypeLabel" label="Size + Type Label: ">
+             <b-form-group label-for="sizeTypeLabel" label="Size &amp; Type Label: ">
               <b-form-input v-model="entry.date"></b-form-input>
             </b-form-group>
           </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="6">
+
+          <b-col cols="6" lg="3">
             <b-form-group label-for="items" label="Items: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.items"
                 :options="serviceSpecs"
-                class=""
-              ></b-form-select>
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="6">
+          <b-col cols="6" lg="3">
             <b-form-group label-for="annualService" label="Annual Service: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.annualService"
                 :options="serviceSpecs"
-                class=""
-              ></b-form-select>
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-        </b-row>
 
-        <b-row align-h="between">
-          <b-col cols="12" md="6">
+          <b-col cols="6" lg="3">
             <b-form-group label-for="sixYearMain" label="6-YR Maintenance: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.sixYearMain"
                 :options="serviceSpecs"
-                class=""
-              ></b-form-select>
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="6">
+          <b-col cols="6" lg="3">
              <b-form-group label-for="hydrostatic" label="Hydrostatic Test: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.hydrostatic"
                 :options="serviceSpecs"
-                class=""
-              ></b-form-select>
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
 
         <b-row align-h="between">
-          <b-col cols="12" md="6">
+          <b-col cols="12">
             <b-form-group label-for="remarks" label="Remarks: ">
               <b-form-input v-model="entry.remarks"></b-form-input>
             </b-form-group>
@@ -133,7 +132,7 @@ export default {
   },
   data() {
     return {
-      serviceSpecs: ["YES", "NO"],
+      serviceSpecs: [{text: " - ", value : ""}, {text: "Y", value : "YES"} , {text: "N", value : "NO"}],
       entry: {
       },
       states: {

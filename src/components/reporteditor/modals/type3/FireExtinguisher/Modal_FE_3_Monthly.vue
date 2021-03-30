@@ -1,5 +1,5 @@
 <template>
-  <div id="modalType1MonthlyContainer">
+  <div id="modalType3FireExtinguisherMonthlyContainer">
     <div v-if="isCreate">
       <CreateEntryButton @trigger="$refs[getUniqueID].show()" />
     </div>
@@ -11,15 +11,15 @@
       :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Fire Extinguisher - Enter Montly Entry"
+      title="Enter Monthly Entry"
       ok-title="Apply"
       ok-variant="primary"
       ok-only
       @ok="handleOk"
+      @close="handleClose"
       :no-close-on-backdrop="true"
     >
-      <!-- <h1>Key: {{ getKey }}</h1> -->
-      <b-form class="modalType1MonthlyBody px-2"> 
+      <b-form class="px-2">
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <!--Select month and week inputs for modal (1st row) -->
@@ -42,8 +42,8 @@
             </b-form-group>
           </b-col>
         </b-row>
-        <!-- 1st + 2nd column in Excel (2nd row) --> 
-        <!-- label-for = key, label = value --> 
+        <!-- 1st + 2nd column in Excel (2nd row) -->
+        <!-- label-for = key, label = value -->
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="signature" label="Signature: ">
@@ -52,11 +52,15 @@
           </b-col>
           <b-col cols="12" md="6">
             <b-form-group label-for="date" label="Date: ">
-              <b-form-input v-model="entry.date"></b-form-input>
+              <b-form-datepicker
+                v-model="entry.date"
+                today-button
+                close-button
+              ></b-form-datepicker>
             </b-form-group>
           </b-col>
         </b-row>
-         <!-- 3rd row -->
+        <!-- 3rd row -->
         <b-row>
           <b-col cols="12">
             <b-form-group label-for="remarks" label="Remarks: ">
@@ -71,7 +75,11 @@
 </template>
 
 <script>
-import { getMonths, getWeeks, getErrorMessages } from "@/js/reporteditor/ModalData.js";
+import {
+  getMonths,
+  getWeeks,
+  getErrorMessages,
+} from "@/js/reporteditor/ModalData.js";
 import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
@@ -110,8 +118,8 @@ export default {
       return this.uniqueID;
     },
     getNewEntryKey() {
-      return this.entry.month + "," + this.entry.week
-    }
+      return this.entry.month + "," + this.entry.week;
+    },
   },
   methods: {
     handleOk(bvModalEvt) {
@@ -124,11 +132,14 @@ export default {
         this.updateCurrentEntry();
       }
     },
+    handleClose(){
+      this.defaultModal()
+    },
     updateCurrentEntry() {
       this.entryData.flag = false; //to ignore itself during duplicate checking
       for (const entry of this.recordBook.data.monthly) {
         if (entry.key) {
-          if (entry.key == newKey && entry.flag == true) {
+          if (entry.key == this.getNewEntryKey && entry.flag == true) {
             this.error = getErrorMessages().duplicate;
             this.entryData.flag = true;
             break;
@@ -149,7 +160,6 @@ export default {
             break;
           }
         }
-      
       }
       if (!this.error) {
         this.updateRecordBook();
@@ -158,50 +168,49 @@ export default {
       }
     },
     defaultModal() {
-      this.entry = {
-        month: getMonths()[0],
-        week: getWeeks()[0],
-        signature: "",
-        date: "",
-        remarks: ""
-      };
+      if (this.isCreate) {
+        this.entry = {
+          month: getMonths()[0],
+          week: getWeeks()[0],
+          signature: "",
+          date: "",
+          remarks: "",
+        };
+      } else {
+        let keys = this.entryData.key.split(",");
+        //entry exists
+        this.entry = {
+          month: keys[0],
+          week: keys[1],
+          signature: this.entryData.sig,
+          date: this.entryData.date,
+          remarks: this.entryData.remarks,
+        };
+      }
       this.error = null;
     },
-    updateRecordBook(){
-        for (const entry of this.recordBook.data.monthly) {
-          if (entry.key) {
-            if (entry.key === this.getNewEntryKey) {
-              entry.month = this.entry.month;
-              entry.week = "Week " + this.entry.week;
-              entry.sig = this.entry.signature;
-              entry.date = this.entry.type;
-              entry.remark = this.entry.remarks;
-              entry.flag = true;
-            }
+    updateRecordBook() {
+      for (const entry of this.recordBook.data.monthly) {
+        if (entry.key) {
+          if (entry.key === this.getNewEntryKey) {
+            entry.month = this.entry.month;
+            entry.week = "Week " + this.entry.week;
+            entry.sig = this.entry.signature;
+            entry.date = this.entry.type;
+            entry.remark = this.entry.remarks;
+            entry.flag = true;
           }
         }
+      }
     },
-    closeModal(){
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getUniqueID);
-        });
-    }
+    closeModal() {
+      this.$nextTick(() => {
+        this.$bvModal.hide(this.getUniqueID);
+      });
+    },
   },
   mounted() {
-    if (this.isCreate) {
-      //create a new entry
-      this.defaultModal();
-    } else {
-      let keys = this.entryData.key.split(",");
-      //entry exists
-      this.entry = {
-        month: keys[0],
-        week: keys[1],
-        signature: this.entryData.sig,
-        date: this.entryData.date,
-        remarks: this.entryData.remarks,
-      };
-    }
+    this.defaultModal()
   },
 };
 </script>
