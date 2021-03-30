@@ -1084,7 +1084,7 @@
             { "week" : "", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false }
         ],
         "locations": [
-            { "location": "Sinnoh", "serviceDetails": "Remake", "remarks": "Brilliant Diamond and Shining Pearl", "flag" : false }
+            { "location": "", "serviceDetails": "", "remarks": "", "flag" : false }
         ]
     },
 
@@ -1296,7 +1296,7 @@
             { "week" : "", "lighting": "", "fexit": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false }
         ],
         "locations": [
-            { "location": "Sinnoh", "serviceDetails": "Remake", "remarks": "Brilliant Diamond and Shining Pearl", "flag" : false }
+            { "location": "", "serviceDetails": "", "remarks": "", "flag" : false }
         ]
     },
     "auto_fire_alarm_system": { 
@@ -1571,13 +1571,6 @@
         ],
     
         "locations": [
-            { "location" : "Building Name", "deviceType": "Service Specific Details", "remarks": "Remarks", "flag" : false },
-            { "location" : "", "deviceType": "Devices, Circuits, Appliances", "remarks": "Work Orders, Status, Completion Date", "flag" : false },
-            { "location" : "", "deviceType": "Batteries, Lamps, Pull Stations", "remark": "", "flag" : false },
-            { "location" : "Device Locations", "deviceType": "Fire Phones, Voice Communication", "remark": "", "flag" : false },
-            { "location" : "", "deviceType": "", "remark": "", "flag" : false },
-            { "location" : "List the locations requiring service below", "deviceType": "", "remark": "", "flag" : false },
-    
             { "location" : "", "deviceType": "", "remark": "", "flag" : false }
         ]
     },
