@@ -52,6 +52,8 @@
                 <e-column field="entry_2C" headerText="2C" textAlign="Left" width=120></e-column>
                 <e-column field="entry_2D" headerText="2D" textAlign="Left" width=120></e-column>
                 <e-column field="entry_3A" headerText="3A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_3B" headerText="3A" textAlign="Left" width=120></e-column>
+                <e-column field="entry_3C" headerText="3A" textAlign="Left" width=120></e-column>
                 <e-column field="locationEmergPhone" headerText="Phone Location" textAlign="Left" width=120></e-column>
                 <e-column field="entry_4A" headerText="4A" textAlign="Left" width=120></e-column>
                 <e-column field="locationVoicePage" headerText="Voice Page Location" textAlign="Left" width=120></e-column>
