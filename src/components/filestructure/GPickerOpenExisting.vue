@@ -47,26 +47,40 @@ export default {
               immediate: false,
             },
             this.handleAuthResult
+
           );
           this.authState = true
+          //this.authState = false
         }
         else
         {
-          //this.createPicker()
+          this.authState = false
+          gapi.auth2.authorize(
+            {
+              client_id: this.clientId,
+              scope: this.scope,
+              immediate: false,
+            },
+            this.handleAuthResult,
+            console.log('THIS MADE ANOTHER PICKER')
+          );
+     
         }
       });
-      gapi.load("picker", () => {
-        //console.log("Picker Loaded");
-        this.pickerApiLoaded = true;
-        this.createPicker();
-      });
+
     },
     //handles the result from the google Auth attempt. Creates picker if success
     handleAuthResult(authResult) {
       //console.log("Handle Auth result", authResult);
       if (authResult && !authResult.error) {
         this.oauthToken = authResult.access_token;
-        this.createPicker();
+        gapi.load("picker", () => {
+        //console.log("Picker Loaded");
+          this.pickerApiLoaded = true;
+          this.createPicker();
+          console.log('THIS MADE  PICKER1')
+        });
+        //this.createPicker();
       }
     },
     //Creates the picker
