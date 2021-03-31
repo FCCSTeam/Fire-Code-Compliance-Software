@@ -3,6 +3,8 @@
 //make reportfile into an object
 var reportFile = {fileId: null, content: null, name: null}; 
 
+var parentId = null; 
+
 const setFile = (id,content, name) =>
 {
     let token = { error: null }
@@ -28,6 +30,16 @@ const setFile = (id,content, name) =>
     
 }
 
+const setParent = (id) =>
+{
+    parentId = id; 
+}
+
+const getParent = () =>
+{
+    return parentId
+}
+
 const getFile = () =>
 {
     return reportFile
@@ -49,4 +61,4 @@ const getFileContent = () =>
 }
 
 
-export {setFile, getFileContent, getFileId, getFile, getName}
+export {setFile, getFileContent, getFileId, getFile, getName, setParent, getParent}

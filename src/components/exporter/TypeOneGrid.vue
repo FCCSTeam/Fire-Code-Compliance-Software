@@ -174,6 +174,8 @@
   import Vue from "vue"; 
   import { Workbook } from "@syncfusion/ej2-excel-export";             
   import { GridPlugin, Toolbar, ExcelExport } from "@syncfusion/ej2-vue-grids"; // add Resize here?
+  import { getFileContent } from '@/js/filestructure/storeFile.js'
+  import { uploadFile } from '@/js/filestructure/UpdateFile.js'
   import { fire_dept_access, fire_hazards, high_buildings, means_egress, service_equipment, smoke_alarms, standpipe_hose } from '@/../src/data/FCCS.json'
 
   Vue.use(GridPlugin);
@@ -188,8 +190,8 @@
         
         //import all the data here
         //1st doc
-        firDepAcc_s1: fire_dept_access.monthly,
-        firDepAcc_s2: fire_dept_access.locations,
+        firDepAcc_s1: getFileContent().fire_dept_access.monthly,
+        firDepAcc_s2: getFileContent().fire_dept_access.locations,
 
         //2nd doc
         firHaz_s1: fire_hazards.monthly,
@@ -234,9 +236,10 @@
             // Second sheet is renamed 
             data2.worksheets[1].name = "Locations";  
             // A new excel workbook is created with the argument data 
-            const book = new Workbook(data2, "xlsx");  
+            const book = new Workbook(data2, "xlsx"); 
             // The excel sheet is saved(downloaded) using the created workbook 
-            book.save(reportName + ".xlsx");  
+            book.save(reportName + ".xlsx");
+            uploadFile(book, reportName);   
           }); 
         }); 
       }, 
@@ -253,6 +256,7 @@
 
       //Single document export methods
       exportFireDept: function() {
+        console.log(getFileContent())
         this.typeOneExport(this.firDepAcc_s1, this.firDepAcc_s2, this.$refs.firDepAcc_g1, this.$refs.firDepAcc_g2, "Fire Department Access - Record Book");
       },
 
@@ -287,7 +291,7 @@
 
     },
     provide: {
-      grid: [Toolbar, ExcelExport, ] //Resize]
+      grid: [Toolbar, ExcelExport] //Resize]
     }
 
   }

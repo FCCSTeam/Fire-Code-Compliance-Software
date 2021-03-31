@@ -6,6 +6,7 @@ import Adminpage from '../views/Adminpage.vue'
 import UserSettings from '../views/UserSettings.vue'
 import PageNotFound from '../views/PageNotFound.vue'
 import ReportEditor from '../views/ReportEditor.vue'
+import TypeOneGridView from '../views/TypeOneGridView.vue'
 
 import TestView from '../views/TestView.vue'
 
@@ -88,6 +89,11 @@ const routes = [
     path: '/testview',
     name: 'TestView',
     component: TestView,
+  },
+  {
+    path: '/typeonegridview',
+    name: 'TypeOneGridView',
+    component: TypeOneGridView,
   },
   //make this the last one!
   {

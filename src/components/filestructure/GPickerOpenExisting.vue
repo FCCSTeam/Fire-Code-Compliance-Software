@@ -52,7 +52,7 @@ export default {
         }
         else
         {
-          this.createPicker()
+          //this.createPicker()
         }
       });
       gapi.load("picker", () => {

@@ -31,7 +31,7 @@
 
 <script>
 import templateFile from '@/data/FCCS.json'
-import { setFile } from "@/js/filestructure/storeFile.js";
+import { setFile, setParent } from "@/js/filestructure/storeFile.js";
 export default {
   data() {
     return {
@@ -44,7 +44,7 @@ export default {
       developerKey: "AIzaSyDtPr9R3LNpcMHxp4ZL7sZAJuRDPgRSe0I", //Google project API key
       clientId:
         "1085587302993-vdlu23buqvcumu31ffkfmt5umi9i7g6s.apps.googleusercontent.com", //Google project OAuth Client ID
-      scope: "https://www.googleapis.com/auth/drive", //scope is set for readonly
+      scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/spreadsheets", //scope is set for readonly
       oauthToken: null,
       fileResult: { fileId: null, parentId: null, fileContent: null, fileName: null },
       //folderId: null,
@@ -160,6 +160,7 @@ export default {
     async pickerCallback(data) {
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         this.fileResult.parentId = data.docs[0].id;
+        console.log("the parentid is:", this.fileResult.parentId)
         this.makeFile(this.fileResult);
       }
 
@@ -219,6 +220,7 @@ export default {
         if(this.fileResult.fileId && this.fileResult.parentId && this.fileResult.fileContent && this.fileResult.fileName)
         {
           setFile(this.fileResult.fileId, this.fileResult.fileContent, this.fileResult.fileName)
+          setParent(this.fileResult.parentId)
           this.$router.replace({ name: "ReportEditor" });
         }
       },

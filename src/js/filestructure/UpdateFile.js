@@ -1,4 +1,4 @@
-import { getFileContent, getFileId } from '@/js/filestructure/storeFile.js'
+import { getFileContent, getFileId, getParent } from '@/js/filestructure/storeFile.js'
 
 const patchFile = () =>
 {
@@ -18,5 +18,24 @@ const patchFile = () =>
         })
 }
 
+const uploadFile = (file, name) =>
+{
+    let id = getParent()
+    console.log('the folder ID is: ', id)
 
-export {patchFile}
+    var request = gapi.client.request(
+        {
+            path: "/upload/drive/v3/files/",
+            method: "POST",
+            params: {uploadType: "media"},
+            body: file
+        })
+        request.execute(function(resp){
+            console.log(resp)
+        })
+
+
+}
+
+
+export {patchFile, uploadFile}
