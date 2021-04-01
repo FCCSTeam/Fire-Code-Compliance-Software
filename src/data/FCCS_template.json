@@ -945,7 +945,7 @@
             { "week" : "Week 2", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "August,2" },
             { "week" : "Week 3", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "August,3" },
             { "week" : "Week 4", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "August,4" },
-            { "week" : "Week 5", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "August,5" },
+            { "week" : "Week 5", "loc": "", "id": "Pipe", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "August,5" },
             { "week" : "", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
 
             { "week" : "September", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
@@ -953,7 +953,7 @@
             { "week" : "Week 2", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "September,2" },
             { "week" : "Week 3", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "September,3" },
             { "week" : "Week 4", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "September,4" },
-            { "week" : "Week 5", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "September,5" },
+            { "week" : "Week 5", "loc": "", "id": "Pipe", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "September,5" },
             { "week" : "", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
 
             { "week" : "October", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
@@ -961,7 +961,7 @@
             { "week" : "Week 2", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "October,2" },
             { "week" : "Week 3", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "October,3" },
             { "week" : "Week 4", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "October,4" },
-            { "week" : "Week 5", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "October,5" },
+            { "week" : "Week 5", "loc": "", "id": "Pipe", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "October,5" },
             { "week" : "", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
 
             { "week" : "November", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
@@ -969,7 +969,7 @@
             { "week" : "Week 2", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "November,2" },
             { "week" : "Week 3", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "November,3" },
             { "week" : "Week 4", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "November,4" },
-            { "week" : "Week 5", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "November,5" },
+            { "week" : "Week 5", "loc": "Valve", "id": "Pipe", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" : "November,5" },
             { "week" : "", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
 
             { "week" : "December", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false },
@@ -977,7 +977,7 @@
             { "week" : "Week 2", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" :"December,2" },
             { "week" : "Week 3", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" :"December,3" },
             { "week" : "Week 4", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" :"December,4" },
-            { "week" : "Week 5", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" :"December,5" },
+            { "week" : "Week 5", "loc": "Valve", "id": "Pipe", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false, "key" :"December,5" },
             { "week" : "", "loc": "", "id": "", "inspectType" : "", "sig" : "", "remark" : "", "flag" : false }
         ],
         "monthly": [
