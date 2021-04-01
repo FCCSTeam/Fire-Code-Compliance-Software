@@ -23,5 +23,9 @@ $font-family-sans-serif: 'Roboto',"Helvetica Neue", Arial, 'sans-serif';
 //font sizes
 $enable-responsive-font-sizes: true;
 
+//Weights
+$headings-font-weight: 400; //Reduces boldness of headers
+
+
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/bootstrap-vue/src/index.scss';
