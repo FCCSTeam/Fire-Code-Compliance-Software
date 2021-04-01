@@ -16,16 +16,17 @@
       ok-variant="primary"
       ok-only
       @ok="handleOk"
+      @close="handleClose"
       :no-close-on-backdrop="true"
     >
       <b-form class="px-2">
         <b-row align-h="between">
-          <b-col cols="12" md="6">
+          <b-col cols="12" lg="6">
             <b-form-group label-for="location" label="Building Name: ">
-              <b-form-input v-model="entry.location"></b-form-input>
+              <b-form-input v-model="entry.location" :state="states.location"></b-form-input>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="6">
+          <b-col cols="12" lg="6">
             <b-form-group label-for="deviceType" label="Device Type: ">
               <b-form-input v-model="entry.deviceType"></b-form-input>
             </b-form-group>
@@ -33,58 +34,67 @@
         </b-row>
 
         <b-row align-h="between">
-          <b-col cols="12" md="6">
-            <b-form-group label-for="entry_A" label="A: ">
-              <b-form-select
+          <b-col cols="12" lg="6">
+            <b-form-group label-for="entry_A" label="A: Correctly Installed">
+              <b-form-radio-group
                 v-model="entry.entry_A"
                 :options="criteria"
-                class=""
-              ></b-form-select>
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="6">
-             <b-form-group label-for="entry_B1" label="B1: ">
-              <b-form-input v-model="entry.entry_B1"></b-form-input>
-            </b-form-group>
+          <b-col cols="12" lg="6">
+             <b-form-group label-for="entry_B1" label="B1: Missing">
+              <b-form-radio-group
+                v-model="entry.entry_B1"
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>            </b-form-group>
           </b-col>
-        </b-row>
 
-        <b-row>
-          <b-col cols="6">
-             <b-form-group label-for="entry_B2" label="B2: ">
-              <b-form-input v-model="entry.entry_B2"></b-form-input>
-            </b-form-group>
+          <b-col cols="12" lg="6">
+             <b-form-group label-for="entry_B2" label="B2: Req. Service or Repairs">
+              <b-form-radio-group
+                v-model="entry.entry_B2"
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>            </b-form-group>
           </b-col>
-          <b-col cols="6">
-            <b-form-group label-for="entry_C" label="C: ">
-              <b-form-select
+          <b-col cols="12" lg="6">
+            <b-form-group label-for="entry_C" label="C: Alarm Op. Confirmed">
+              <b-form-radio-group
                 v-model="entry.entry_C"
                 :options="criteria"
-                class=""
-              ></b-form-select>
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-        </b-row>
 
-        <b-row align-h="between">
-          <b-col cols="12" md="6">
-            <b-form-group label-for="entry_D" label="D: ">
-              <b-form-select
+          <b-col cols="12" lg="6">
+            <b-form-group label-for="entry_D" label="D: Annunciation Indication Confirmed">
+              <b-form-radio-group
                 v-model="entry.entry_D"
                 :options="criteria"
-                class=""
-              ></b-form-select>
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="6">
-             <b-form-group label-for="entry_E" label="E: ">
-              <b-form-input v-model="entry.entry_E"></b-form-input>
-            </b-form-group>
+          <b-col cols="12" lg="6">
+             <b-form-group label-for="entry_E" label="E: Circuit Num. or Address">
+              <b-form-radio-group
+                v-model="entry.entry_E"
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>            </b-form-group>
           </b-col>
-        </b-row>
 
-        <b-row align-h="between">
-          <b-col cols="12" md="6">
+          <b-col cols="12">
             <b-form-group label-for="remarks" label="Remarks: ">
               <b-form-input v-model="entry.remarks"></b-form-input>
             </b-form-group>
@@ -92,7 +102,9 @@
         </b-row>
         
       </b-form>
-      <span class="text-danger">{{ error }}</span>
+      <b-row class="px-2 text-muted"><b-col> Legend: </b-col></b-row>
+      <b-row class="px-2 text-muted font-italic"><b-col cols="6" lg="3">S - Satisfactory</b-col> <b-col cols="6" lg="3">U - Unsatisfactory</b-col> <b-col cols="6" lg="3">N/A - Not Applicable</b-col> <b-col cols="6" lg="3">N/T - Not Tested</b-col></b-row>
+      <div class="px-2 mt-2 text-danger">{{ error }}</div>
     </b-modal>
   </div>
 </template>
@@ -103,6 +115,7 @@ import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 import { getErrorMessages } from "@/js/reporteditor/ModalData.js";
 
 export default {
+  name: "Modal_AFAS_3_Devices",
   components: {
     ModalButton,
     CreateEntryButton,
@@ -126,7 +139,7 @@ export default {
   },
   data() {
     return {
-      criteria: ["S", "U", "N/A", "N/T"],
+      criteria: [{text: " - ", value : ""}, "S", "U", "N/A", "N/T"],
       entry: {
       },
       states: {
@@ -186,7 +199,7 @@ export default {
         // serviceDetails: this.entry.servSpecDet,
         // remarks: this.entry.remarks,
       };
-      this.recordBook.data.locations.push(newEntry);
+      this.recordBook.data.devices.push(newEntry);
       this.closeModal();
       this.defaultModal();
     },
@@ -209,21 +222,24 @@ export default {
     },
     initWithEntryData() {
       this.entry = {
-      location: this.entry.location,
-      deviceType: this.entry.deviceType,
-      entry_A: this.entry.entry_A,
-      entry_B1: this.entry.entry_B1,
-      entry_B2: this.entry.entry_B2,
-      entry_C: this.entry.entry_C,
-      entry_D: this.entry.entry_D,
-      entry_E: this.entry.entry_E,
-      remarks: this.entry.remarks
+      location: this.entryData.location,
+      deviceType: this.entryData.deviceType,
+      entry_A: this.entryData.entry_A,
+      entry_B1: this.entryData.entry_B1,
+      entry_B2: this.entryData.entry_B2,
+      entry_C: this.entryData.entry_C,
+      entry_D: this.entryData.entry_D,
+      entry_E: this.entryData.entry_E,
+      remarks: this.entryData.remarks
       }
     },
     closeModal() {
       this.$nextTick(() => {
         this.$bvModal.hide(this.getUniqueID);
       });
+    },
+    handleClose(){
+      this.defaultModal()
     },
   },
   mounted() {

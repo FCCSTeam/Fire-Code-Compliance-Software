@@ -1,6 +1,6 @@
 <template>
   <div id="type3-locations">
-    <h2>Locations</h2>
+    <h2>Devices</h2>
     <div v-for="(entry, index) in getData" :key="index">
       <Entry
         :ignoreFlag="true"
@@ -33,15 +33,13 @@
 
 <script>
 import Entry from "@/components/reporteditor/Entry.vue";
-import Modal_FE_3_Locations from "@/components/reporteditor/modals/type3/FireExtinguisher/Modal_FE_3_Locations.vue";
-import Modal_AFAS_3_Locations from "@/components/reporteditor/modals/type3/AutoFireAlarmSystem/Modal_AFAS_3_Locations.vue"
+import Modal_AFAS_3_Devices from "@/components/reporteditor/modals/type3/AutoFireAlarmSystem/Modal_AFAS_3_Devices.vue"
 
 export default {
-  name: "Type3Locations",
+  name: "Type3Devices",
   components: {
     Entry,
-    Modal_FE_3_Locations,
-    Modal_AFAS_3_Locations
+    Modal_AFAS_3_Devices
   },
   props: {
     recordBook: {
@@ -51,16 +49,14 @@ export default {
   },
   computed: {
     getData() {
-      return this.recordBook.data.locations;
+      return this.recordBook.data.devices;
     },
     getModalSuffix() {
-        return '_Locations'
+        return '_Devices'
     },
     getHeaderOffset() {
       if (this.recordBook.id == "AFAS_3") {
-        return 0;
-      } else if (this.recordBook.id == "FE_3") {
-        return 6;
+        return 5;
       } else {
         return 0;
       }

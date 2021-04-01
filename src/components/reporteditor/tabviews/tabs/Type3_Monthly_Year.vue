@@ -36,7 +36,7 @@
 
 <script>
 import Entry from "@/components/reporteditor/Entry.vue";
-import Modal_AFAS_3_Monthly_Year from "@/components/reporteditor/modals/type3/FireExtinguisher/Modal_AFAS_3_Monthly_Year.vue";
+import Modal_AFAS_3_Monthly_Year from "@/components/reporteditor/modals/type3/AutoFireAlarmSystem/Modal_AFAS_3_Monthly_Year.vue";
 
 export default {
   components: {
@@ -51,10 +51,10 @@ export default {
   },
   computed: {
     getData() {
-      return this.recordBook.data.monthly;
+      return this.recordBook.data.monthly_year;
     },
     getModalSuffix() {
-        return '_Monthly'
+        return '_Monthly_Year'
     },
     getDataHeaderOffset() {
       if (this.recordBook.id == "AFAS_3")

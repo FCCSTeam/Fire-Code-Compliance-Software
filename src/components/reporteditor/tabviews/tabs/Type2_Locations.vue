@@ -4,25 +4,25 @@
       <div v-for="(entry, index) in getData" :key="index">
           <Entry :ignoreFlag="true" :entryData="entry" :previewScope="2" @deleteEntry="deleteEntry(index)">
             <template v-slot:modal>
-              <ModalLocations :recordBook="recordBook" :entryData="entry" :uniqueID="recordBook.title + ' Locations ' + index"/>
+              <Type2ModalLocations :recordBook="recordBook" :entryData="entry" :uniqueID="recordBook.title + ' Locations ' + index"/>
             </template>
           </Entry>
       </div>
       <!-- Create Button -->
-      <ModalLocations :isCreate="true" :recordBook="recordBook" :entryData="{}" :uniqueID="recordBook.title + ' Locations create button'"/>
+      <Type2ModalLocations :isCreate="true" :recordBook="recordBook" :entryData="{}" :uniqueID="recordBook.title + ' Locations create button'"/>
 
   </div>
 </template>
 
 <script>
 import Entry from '@/components/reporteditor/Entry.vue'
-import ModalLocations from '@/components/reporteditor/modals/type1/ModalLocations.vue'
+import Type2ModalLocations from '@/components/reporteditor/modals/type2/Modal_2_Locations.vue'
 
 export default {
-  name: "Type1Locations",
+  name: "Type2Locations",
   components: {
     Entry,
-    ModalLocations,
+    Type2ModalLocations,
   },
   props: {
     recordBook: {

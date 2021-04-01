@@ -16,6 +16,7 @@
       ok-variant="primary"
       ok-only
       @ok="handleOk"
+      @close="handleClose"
       :no-close-on-backdrop="true"
     >
       <!-- <h1>Key: {{ getKey }}</h1> -->
@@ -205,7 +206,10 @@ export default {
         this.$nextTick(() => {
           this.$bvModal.hide(this.getUniqueID);
         });
-    }
+    },
+    handleClose(){
+      this.defaultModal()
+    },
   },
   mounted() {
     if (this.isCreate) {

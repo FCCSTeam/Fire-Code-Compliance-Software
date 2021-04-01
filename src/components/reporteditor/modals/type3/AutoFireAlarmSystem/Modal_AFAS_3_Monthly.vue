@@ -16,6 +16,7 @@
       ok-variant="primary"
       ok-only
       @ok="handleOk"
+      @close="handleClose"
       :no-close-on-backdrop="true"
     >
       <b-form class="px-2">
@@ -42,8 +43,9 @@
         </b-row>
 
         <b-row align-h="between">
+          <b-col cols=12 class="my-1"><b>1. Inspect:</b></b-col>
           <b-col cols="12" md="6">
-            <b-form-group label-for="entry_1A" label="Inspect (1A): ">
+            <b-form-group label-for="entry_1A" label="1A: ">
               <b-form-select
                 v-model="entry.entry_1A"
                 :options="tests" 
@@ -52,7 +54,7 @@
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-            <b-form-group label-for="entry_1B" label="Inspect (1B): ">
+            <b-form-group label-for="entry_1B" label="1B: ">
               <b-form-select
                 v-model="entry.entry_1B"
                 :options="tests"
@@ -61,13 +63,16 @@
             </b-form-group>
           </b-col>
         </b-row>
+
+
         <b-row align-h="between">
-          <b-col cols="12" md="3">
-            <b-form-group label-for="alarmType" label="Fire Alarm Location: ">
+          <b-col cols=12 class="my-1"><b>2. Fire Alarm:</b></b-col>
+          <b-col cols="12">
+            <b-form-group label-for="alarmType" label="Location / Type: ">
               <b-form-input v-model="entry.alarmType"></b-form-input>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="2">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2A" label="2A: ">
               <b-form-select
                 v-model="entry.entry_2A"
@@ -76,7 +81,7 @@
               ></b-form-select>
             </b-form-group>
           </b-col>
-         <b-col cols="12" md="2">
+         <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2B" label="2B: ">
               <b-form-select
                 v-model="entry.entry_2B"
@@ -85,7 +90,7 @@
               ></b-form-select>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="2">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2C" label="2C: ">
               <b-form-select
                 v-model="entry.entry_2C"
@@ -94,7 +99,7 @@
               ></b-form-select>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="2">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2D" label="2D: ">
               <b-form-select
                 v-model="entry.entry_2D"
@@ -104,9 +109,11 @@
             </b-form-group>
           </b-col>
         </b-row>
+
         <b-row>
+          <b-col cols=12 class="my-1"><b>3. Battery:</b></b-col>
           <b-col cols="4">
-            <b-form-group label-for="entry_3A" label="Battery 3A: ">
+            <b-form-group label-for="entry_3A" label="3A: ">
               <b-form-select
                 v-model="entry.entry_3A"
                 :options="tests"
@@ -115,7 +122,7 @@
             </b-form-group>
           </b-col>
           <b-col cols="4">
-            <b-form-group label-for="entry_3B" label="Battery 3B: ">
+            <b-form-group label-for="entry_3B" label="3B: ">
               <b-form-select
                 v-model="entry.entry_3B"
                 :options="tests"
@@ -124,7 +131,7 @@
             </b-form-group>
           </b-col>          
           <b-col cols="4">
-            <b-form-group label-for="entry_3C" label="Battery 3C: ">
+            <b-form-group label-for="entry_3C" label="3C: ">
               <b-form-select
                 v-model="entry.entry_3C"
                 :options="tests"
@@ -135,12 +142,13 @@
         </b-row>
 
         <b-row>
-          <b-col cols="12" md="3">
-            <b-form-group label-for="locationEmergPhone" label="Loc. of Emerg. Phone: ">
+          <b-col cols=12 class="my-1"><b>4. Voice Communication:</b></b-col>
+          <b-col cols="12" lg="3">
+            <b-form-group label-for="locationEmergPhone" label="Emergency Phone: ">
               <b-form-input v-model="entry.locationEmergPhone"></b-form-input>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="3">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_4A" label="4A: ">
               <b-form-select
                 v-model="entry.entry_2D"
@@ -149,8 +157,8 @@
               ></b-form-select>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="3">
-            <b-form-group label-for="locationVoicePage" label="Loc. of Voice Pager: ">
+          <b-col cols="12" lg="3">
+            <b-form-group label-for="locationVoicePage" label="Voice Page: ">
               <b-form-input v-model="entry.locationVoicePage"></b-form-input>
             </b-form-group>
           </b-col>
@@ -165,6 +173,7 @@
           </b-col>
         </b-row>
         <b-row>
+        <b-col cols=12 class="my-1"><b>Signature and Date:</b></b-col>
           <b-col cols="12" md="6">
             <b-form-group label-for="signature" label="Signature: ">
               <b-form-input v-model="entry.signature"></b-form-input>
@@ -181,7 +190,9 @@
           </b-col>
         </b-row>
       </b-form>
-      <span class="text-danger">{{ error }}</span>
+      <b-row class="px-2 text-muted"><b-col> Legend: </b-col></b-row>
+      <b-row class="px-2 text-muted font-italic"><b-col cols="6" lg="3">S - Satisfactory</b-col> <b-col cols="6" lg="3">U - Unsatisfactory</b-col> <b-col cols="6" lg="3">N/A - Not Applicable</b-col> <b-col cols="6" lg="3">N/T - Not Tested</b-col></b-row>
+      <div class="px-2 mt-2 text-danger">{{ error }}</div>
     </b-modal>
   </div>
 </template>
@@ -192,6 +203,7 @@ import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
 export default {
+  name: "Modal_AFAS_3_Monthly",
   components: {
     ModalButton,
     CreateEntryButton,
@@ -274,6 +286,8 @@ export default {
       }
     },
     defaultModal() {
+    if (this.isCreate) {
+      //create a new entry
       this.entry = {
         month: getMonths()[0],
         week: getWeeks()[0],
@@ -295,47 +309,6 @@ export default {
         date: "",
         remarks: "",
       };
-      this.error = null;
-    },
-    updateRecordBook(){
-        for (const entry of this.recordBook.data.monthly) {
-          if (entry.key) {
-            if (entry.key === this.getNewEntryKey) {
-              
-              entry.month = this.entry.month;
-              entry.week = "Week " + this.entry.week;
-              entry.sig = this.entry.signature;
-              entry.date = this.entry.date;
-              entry.remark = this.entry.remarks;
-              entry.flag = true;
-              entry.entry_1A = this.entry_1A;
-              entry.entry_1B = this.entry_1B;
-              entry.entry_2A = this.entry_2A;
-              entry.entry_2B = this.entry_2B;
-              entry.entry_2C = this.entry_2C;
-              entry.entry_2D = this.entry_2D;
-              entry.entry_3A = this.entry_3A;
-              entry.entry_3B = this.entry_3A;
-              entry.entry_3C = this.entry_3A;
-              entry.entry_4A = this.entry_4A;
-              entry.entry_4B = this.entry_4B;
-              entry.alarmType = this.alarmType;
-              entry.locationEmergPhone = this.locationEmergPhone;
-              entry.locationVoicePage = this.locationVoicePage;
-            }
-          }
-        }
-    },
-    closeModal(){
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getUniqueID);
-        });
-    }
-  },
-  mounted() {
-    if (this.isCreate) {
-      //create a new entry
-      this.defaultModal();
     } else {
       let keys = this.entryData.key.split(",");
       //entry exists
@@ -361,6 +334,48 @@ export default {
         locationVoicePage: this.entryData.locationVoicePage, 
       };
     }
+      this.error = null;
+    },
+    updateRecordBook(){
+        for (const entry of this.recordBook.data.monthly) {
+          if (entry.key) {
+            if (entry.key === this.getNewEntryKey) {
+              
+              entry.month = this.entry.month;
+              entry.week = "Week " + this.entry.week;
+              entry.sig = this.entry.signature;
+              entry.date = this.entry.date;
+              entry.remark = this.entry.remarks;
+              entry.flag = true;
+              entry.entry_1A = this.entry.entry_1A;
+              entry.entry_1B = this.entry.entry_1B;
+              entry.entry_2A = this.entry.entry_2A;
+              entry.entry_2B = this.entry.entry_2B;
+              entry.entry_2C = this.entry.entry_2C;
+              entry.entry_2D = this.entry.entry_2D;
+              entry.entry_3A = this.entry.entry_3A;
+              entry.entry_3B = this.entry.entry_3A;
+              entry.entry_3C = this.entry.entry_3A;
+              entry.entry_4A = this.entry.entry_4A;
+              entry.entry_4B = this.entry.entry_4B;
+              entry.alarmType = this.entry.alarmType;
+              entry.locationEmergPhone = this.entry.locationEmergPhone;
+              entry.locationVoicePage = this.entry.locationVoicePage;
+            }
+          }
+        }
+    },
+    closeModal(){
+        this.$nextTick(() => {
+          this.$bvModal.hide(this.getUniqueID);
+        });
+    },
+    handleClose(){
+      this.defaultModal()
+    },
+  },
+  mounted() {
+    this.defaultModal()
   },
 };
 </script>

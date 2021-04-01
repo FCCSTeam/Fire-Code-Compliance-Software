@@ -17,12 +17,16 @@
 <script>
 import Type3_Monthly from "@/components/reporteditor/tabviews/tabs/Type3_Monthly.vue";
 import Type3_Locations from "@/components/reporteditor/tabviews/tabs/Type3_Locations.vue";
+import Type3_Monthly_Year from "@/components/reporteditor/tabviews/tabs/Type3_Monthly_Year.vue";
+import Type3_Devices from "@/components/reporteditor/tabviews/tabs/Type3_Devices.vue";
 
 
 export default {
   components: {
     Type3_Monthly,
-    Type3_Locations
+    Type3_Locations,
+    Type3_Monthly_Year,
+    Type3_Devices
   },
   props: {
     recordBook: {

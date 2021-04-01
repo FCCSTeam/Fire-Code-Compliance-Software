@@ -16,13 +16,17 @@
       ok-variant="primary"
       ok-only
       @ok="handleOk"
+      @close="handleClose"
       :no-close-on-backdrop="true"
     >
       <b-form class="px-2">
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="location" label="Building Name: ">
-              <b-form-input v-model="entry.location"></b-form-input>
+              <b-form-input
+                v-model="entry.location"
+                :state="states.location"
+              ></b-form-input>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
@@ -41,8 +45,11 @@
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-             <b-form-group label-for="sizeTypeLabel" label="Size &amp; Type Label: ">
-              <b-form-input v-model="entry.date"></b-form-input>
+            <b-form-group
+              label-for="sizeTypeLabel"
+              label="Size &amp; Type Label: "
+            >
+              <b-form-input v-model="entry.sizeTypeLabel"></b-form-input>
             </b-form-group>
           </b-col>
 
@@ -78,7 +85,7 @@
             </b-form-group>
           </b-col>
           <b-col cols="6" lg="3">
-             <b-form-group label-for="hydrostatic" label="Hydrostatic Test: ">
+            <b-form-group label-for="hydrostatic" label="Hydrostatic Test: ">
               <b-form-radio-group
                 v-model="entry.hydrostatic"
                 :options="serviceSpecs"
@@ -96,7 +103,6 @@
             </b-form-group>
           </b-col>
         </b-row>
-        
       </b-form>
       <span class="text-danger">{{ error }}</span>
     </b-modal>
@@ -132,9 +138,12 @@ export default {
   },
   data() {
     return {
-      serviceSpecs: [{text: " - ", value : ""}, {text: "Y", value : "YES"} , {text: "N", value : "NO"}],
-      entry: {
-      },
+      serviceSpecs: [
+        { text: " - ", value: "" },
+        { text: "Y", value: "YES" },
+        { text: "N", value: "NO" },
+      ],
+      entry: {},
       states: {
         location: null,
       },
@@ -155,9 +164,7 @@ export default {
       if (this.entry.location == false) {
         this.states.location = false;
         this.error = getErrorMessages().required;
-      } 
-      else 
-      {
+      } else {
         if (this.isCreate) {
           this.createNewEntry();
         } else {
@@ -187,7 +194,7 @@ export default {
         annualService: this.entry.annualService,
         sixYearMain: this.entry.sixYearMain,
         hydrostatic: this.entry.hydrostatic,
-        remarks: this.entry.remarks
+        remarks: this.entry.remarks,
         // location: this.entry.unitLoc,
         // serviceDetails: this.entry.servSpecDet,
         // remarks: this.entry.remarks,
@@ -197,47 +204,48 @@ export default {
       this.defaultModal();
     },
     defaultModal() {
-      this.entry = {
-        location: "",
-        date: "",
-        serialNum: "",
-        sizeTypeLabel: "",
-        items: "",
-        annualService: "",
-        sixYearMain: "",
-        hydrostatic: "",
-        remarks: ""
-        // unitLoc: "",
-        // servSpecDet: "",
-        // remarks: ""
+      if (this.isCreate) {
+        this.entry = {
+          location: "",
+          date: "",
+          serialNum: "",
+          sizeTypeLabel: "",
+          items: "",
+          annualService: "",
+          sixYearMain: "",
+          hydrostatic: "",
+          remarks: "",
+        };
+      } else {
+        this.initWithEntryData();
       }
+      this.states.location = null;
       this.error = null;
     },
     initWithEntryData() {
       this.entry = {
-        location: this.entry.location,
-        date: this.entry.date,
-        serialNum: this.entry.serialNum,
-        sizeTypeLabel: this.entry.sizeTypeLabel,
-        items: this.entry.items,
-        annualService: this.entry.annualService,
-        sixYearMain: this.entry.sixYearMain,
-        hydrostatic: this.entry.hydrostatic,
-        remarks: this.entry.remarks
-      }
+        location: this.entryData.location,
+        date: this.entryData.date,
+        serialNum: this.entryData.serialNum,
+        sizeTypeLabel: this.entryData.sizeTypeLabel,
+        items: this.entryData.items,
+        annualService: this.entryData.annualService,
+        sixYearMain: this.entryData.sixYearMain,
+        hydrostatic: this.entryData.hydrostatic,
+        remarks: this.entryData.remarks,
+      };
     },
     closeModal() {
       this.$nextTick(() => {
         this.$bvModal.hide(this.getUniqueID);
       });
     },
+    handleClose() {
+      this.defaultModal();
+    },
   },
   mounted() {
-    if (this.isCreate) {
-      this.defaultModal();
-    } else {
-      this.initWithEntryData();
-    }
+    this.defaultModal();
   },
 };
 </script>
