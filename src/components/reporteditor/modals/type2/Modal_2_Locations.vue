@@ -108,12 +108,14 @@ export default {
         }
       }
     },
+
     updateCurrentEntry() {
       this.entryData.location = this.entry.unitLoc;
       this.entryData.serviceDetails = this.entry.servSpecDet;
       this.entryData.remarks = this.entry.remarks;
       this.closeModal();
     },
+
     createNewEntry() {
       let newEntry = {
         location: this.entry.unitLoc,
@@ -124,14 +126,22 @@ export default {
       this.closeModal();
       this.defaultModal();
     },
+
     defaultModal() {
-      this.entry = {
-        unitLoc: "",
-        servSpecDet: "",
-        remarks: ""
+
+      if (this.isCreate) {
+        this.entry = {
+          unitLoc: "",
+          servSpecDet: "",
+          remarks: ""
+        }
+      } else {
+        this.initWithEntryData();
       }
+      this.states.unitLoc = null;
       this.error = null;
     },
+
     initWithEntryData() {
       this.entry = {
         unitLoc: this.entryData.location,
@@ -139,21 +149,20 @@ export default {
         remarks: this.entryData.remarks
       }
     },
+
     closeModal() {
       this.$nextTick(() => {
         this.$bvModal.hide(this.getUniqueID);
       });
     },
+
     handleClose(){
       this.defaultModal()
     },
   },
+
   mounted() {
-    if (this.isCreate) {
-      this.defaultModal();
-    } else {
-      this.initWithEntryData();
-    }
+    this.defaultModal();
   },
 };
 </script>

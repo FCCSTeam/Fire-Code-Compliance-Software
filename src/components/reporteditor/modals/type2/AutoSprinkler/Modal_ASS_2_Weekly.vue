@@ -19,7 +19,7 @@
       @close="handleClose"
       :no-close-on-backdrop="true"
     >
-      <b-form class="px-2"> 
+      <b-form class="px-2">
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="month" label="Month: ">
@@ -44,7 +44,10 @@
 
         <b-row align-h="between">
           <b-col cols="12" md="6">
-            <b-form-group label-for="loc" label="Sprinkler System Riser Location: ">
+            <b-form-group
+              label-for="loc"
+              label="Sprinkler System Riser Location: "
+            >
               <b-form-input v-model="entry.loc"></b-form-input>
             </b-form-group>
           </b-col>
@@ -82,7 +85,11 @@
 </template>
 
 <script>
-import { getMonths, getWeeks, getErrorMessages } from "@/js/reporteditor/ModalData.js";
+import {
+  getMonths,
+  getWeeks,
+  getErrorMessages,
+} from "@/js/reporteditor/ModalData.js";
 import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
@@ -122,12 +129,11 @@ export default {
       return this.uniqueID;
     },
     getNewEntryKey() {
-      return this.entry.month + "," + this.entry.week
+      return this.entry.month + "," + this.entry.week;
     },
-    getRecordBookTabData(){
-      return this.recordBook.data.weekly
-    }
-
+    getRecordBookTabData() {
+      return this.recordBook.data.weekly;
+    },
   },
   methods: {
     handleOk(bvModalEvt) {
@@ -173,60 +179,60 @@ export default {
     },
     //Resets a modal to default/empty values
     defaultModal() {
-      this.entry = {
-        month: getMonths()[0],
-        week: getWeeks()[0],
-        loc: "",
-        id: "",
-        type: "",
-        signature: "",
-        remarks: ""
-      };
+      if (this.isCreate) {
+        //create a new entry
+        this.entry = {
+          month: getMonths()[0],
+          week: getWeeks()[0],
+          loc: "",
+          id: "",
+          type: "",
+          signature: "",
+          remarks: "",
+        };
+      } else {
+        let keys = this.entryData.key.split(",");
+        //entry exists
+        this.entry = {
+          month: keys[0],
+          week: keys[1],
+          loc: this.entryData.loc,
+          id: this.entryData.id,
+          type: this.entryData.inspectType,
+          signature: this.entryData.sig,
+          remarks: this.entryData.remark,
+        };
+      }
       this.error = null;
     },
-    updateRecordBook(){
+    updateRecordBook() {
       //Goes into the recordBook in the .js file and updates the books data with modal input
-        for (const entry of this.getRecordBookTabData) {
-          if (entry.key) {
-            if (entry.key === this.getNewEntryKey) {
-              entry.month = this.entry.month;
-              entry.week = "Week " + this.entry.week;
-              entry.loc = this.entry.loc;
-              entry.id = this.entry.id;
-              entry.inspectType = this.entry.type;
-              entry.sig = this.entry.signature;
-              entry.remark = this.entry.remarks;
-              entry.flag = true;
-            }
+      for (const entry of this.getRecordBookTabData) {
+        if (entry.key) {
+          if (entry.key === this.getNewEntryKey) {
+            entry.month = this.entry.month;
+            entry.week = "Week " + this.entry.week;
+            entry.loc = this.entry.loc;
+            entry.id = this.entry.id;
+            entry.inspectType = this.entry.type;
+            entry.sig = this.entry.signature;
+            entry.remark = this.entry.remarks;
+            entry.flag = true;
           }
         }
+      }
     },
-    closeModal(){
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getUniqueID);
-        });
+    closeModal() {
+      this.$nextTick(() => {
+        this.$bvModal.hide(this.getUniqueID);
+      });
     },
-    handleClose(){
-      this.defaultModal()
+    handleClose() {
+      this.defaultModal();
     },
   },
   mounted() {
-    if (this.isCreate) {
-      //create a new entry
-      this.defaultModal();
-    } else {
-      let keys = this.entryData.key.split(",");
-      //entry exists
-      this.entry = {
-        month: keys[0],
-        week: keys[1],
-        loc: this.entryData.loc,
-        id: this.entryData.id,
-        type: this.entryData.inspectType,
-        signature: this.entryData.sig,
-        remarks: this.entryData.remark     
-      };
-    }
+    this.defaultModal();
   },
 };
 </script>

@@ -23,7 +23,10 @@
         <b-row align-h="between">
           <b-col cols="12" lg="6">
             <b-form-group label-for="location" label="Locations: ">
-              <b-form-input v-model="entry.location" :state="states.location"></b-form-input>
+              <b-form-input
+                v-model="entry.location"
+                :state="states.location"
+              ></b-form-input>
             </b-form-group>
           </b-col>
           <b-col cols="12" lg="6">
@@ -45,23 +48,28 @@
             </b-form-group>
           </b-col>
           <b-col cols="12" lg="6">
-             <b-form-group label-for="entry_B1" label="B1: Missing">
+            <b-form-group label-for="entry_B1" label="B1: Missing">
               <b-form-radio-group
                 v-model="entry.entry_B1"
                 :options="criteria"
                 buttons
                 button-variant="outline-primary"
-              ></b-form-radio-group>            </b-form-group>
+              ></b-form-radio-group>
+            </b-form-group>
           </b-col>
 
           <b-col cols="12" lg="6">
-             <b-form-group label-for="entry_B2" label="B2: Req. Service or Repairs">
+            <b-form-group
+              label-for="entry_B2"
+              label="B2: Req. Service or Repairs"
+            >
               <b-form-radio-group
                 v-model="entry.entry_B2"
                 :options="criteria"
                 buttons
                 button-variant="outline-primary"
-              ></b-form-radio-group>            </b-form-group>
+              ></b-form-radio-group>
+            </b-form-group>
           </b-col>
           <b-col cols="12" lg="6">
             <b-form-group label-for="entry_C" label="C: Alarm Op. Confirmed">
@@ -75,7 +83,10 @@
           </b-col>
 
           <b-col cols="12" lg="6">
-            <b-form-group label-for="entry_D" label="D: Annunciation Indication Confirmed">
+            <b-form-group
+              label-for="entry_D"
+              label="D: Annunciation Indication Confirmed"
+            >
               <b-form-radio-group
                 v-model="entry.entry_D"
                 :options="criteria"
@@ -85,13 +96,17 @@
             </b-form-group>
           </b-col>
           <b-col cols="12" lg="6">
-             <b-form-group label-for="entry_E" label="E: Circuit Num. or Address">
+            <b-form-group
+              label-for="entry_E"
+              label="E: Circuit Num. or Address"
+            >
               <b-form-radio-group
                 v-model="entry.entry_E"
                 :options="criteria"
                 buttons
                 button-variant="outline-primary"
-              ></b-form-radio-group>            </b-form-group>
+              ></b-form-radio-group>
+            </b-form-group>
           </b-col>
 
           <b-col cols="12">
@@ -100,10 +115,14 @@
             </b-form-group>
           </b-col>
         </b-row>
-        
       </b-form>
       <b-row class="px-2 text-muted"><b-col> Legend: </b-col></b-row>
-      <b-row class="px-2 text-muted font-italic"><b-col cols="6" lg="3">S - Satisfactory</b-col> <b-col cols="6" lg="3">U - Unsatisfactory</b-col> <b-col cols="6" lg="3">N/A - Not Applicable</b-col> <b-col cols="6" lg="3">N/T - Not Tested</b-col></b-row>
+      <b-row class="px-2 text-muted font-italic"
+        ><b-col cols="6" lg="3">S - Satisfactory</b-col>
+        <b-col cols="6" lg="3">U - Unsatisfactory</b-col>
+        <b-col cols="6" lg="3">N/A - Not Applicable</b-col>
+        <b-col cols="6" lg="3">N/T - Not Tested</b-col></b-row
+      >
       <div class="px-2 mt-2 text-danger">{{ error }}</div>
     </b-modal>
   </div>
@@ -204,22 +223,25 @@ export default {
       this.defaultModal();
     },
     defaultModal() {
-      this.entry = {
-      location: "",
-      deviceType: "",
-      entry_A: "",
-      entry_B1: "",
-      entry_B2: "",
-      entry_C: "",
-      entry_D: "",
-      entry_E: "",
-      remarks: ""
-        // unitLoc: "",
-        // servSpecDet: "",
-        // remarks: ""
+      if (this.isCreate) {
+        this.entry = {
+          location: "",
+          deviceType: "",
+          entry_A: "",
+          entry_B1: "",
+          entry_B2: "",
+          entry_C: "",
+          entry_D: "",
+          entry_E: "",
+          remarks: ""
+        };
+      } else {
+        this.initWithEntryData();
       }
+      this.states.location = null;
       this.error = null;
     },
+
     initWithEntryData() {
       this.entry = {
       location: this.entryData.location,
@@ -233,21 +255,20 @@ export default {
       remarks: this.entryData.remarks
       }
     },
+
     closeModal() {
       this.$nextTick(() => {
         this.$bvModal.hide(this.getUniqueID);
       });
     },
+
     handleClose(){
       this.defaultModal()
     },
   },
+  
   mounted() {
-    if (this.isCreate) {
-      this.defaultModal();
-    } else {
-      this.initWithEntryData();
-    }
+    this.defaultModal();
   },
 };
 </script>

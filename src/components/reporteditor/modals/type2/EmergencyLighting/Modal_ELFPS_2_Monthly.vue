@@ -11,7 +11,7 @@
       :ref="getUniqueID"
       size="lg"
       :static="true"
-      title="Enter Month/Week Entry"
+      title="Enter Month Entry"
       ok-title="Apply"
       ok-variant="primary"
       ok-only
@@ -56,7 +56,10 @@
         </b-row>
         <b-row>
           <b-col cols="12" md="6">
-            <b-form-group label-for="type" label="Inspection Check Test Monthly: ">
+            <b-form-group
+              label-for="type"
+              label="Inspection Check Test Monthly: "
+            >
               <b-form-input v-model="entry.type"></b-form-input>
             </b-form-group>
           </b-col>
@@ -80,7 +83,11 @@
 </template>
 
 <script>
-import { getMonths, getWeeks, getErrorMessages } from "@/js/reporteditor/ModalData.js";
+import {
+  getMonths,
+  getWeeks,
+  getErrorMessages,
+} from "@/js/reporteditor/ModalData.js";
 import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
@@ -120,8 +127,8 @@ export default {
       return this.uniqueID;
     },
     getNewEntryKey() {
-      return this.entry.month + "," + this.entry.week
-    }
+      return this.entry.month + "," + this.entry.week;
+    },
   },
   methods: {
     handleOk(bvModalEvt) {
@@ -134,6 +141,7 @@ export default {
         this.updateCurrentEntry();
       }
     },
+
     updateCurrentEntry() {
       this.entryData.flag = false; //to ignore itself during duplicate checking
       for (const entry of this.recordBook.data.monthly) {
@@ -151,6 +159,7 @@ export default {
         this.closeModal();
       }
     },
+
     createNewEntry() {
       for (const entry of this.recordBook.data.monthly) {
         if (entry.key) {
@@ -166,60 +175,64 @@ export default {
         this.defaultModal();
       }
     },
+
     defaultModal() {
-      this.entry = {
-        month: getMonths()[0],
-        week: getWeeks()[0],
-        generator: "",
-        level: "",
-        type: "",
-        signature: "",
-        remarks: "",
-      };
+      if (this.isCreate) {
+        //create a new entry
+        this.entry = {
+          month: getMonths()[0],
+          week: getWeeks()[0],
+          generator: "",
+          level: "",
+          type: "",
+          signature: "",
+          remarks: "",
+        }
+      } else {
+        let keys = this.entryData.key.split(",");
+        //entry exists
+        this.entry = {
+          month: keys[0],
+          week: keys[1],
+          generator: this.entryData.generator,
+          level: this.entryData.level,
+          type: this.entryData.inspectType,
+          signature: this.entryData.sig,
+          remarks: this.entryData.remark,
+        };
+      }
       this.error = null;
     },
-    updateRecordBook(){
-        for (const entry of this.recordBook.data.monthly) {
-          if (entry.key) {
-            if (entry.key === this.getNewEntryKey) {
-              entry.month = this.entry.month;
-              entry.week = "Week " + this.entry.week;
-              entry.generator = this.entry.generator;
-              entry.level = this.entry.level; 
-              entry.inspectType = this.entry.type;
-              entry.sig = this.entry.signature;
-              entry.remark = this.entry.remarks;
-              entry.flag = true;
-            }
+
+    updateRecordBook() {
+      for (const entry of this.recordBook.data.monthly) {
+        if (entry.key) {
+          if (entry.key === this.getNewEntryKey) {
+            entry.month = this.entry.month;
+            entry.week = "Week " + this.entry.week;
+            entry.generator = this.entry.generator;
+            entry.level = this.entry.level;
+            entry.inspectType = this.entry.type;
+            entry.sig = this.entry.signature;
+            entry.remark = this.entry.remarks;
+            entry.flag = true;
           }
         }
+      }
     },
-    closeModal(){
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getUniqueID);
-        });
+
+    closeModal() {
+      this.$nextTick(() => {
+        this.$bvModal.hide(this.getUniqueID);
+      });
     },
-    handleClose(){
-      this.defaultModal()
+
+    handleClose() {
+      this.defaultModal();
     },
   },
   mounted() {
-    if (this.isCreate) {
-      //create a new entry
-      this.defaultModal();
-    } else {
-      let keys = this.entryData.key.split(",");
-      //entry exists
-      this.entry = {
-        month: keys[0],
-        week: keys[1],
-        generator: this.entryData.generator,
-        level: this.entryData.level,
-        type: this.entryData.inspectType,
-        signature: this.entryData.sig,
-        remarks: this.entryData.remark,
-      };
-    }
+    this.defaultModal();
   },
 };
 </script>
