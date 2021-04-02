@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {setFile } from "@/js/filestructure/storeFile.js";
+import {setFile, setParent } from "@/js/filestructure/storeFile.js";
 
 export default {
   data() {
@@ -18,7 +18,8 @@ export default {
       oauthToken: null,
       fileName: null,
       fileContent: null,
-      FileId: null
+      FileId: null,
+      parentId: null
     };
   },
   methods: {
@@ -103,6 +104,7 @@ export default {
       //console.log("PickerCallback", data);
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         //get only first document of array of selected docs
+        this.parentId = data.docs[0].id
         var doc = data[google.picker.Response.DOCUMENTS][0];
         if (doc) {
           this.fileName = doc.name
@@ -143,6 +145,8 @@ export default {
         //content was retrieved from the GET Request
         this.fileContent = content;
         setFile(this.fileId, this.fileContent, this.fileName)
+        setParent(this.parentId)
+
 
         //console.log(content)
         this.$router.replace({ name: "ReportEditor" });
