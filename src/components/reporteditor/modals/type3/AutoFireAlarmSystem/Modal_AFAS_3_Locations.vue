@@ -1,5 +1,5 @@
 <template>
-  <div class="modalContainer">
+  <div class="modalAFASLocations">
     <div v-if="isCreate">
       <CreateEntryButton @trigger="$refs[getUniqueID].show()" />
     </div>
@@ -22,18 +22,18 @@
       <b-form class="px-2">
         <b-row>
           <b-col cols="12">
-            <b-form-group label-for="unitLoc" label="Unit Location: ">
+            <b-form-group label-for="location" label="Device Locations: ">
               <b-form-input
-                v-model="entry.unitLoc"
-                :state="states.unitLoc"
+                v-model="entry.location"
+                :state="states.deviceLoc"
               ></b-form-input>
             </b-form-group>
 
             <b-form-group
-              label-for="servSpecDet"
+              label-for="serviceDetails"
               label="Service Specific Details: "
             >
-              <b-form-input v-model="entry.servSpecDet"></b-form-input>
+              <b-form-input v-model="entry.serviceDetails"></b-form-input>
             </b-form-group>
 
             <b-form-group label-for="remarks" label="Remarks: ">
@@ -53,6 +53,7 @@ import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 import { getErrorMessages } from "@/js/reporteditor/ModalData.js";
 
 export default {
+  name: "Modal_AFAS_3_Locations",
   components: {
     ModalButton,
     CreateEntryButton,
@@ -79,7 +80,7 @@ export default {
       entry: {
       },
       states: {
-        unitLoc: null,
+        deviceLoc: null,
       },
       error: null,
     };
@@ -94,9 +95,9 @@ export default {
       // Prevent modal from closing
       bvModalEvt.preventDefault();
       this.error = null;
-      this.states.unitLoc = null;
-      if (this.entry.unitLoc == false) {
-        this.states.unitLoc = false;
+      this.states.deviceLoc = null;
+      if (this.entry.location == false) {
+        this.states.deviceLoc = false;
         this.error = getErrorMessages().required;
       } 
       else 
@@ -109,15 +110,15 @@ export default {
       }
     },
     updateCurrentEntry() {
-      this.entryData.location = this.entry.unitLoc;
-      this.entryData.serviceDetails = this.entry.servSpecDet;
+      this.entryData.location = this.entry.location;
+      this.entryData.serviceDetails = this.entry.serviceDetails;
       this.entryData.remarks = this.entry.remarks;
       this.closeModal();
     },
     createNewEntry() {
       let newEntry = {
-        location: this.entry.unitLoc,
-        serviceDetails: this.entry.servSpecDet,
+        location: this.entry.location,
+        serviceDetails: this.entry.serviceDetails,
         remarks: this.entry.remarks,
       };
       this.recordBook.data.locations.push(newEntry);
@@ -126,16 +127,16 @@ export default {
     },
     defaultModal() {
       this.entry = {
-        unitLoc: "",
-        servSpecDet: "",
+        location: "",
+        serviceDetails: "",
         remarks: ""
       }
       this.error = null;
     },
     initWithEntryData() {
       this.entry = {
-        unitLoc: this.entryData.location,
-        servSpecDet: this.entryData.serviceDetails,
+        location: this.entryData.location,
+        serviceDetails: this.entryData.serviceDetails,
         remarks: this.entryData.remarks
       }
     },

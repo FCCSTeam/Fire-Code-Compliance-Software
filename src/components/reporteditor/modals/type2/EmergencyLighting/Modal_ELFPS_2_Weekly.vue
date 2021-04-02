@@ -16,6 +16,7 @@
       ok-variant="primary"
       ok-only
       @ok="handleOk"
+      @close="handleClose"
       :no-close-on-backdrop="true"
     >
       <b-form class="px-2">
@@ -199,7 +200,10 @@ export default {
         this.$nextTick(() => {
           this.$bvModal.hide(this.getUniqueID);
         });
-    }
+    },
+    handleClose(){
+      this.defaultModal()
+    },
   },
   mounted() {
     if (this.isCreate) {

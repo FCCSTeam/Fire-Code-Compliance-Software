@@ -83,7 +83,7 @@
         <ejs-grid ref='fire_alarm_g9' id='NinthGrid' :dataSource='fire_alarm_s9' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
                 <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
-                <e-column field="deviceType" headerText="Device Type" textAlign="Left" width=120></e-column>
+                <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
                 <e-column field="remark" headerText="Remark" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>

@@ -37,11 +37,13 @@
 <script>
 import Entry from "@/components/reporteditor/Entry.vue";
 import Modal_FE_3_Monthly from "@/components/reporteditor/modals/type3/FireExtinguisher/Modal_FE_3_Monthly.vue";
+import Modal_AFAS_3_Monthly from "@/components/reporteditor/modals/type3/AutoFireAlarmSystem/Modal_AFAS_3_Monthly.vue"
 
 export default {
   components: {
     Entry,
-    Modal_FE_3_Monthly
+    Modal_FE_3_Monthly,
+    Modal_AFAS_3_Monthly
   },
   props: {
     recordBook: {
