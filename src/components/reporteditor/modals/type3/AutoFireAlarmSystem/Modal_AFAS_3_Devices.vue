@@ -22,7 +22,7 @@
       <b-form class="px-2">
         <b-row align-h="between">
           <b-col cols="12" lg="6">
-            <b-form-group label-for="location" label="Building Name: ">
+            <b-form-group label-for="location" label="Locations: ">
               <b-form-input v-model="entry.location" :state="states.location"></b-form-input>
             </b-form-group>
           </b-col>
