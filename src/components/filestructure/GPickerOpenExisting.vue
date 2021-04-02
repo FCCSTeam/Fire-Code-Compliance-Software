@@ -6,6 +6,7 @@
 
 <script>
 import {setFile, setParent } from "@/js/filestructure/storeFile.js";
+import {setAuth} from "@/js/filestructure/UpdateFile.js" 
 
 export default {
   data() {
@@ -73,8 +74,11 @@ export default {
     //handles the result from the google Auth attempt. Creates picker if success
     handleAuthResult(authResult) {
       //console.log("Handle Auth result", authResult);
+      var token = null;
       if (authResult && !authResult.error) {
         this.oauthToken = authResult.access_token;
+        token = authResult.access_token;
+        setAuth(token)
         gapi.load("picker", () => {
         //console.log("Picker Loaded");
           this.pickerApiLoaded = true;

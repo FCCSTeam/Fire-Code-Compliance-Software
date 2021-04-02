@@ -20,7 +20,7 @@
       <e-columns>
         <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
         <e-column field="serviceDetails" headerText="Service Specific Details" textAlign="Left" width=120></e-column>
-        <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
+        <e-column field="remarks" headerText="Remarks" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
     
@@ -175,7 +175,7 @@
   import { Workbook } from "@syncfusion/ej2-excel-export";             
   import { GridPlugin, Toolbar, ExcelExport } from "@syncfusion/ej2-vue-grids"; // add Resize here?
   import { getFileContent } from '@/js/filestructure/storeFile.js'
-  import { uploadFile } from '@/js/filestructure/UpdateFile.js'
+  import { uploadFile, callPicker } from '@/js/filestructure/UpdateFile.js'
   import { fire_dept_access, fire_hazards, high_buildings, means_egress, service_equipment, smoke_alarms, standpipe_hose } from '@/../src/data/FCCS.json'
 
   Vue.use(GridPlugin);
@@ -194,28 +194,28 @@
         firDepAcc_s2: getFileContent().fire_dept_access.locations,
 
         //2nd doc
-        firHaz_s1: fire_hazards.monthly,
-        firHaz_s2: fire_hazards.locations,
+        firHaz_s1: getFileContent().fire_hazards.monthly,
+        firHaz_s2: getFileContent().fire_hazards.locations,
 
         //3rd doc
-        HighBld_s1: high_buildings.monthly,
-        HighBld_s2: high_buildings.locations,
+        HighBld_s1: getFileContent().high_buildings.monthly,
+        HighBld_s2: getFileContent().high_buildings.locations,
 
         //4th doc
-        meanEgr_s1: means_egress.monthly,
-        meanEgr_s2: means_egress.locations,
+        meanEgr_s1: getFileContent().means_egress.monthly,
+        meanEgr_s2: getFileContent().means_egress.locations,
 
         // //5th doc
-        servEquip_s1: service_equipment.monthly,
-        servEquip_s2: service_equipment.locations,
+        servEquip_s1: getFileContent().service_equipment.monthly,
+        servEquip_s2: getFileContent().service_equipment.locations,
 
         // //6th doc
-        smokeAlarm_s1: smoke_alarms.monthly,
-        smokeAlarm_s2: smoke_alarms.locations,
+        smokeAlarm_s1: getFileContent().smoke_alarms.monthly,
+        smokeAlarm_s2: getFileContent().smoke_alarms.locations,
 
         // //7th doc
-        stdPipe_s1: standpipe_hose.monthly,
-        stdPipe_s2: standpipe_hose.locations,
+        stdPipe_s1: getFileContent().standpipe_hose.monthly,
+        stdPipe_s2: getFileContent().standpipe_hose.locations,
 
         toolbarOptions: ['ExcelExport']
       };
@@ -239,7 +239,6 @@
             const book = new Workbook(data2, "xlsx"); 
             // The excel sheet is saved(downloaded) using the created workbook 
             book.save(reportName + ".xlsx");
-            uploadFile(book, reportName);   
           }); 
         }); 
       }, 

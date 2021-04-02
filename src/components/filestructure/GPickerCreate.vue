@@ -30,8 +30,9 @@
 </template>
 
 <script>
-import templateFile from '@/data/FCCS_template.json'
+import templateFile from '@/data/FCCS.json'
 import { setFile, setParent } from "@/js/filestructure/storeFile.js";
+import {setAuth} from "@/js/filestructure/UpdateFile.js" 
 export default {
   data() {
     return {
@@ -125,7 +126,10 @@ export default {
     },
     //handles the result from the google Auth attempt. Creates picker if success
     handleAuthResult(authResult) {
+      var token = null; 
       if (authResult && !authResult.error) {
+        token = authResult.access_token;
+        setAuth(token)
         this.oauthToken = authResult.access_token;
         this.createPicker();
       }
@@ -135,6 +139,7 @@ export default {
       //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
+          .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
           .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
           .addView(
             new google.picker.DocsView()

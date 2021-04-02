@@ -30,7 +30,7 @@
           <span class="sidemenu-button-text text-secondary">SAVE</span>
         </b-button>
 
-        <b-button variant="light" class="d-flex flex-column align-items-center">
+        <b-button variant="light" class="d-flex flex-column align-items-center" @click="$router.replace({ name: 'TypeOneGridView' })">
           <b-icon
             class="sidemenu-button my-1 py-1"
             icon="box-arrow-up"
