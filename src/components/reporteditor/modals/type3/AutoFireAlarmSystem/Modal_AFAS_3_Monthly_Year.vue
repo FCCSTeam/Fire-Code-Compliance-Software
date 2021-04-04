@@ -1,5 +1,5 @@
 <template>
-  <div class="modalContainer">
+  <div class="modalAFASMonthlyYear">
     <div v-if="isCreate">
       <CreateEntryButton @trigger="$refs[getUniqueID].show()" />
     </div>
@@ -43,115 +43,125 @@
         </b-row>
 
         <b-row align-h="between">
+          <b-col cols=12 class="my-1"><b>Inspect:</b></b-col>
           <b-col cols="12" md="6">
-            <b-form-group label-for="entry_1A" label="Inspect (1A): ">
-              <b-form-select
+            <b-form-group label-for="entry_1A" label="1A: ">
+              <b-form-radio-group
                 v-model="entry.entry_1A"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
-            <b-form-group label-for="entry_1B" label="Inspect (1B): ">
-              <b-form-select
+            <b-form-group label-for="entry_1B" label="1B: ">
+              <b-form-radio-group
                 v-model="entry.entry_1B"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
+
         <b-row align-h="between">
-          <b-col cols="12" md="3">
+          <b-col cols=12 class="my-1"><b>Fire Alarm:</b></b-col>
+          <b-col cols="12">
             <b-form-group label-for="alarmType" label="Fire Alarm Location: ">
               <b-form-input v-model="entry.alarmType"></b-form-input>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="2">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2A" label="2A: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2A"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="2">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2B" label="2B: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2B"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="2">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2C" label="2C: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2C"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="2">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2D" label="2D: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2D"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
+
         <b-row>
-          <b-col cols="12">
-            <b-form-group
-              label-for="entry_3A"
-              label="Signal Receiving Centre (3A): "
-            >
-              <b-form-select
+          <b-col cols=12 class="my-1"><b>Signal Receiving Centre:</b></b-col>
+          <b-col cols="4">
+            <b-form-group label-for="entry_3A" label="3A: ">
+              <b-form-radio-group
                 v-model="entry.entry_3A"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
+
         <b-row>
-          <b-col cols="12" md="3">
-            <b-form-group
-              label-for="locationEmergPhone"
-              label="Loc. of Emerg. Phone: "
-            >
+          <b-col cols=12 class="my-1"><b>Voice Communication:</b></b-col>
+          <b-col cols="12" lg="3">
+            <b-form-group label-for="locationEmergPhone" label="Location of Emergency Phone: ">
               <b-form-input v-model="entry.locationEmergPhone"></b-form-input>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="3">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_4A" label="4A: ">
-              <b-form-select
-                v-model="entry.entry_2D"
-                :options="tests"
-                class=""
-              ></b-form-select>
+              <b-form-radio-group
+                v-model="entry.entry_4A"
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="3">
+          <b-col cols="12" lg="3">
             <b-form-group
               label-for="locationVoicePage"
-              label="Loc. of Voice Pager: "
+              label="Location of Voice Page Zone: "
             >
               <b-form-input v-model="entry.locationVoicePage"></b-form-input>
             </b-form-group>
           </b-col>
-          <b-col cols="12" md="3">
+          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_4B" label="4B: ">
-              <b-form-select
-                v-model="entry.entry_2D"
-                :options="tests"
-                class=""
-              ></b-form-select>
+              <b-form-radio-group
+                v-model="entry.entry_4B"
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
@@ -211,11 +221,11 @@ export default {
   },
   data() {
     return {
+      criteria: ["S", "U", "N/A", "N/T"],
       months: getMonths(),
       weeks: getWeeks(),
       entry: {},
-      error: null,
-      tests: ["S", "U", "N/A", "N/T"],
+      error: null
     };
   },
   computed: {

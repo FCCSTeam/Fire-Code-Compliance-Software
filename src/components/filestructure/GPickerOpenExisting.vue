@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import {setFile } from "@/js/filestructure/storeFile.js";
+import {setFile, setParent } from "@/js/filestructure/storeFile.js";
+import {setAuth} from "@/js/filestructure/UpdateFile.js" 
 
 export default {
   data() {
@@ -18,7 +19,8 @@ export default {
       oauthToken: null,
       fileName: null,
       fileContent: null,
-      FileId: null
+      FileId: null,
+      parentId: null
     };
   },
   methods: {
@@ -72,11 +74,14 @@ export default {
     //handles the result from the google Auth attempt. Creates picker if success
     handleAuthResult(authResult) {
       //console.log("Handle Auth result", authResult);
+      var token = null;
       if (authResult && !authResult.error) {
         this.oauthToken = authResult.access_token;
+        token = authResult.access_token;
+        setAuth(token)
         gapi.load("picker", () => {
         //console.log("Picker Loaded");
-          this.pickerApiLoaded = true;
+          this.pickerApiLoaded = true;  
           this.createPicker();
           console.log('THIS MADE  PICKER1')
         });
@@ -88,9 +93,9 @@ export default {
       //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
-          .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
+          .enableFeature(google.picker.Feature.SUPPORT_TEAM_DRIVES)
+          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableTeamDrives(true).setMimeTypes("application/json"))
           .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
-          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
           .setOAuthToken(this.oauthToken)
           .setDeveloperKey(this.developerKey)
           .setCallback(this.pickerCallback)
@@ -103,6 +108,7 @@ export default {
       //console.log("PickerCallback", data);
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
         //get only first document of array of selected docs
+        this.parentId = data.docs[0].id
         var doc = data[google.picker.Response.DOCUMENTS][0];
         if (doc) {
           this.fileName = doc.name
@@ -143,6 +149,8 @@ export default {
         //content was retrieved from the GET Request
         this.fileContent = content;
         setFile(this.fileId, this.fileContent, this.fileName)
+        setParent(this.parentId)
+
 
         //console.log(content)
         this.$router.replace({ name: "ReportEditor" });

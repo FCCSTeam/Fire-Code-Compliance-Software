@@ -184,7 +184,7 @@ export default {
           week: keys[1],
           signature: this.entryData.sig,
           date: this.entryData.date,
-          remarks: this.entryData.remarks,
+          remarks: this.entryData.remark,
         };
       }
       this.error = null;
@@ -196,7 +196,7 @@ export default {
             entry.month = this.entry.month;
             entry.week = "Week " + this.entry.week;
             entry.sig = this.entry.signature;
-            entry.date = this.entry.type;
+            entry.date = this.entry.date;
             entry.remark = this.entry.remarks;
             entry.flag = true;
           }

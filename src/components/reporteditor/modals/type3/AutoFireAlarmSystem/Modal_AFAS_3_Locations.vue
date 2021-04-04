@@ -109,12 +109,14 @@ export default {
         }
       }
     },
+
     updateCurrentEntry() {
       this.entryData.location = this.entry.location;
       this.entryData.serviceDetails = this.entry.serviceDetails;
       this.entryData.remarks = this.entry.remarks;
       this.closeModal();
     },
+
     createNewEntry() {
       let newEntry = {
         location: this.entry.location,
@@ -125,14 +127,21 @@ export default {
       this.closeModal();
       this.defaultModal();
     },
+
     defaultModal() {
-      this.entry = {
-        location: "",
-        serviceDetails: "",
-        remarks: ""
+      if (this.isCreate) {
+        this.entry = {
+          location: "",
+          serviceDetails: "",
+          remarks: ""
+        }
+      } else {
+        this.initWithEntryData();
       }
-      this.error = null;
-    },
+        this.states.location = null;
+        this.error = null;
+      },
+
     initWithEntryData() {
       this.entry = {
         location: this.entryData.location,
@@ -140,22 +149,21 @@ export default {
         remarks: this.entryData.remarks
       }
     },
+
     closeModal() {
       this.$nextTick(() => {
         this.$bvModal.hide(this.getUniqueID);
       });
     },
+
     handleClose(){
       this.defaultModal()
     },
   },
+
   mounted() {
-    if (this.isCreate) {
       this.defaultModal();
-    } else {
-      this.initWithEntryData();
-    }
-  },
+  }
 };
 </script>
 

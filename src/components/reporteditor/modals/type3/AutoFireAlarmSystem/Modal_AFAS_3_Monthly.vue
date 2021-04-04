@@ -46,24 +46,25 @@
           <b-col cols=12 class="my-1"><b>1. Inspect:</b></b-col>
           <b-col cols="12" md="6">
             <b-form-group label-for="entry_1A" label="1A: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_1A"
-                :options="tests" 
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
           <b-col cols="12" md="6">
             <b-form-group label-for="entry_1B" label="1B: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_1B"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
-
 
         <b-row align-h="between">
           <b-col cols=12 class="my-1"><b>2. Fire Alarm:</b></b-col>
@@ -74,38 +75,42 @@
           </b-col>
           <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2A" label="2A: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2A"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
          <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2B" label="2B: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2B"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
           <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2C" label="2C: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2C"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
           <b-col cols="12" lg="3">
             <b-form-group label-for="entry_2D" label="2D: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_2D"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
@@ -114,29 +119,32 @@
           <b-col cols=12 class="my-1"><b>3. Battery:</b></b-col>
           <b-col cols="4">
             <b-form-group label-for="entry_3A" label="3A: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_3A"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
           <b-col cols="4">
             <b-form-group label-for="entry_3B" label="3B: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_3B"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>          
           <b-col cols="4">
             <b-form-group label-for="entry_3C" label="3C: ">
-              <b-form-select
+              <b-form-radio-group
                 v-model="entry.entry_3C"
-                :options="tests"
-                class=""
-              ></b-form-select>
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>        
         </b-row>
@@ -150,11 +158,12 @@
           </b-col>
           <b-col cols="12" lg="3">
             <b-form-group label-for="entry_4A" label="4A: ">
-              <b-form-select
-                v-model="entry.entry_2D"
-                :options="tests"
-                class=""
-              ></b-form-select>
+              <b-form-radio-group
+                v-model="entry.entry_4A"
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
           <b-col cols="12" lg="3">
@@ -164,11 +173,12 @@
           </b-col>
           <b-col cols="12" md="3">
             <b-form-group label-for="entry_4B" label="4B: ">
-              <b-form-select
-                v-model="entry.entry_2D"
-                :options="tests"
-                class=""
-              ></b-form-select>
+              <b-form-radio-group
+                v-model="entry.entry_4B"
+                :options="criteria"
+                buttons
+                button-variant="outline-primary"
+              ></b-form-radio-group>
             </b-form-group>
           </b-col>
         </b-row>
@@ -227,11 +237,11 @@ export default {
   },
   data() {
     return {
+      criteria: ["S", "U", "N/A", "N/T"],
       months: getMonths(),
       weeks: getWeeks(),
       entry: {},
-      error: null,
-      tests: ["S", "U", "N/A", "N/T"],
+      error: null
     };
   },
   computed: {

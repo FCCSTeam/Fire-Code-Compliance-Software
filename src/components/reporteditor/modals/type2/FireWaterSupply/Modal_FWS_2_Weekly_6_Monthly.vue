@@ -20,7 +20,7 @@
       :no-close-on-backdrop="true"
     >
       <!-- <h1>Key: {{ getKey }}</h1> -->
-      <b-form class="px-2"> 
+      <b-form class="px-2">
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <!--Select month and week inputs for modal (1st row) -->
@@ -43,8 +43,8 @@
             </b-form-group>
           </b-col>
         </b-row>
-        <!-- 1st + 2nd column in Excel (2nd row) --> 
-        <!-- label-for = key, label = value --> 
+        <!-- 1st + 2nd column in Excel (2nd row) -->
+        <!-- label-for = key, label = value -->
         <b-row align-h="between">
           <b-col cols="12" md="6">
             <b-form-group label-for="valve" label="Fire Water Main Valves: ">
@@ -72,7 +72,7 @@
           </b-col>
         </b-row>
 
-         <!-- 4th row -->
+        <!-- 4th row -->
         <b-row>
           <b-col cols="12">
             <b-form-group label-for="remarks" label="Remarks: ">
@@ -87,7 +87,11 @@
 </template>
 
 <script>
-import { getMonths, getWeeks, getErrorMessages } from "@/js/reporteditor/ModalData.js";
+import {
+  getMonths,
+  getWeeks,
+  getErrorMessages,
+} from "@/js/reporteditor/ModalData.js";
 import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
 
@@ -127,8 +131,8 @@ export default {
       return this.uniqueID;
     },
     getNewEntryKey() {
-      return this.entry.month + "," + this.entry.week
-    }
+      return this.entry.month + "," + this.entry.week;
+    },
   },
   methods: {
     handleOk(bvModalEvt) {
@@ -141,6 +145,7 @@ export default {
         this.updateCurrentEntry();
       }
     },
+
     updateCurrentEntry() {
       this.entryData.flag = false; //to ignore itself during duplicate checking
       for (const entry of this.recordBook.data.weekly6Monthly) {
@@ -158,6 +163,7 @@ export default {
         this.closeModal();
       }
     },
+
     createNewEntry() {
       for (const entry of this.recordBook.data.weekly6Monthly) {
         if (entry.key) {
@@ -166,7 +172,6 @@ export default {
             break;
           }
         }
-      
       }
       if (!this.error) {
         this.updateRecordBook();
@@ -174,60 +179,62 @@ export default {
         this.defaultModal();
       }
     },
+
     defaultModal() {
-      this.entry = {
-        month: getMonths()[0],
-        week: getWeeks()[0],
-        valve: "",
-        pipe: "",
-        type: "",
-        signature: "",
-        remarks: "" 
-      };
+      if (this.isCreate) {
+        this.entry = {
+          month: getMonths()[0],
+          week: getWeeks()[0],
+          valve: "",
+          pipe: "",
+          type: "",
+          signature: "",
+          remarks: "",
+        };
+      } else {
+        let keys = this.entryData.key.split(",");
+        this.entry = {
+          month: keys[0],
+          week: keys[1],
+          valve: this.entryData.valve,
+          pipe: this.entryData.pipe,
+          type: this.entryData.inspectType,
+          signature: this.entryData.sig,
+          remarks: this.entryData.remark,
+        };
+      }
       this.error = null;
     },
-    updateRecordBook(){
-        for (const entry of this.recordBook.data.weekly6Monthly) {
-          if (entry.key) {
-            if (entry.key === this.getNewEntryKey) {
-              entry.month = this.entry.month;
-              entry.week = "Week " + this.entry.week;
-              entry.valve = this.entry.valve;
-              entry.pipe = this.entry.pipe;
-              entry.inspectType = this.entry.type;
-              entry.sig = this.entry.signature;
-              entry.remark = this.entry.remarks;
-              entry.flag = true;
-            }
+
+    updateRecordBook() {
+      for (const entry of this.recordBook.data.weekly6Monthly) {
+        if (entry.key) {
+          if (entry.key === this.getNewEntryKey) {
+            entry.month = this.entry.month;
+            entry.week = "Week " + this.entry.week;
+            entry.valve = this.entry.valve;
+            entry.pipe = this.entry.pipe;
+            entry.inspectType = this.entry.type;
+            entry.sig = this.entry.signature;
+            entry.remark = this.entry.remarks;
+            entry.flag = true;
           }
         }
+      }
     },
-    closeModal(){
-        this.$nextTick(() => {
-          this.$bvModal.hide(this.getUniqueID);
-        });
+
+    closeModal() {
+      this.$nextTick(() => {
+        this.$bvModal.hide(this.getUniqueID);
+      });
     },
-    handleClose(){
-      this.defaultModal()
+
+    handleClose() {
+      this.defaultModal();
     },
   },
   mounted() {
-    if (this.isCreate) {
-      //create a new entry
-      this.defaultModal();
-    } else {
-      let keys = this.entryData.key.split(",");
-      //entry exists
-      this.entry = {
-        month: keys[0],
-        week: keys[1],
-        valve: this.entryData.valve,
-        pipe: this.entryData.pipe,
-        type: this.entryData.inspectType,
-        signature: this.entryData.sig,
-        remarks: this.entryData.remarks,
-      };
-    }
+    this.defaultModal();
   },
 };
 </script>
