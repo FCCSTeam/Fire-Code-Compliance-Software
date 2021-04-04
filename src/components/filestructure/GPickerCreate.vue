@@ -140,7 +140,7 @@ export default {
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
           .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
-          .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
+          .enableFeature(google.picker.Feature.SUPPORT_TEAM_DRIVES)
           .addView(
             new google.picker.DocsView()
               .setParent("root")
@@ -150,7 +150,7 @@ export default {
           )
           .addView(
             new google.picker.DocsView(google.picker.ViewId.DOCS)
-              .setEnableDrives(true)
+              .setEnableTeamDrives(true)
               .setMimeTypes("application/vnd.google-apps.folder")
               .setSelectFolderEnabled(true)
           )

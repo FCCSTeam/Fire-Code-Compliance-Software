@@ -81,7 +81,7 @@ export default {
         setAuth(token)
         gapi.load("picker", () => {
         //console.log("Picker Loaded");
-          this.pickerApiLoaded = true;
+          this.pickerApiLoaded = true;  
           this.createPicker();
           console.log('THIS MADE  PICKER1')
         });
@@ -93,9 +93,9 @@ export default {
       //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
         var picker = new google.picker.PickerBuilder()
-          .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
+          .enableFeature(google.picker.Feature.SUPPORT_TEAM_DRIVES)
+          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableTeamDrives(true).setMimeTypes("application/json"))
           .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
-          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
           .setOAuthToken(this.oauthToken)
           .setDeveloperKey(this.developerKey)
           .setCallback(this.pickerCallback)
