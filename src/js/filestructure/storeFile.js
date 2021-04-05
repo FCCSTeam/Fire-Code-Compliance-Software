@@ -60,5 +60,10 @@ const getFileContent = () =>
     return reportFile.content
 }
 
+const fileOnSystem = () => 
+{
+    return ((getFileContent() && getFileId() && getName()));
+}
 
-export {setFile, getFileContent, getFileId, getFile, getName, setParent, getParent}
+
+export {setFile, getFileContent, getFileId, getFile, getName, setParent, getParent, fileOnSystem}

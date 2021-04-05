@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import templateFile from '@/data/FCCS.json'
+import templateFile from '@/data/FCCS_template.json'
 import { setFile, setParent } from "@/js/filestructure/storeFile.js";
 import {setAuth} from "@/js/filestructure/UpdateFile.js" 
 export default {
@@ -138,9 +138,9 @@ export default {
     createPicker() {
       //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
-        var picker = new google.picker.PickerBuilder()
+        var picker = new google.picker.PickerBuilder().setSize(1051,650)
           .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
-          .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
+          .enableFeature(google.picker.Feature.SUPPORT_TEAM_DRIVES)
           .addView(
             new google.picker.DocsView()
               .setParent("root")
@@ -150,7 +150,7 @@ export default {
           )
           .addView(
             new google.picker.DocsView(google.picker.ViewId.DOCS)
-              .setEnableDrives(true)
+              .setEnableTeamDrives(true)
               .setMimeTypes("application/vnd.google-apps.folder")
               .setSelectFolderEnabled(true)
           )
@@ -164,6 +164,8 @@ export default {
     //callback from the picker
     async pickerCallback(data) {
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
+        //Tell the parent that we are loading the file
+        this.$emit("pickerSelectedAFile");
         this.fileResult.parentId = data.docs[0].id;
         console.log("the parentid is:", this.fileResult.parentId)
         this.makeFile(this.fileResult);

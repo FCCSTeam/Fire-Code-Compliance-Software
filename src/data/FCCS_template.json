@@ -1,5 +1,6 @@
 {
     "fire_dept_access": { 
+        "id" : "FDA_1",
         "monthly": [
             { "week" : "Building Name", "inspectType" : "Inspection", "sig" : "Signature of", "date" : "Date", "remark" : "Remarks", "flag" : false },
             { "week" : "", "inspectType": "Check", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },
@@ -110,6 +111,7 @@
     },
 
     "fire_hazards": { 
+        "id" : "FH_1",
         "monthly": [
             { "week" : "Building Name", "inspectType" : "Inspection", "sig" : "Signature of", "date" : "Date", "remark" : "Remarks", "flag" : false },
             { "week" : "", "inspectType": "Check", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },
@@ -220,6 +222,7 @@
     }, 
 
     "high_buildings": { 
+        "id" : "HB_1",
         "monthly": [
             { "week" : "Building Name", "inspectType" : "Inspection", "sig" : "Signature of", "date" : "Date", "remark" : "Remarks", "flag" : false },
             { "week" : "", "inspectType": "Check", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },
@@ -330,6 +333,7 @@
     },
 
     "means_egress": { 
+        "id" : "MEFS_1",
         "monthly": [
             { "week" : "Building Name", "inspectType" : "Inspection", "sig" : "Signature of", "date" : "Date", "remark" : "Remarks", "flag" : false },
             { "week" : "", "inspectType": "Check", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },
@@ -440,6 +444,7 @@
     },
 
     "service_equipment": { 
+        "id" : "SEDCSV_1",
         "monthly": [
             { "week" : "Building Name", "inspectType" : "Inspection", "sig" : "Signature of", "date" : "Date", "remark" : "Remarks", "flag" : false },
             { "week" : "", "inspectType": "Check", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },
@@ -550,6 +555,7 @@
     },
 
     "smoke_alarms": { 
+        "id" : "SA_1",
         "monthly": [
             { "week" : "Building Name", "inspectType" : "Inspection", "sig" : "Signature of", "date" : "Date", "remark" : "Remarks", "flag" : false },
             { "week" : "", "inspectType": "Check", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },
@@ -660,6 +666,7 @@
     },
 
     "standpipe_hose": { 
+        "id" : "SHS_1",
         "monthly": [
             { "week" : "Building Name", "inspectType" : "Inspection", "sig" : "Signature of", "date" : "Date", "remark" : "Remarks", "flag" : false },
             { "week" : "", "inspectType": "Check", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },
@@ -769,6 +776,7 @@
     },
     
     "fire_water_supplies": { 
+        "id" : "FWS_2",
         "weekly6Monthly": [
             { "week" : "Building Name", "valve": "Fire Water Main", "pipe": "Standpipe", "inspectType" : "Inspection", "sig" : "Signature of", "remark" : "Remarks", "flag" : false },
             { "week" : "", "valve": "Valves", "pipe": "Pumps", "inspectType" : "Check", "sig" : "Person", "remark" : "", "flag" : false },
@@ -877,6 +885,7 @@
     },
     
     "auto_sprinkler": {
+        "id" : "ASS_2",
         "weekly": [
             { "week" : "Building Name", "loc": "Sprinkler System",  "id": "",                   "inspectType" : "Inspection",   "sig" : "Signature of", "remark" : "Remarks", "flag" : false },
             { "week" : "",              "loc": "Riser Locations",   "id": "Type and I.D. #",    "inspectType" : "Check",        "sig" : "Person",       "remark" : "", "flag" : false },
@@ -1089,6 +1098,7 @@
     },
 
     "emergency_lighting": {
+        "id" : "ELFPS_2",
         "weekly": [
             { "week" : "Building Name", "generator": "Diesel",  		"level": "Fuel Level", 	"inspectType" : "Inspection",   "sig" : "Signature of", "remark" : "Remarks", "flag" : false },
             { "week" : "",              "generator": "Generators",   	"level": "Batteries",   "inspectType" : "Check",        "sig" : "Person",       "remark" : "", "flag" : false },
@@ -1300,6 +1310,7 @@
         ]
     },
     "auto_fire_alarm_system": { 
+        "id" : "AFAS_3",
         "legends": [
             { "device" : "Fire Alarm Monthly Testing Record", "description": "", "type": "", "modelNum": "", "flag" : false },
             { "device" : "", "description": "", "type": "", "modelNum": "", "flag" : false },
@@ -1576,6 +1587,7 @@
     },
     
     "fire_extinguishers": { 
+        "id" : "FE_3",
         "monthly": [
             { "week" : "Building Name", "sig": "Signature of", "date": "Date", "remark": "Remarks", "flag" : false },
             { "week" : "", "sig": "Person", "date": "MM/DD/YY", "remark": "", "flag" : false },

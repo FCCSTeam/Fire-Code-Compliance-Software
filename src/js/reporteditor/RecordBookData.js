@@ -1,4 +1,3 @@
-import { patchFile } from '@/js/filestructure/UpdateFile.js'
 import { getFileContent } from '@/js/filestructure/storeFile.js'
 
 const recordBooks =
@@ -30,11 +29,31 @@ const setActiveTab = (recordBook) => {
 }
 
 const initRecordBook = () => {
+    let token = {error: null}
     let data = getFileContent()
-    var i;
-    for (i = 0; i < recordBooks.length; i++) {
-        recordBooks[i].data = data[Object.keys(data)[i]] 
+    //check if the data file contiains correct amount of record Books
+    if (recordBooks.length != Object.keys(data).length)
+    {
+        token.error = "Imported file is not well structured"
+        return token
     }
+    else
+    {
+        var i;
+        var keys = Object.keys(data)
+        for (i = 0; i < recordBooks.length; i++) {
+            if (recordBooks[i].id == data[keys[i]].id)
+            {
+                recordBooks[i].data = data[keys[i]] 
+            }
+            else
+            {
+                token.error = "Imported file is missing record books"
+                return token
+            }
+        }
+    }
+    return token
 }
 
 const saveRecordBooks = () => {
@@ -43,7 +62,6 @@ const saveRecordBooks = () => {
     for (i = 0; i < recordBooks.length; i++) {
         data[Object.keys(data)[i]] = recordBooks[i].data
     }
-    patchFile() //TODO: ERROR HANDLE
 }
 
 export { initRecordBook, getRecordBooks , getActiveTab, setActiveTab, saveRecordBooks}

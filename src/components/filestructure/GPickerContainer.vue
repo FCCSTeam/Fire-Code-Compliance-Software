@@ -1,7 +1,7 @@
 <template>
   <div id="gPickerContainer" class="d-flex flex-column justify-content-start flex-sm-row align-items-sm-center">
-    <GPickerCreate />
-    <GPickerOpenExisting class="mt-2 mx-0 mt-sm-0 mx-sm-3"/>
+    <GPickerCreate @pickerSelectedAFile="$emit('gPickerFileSelected')"/>
+    <GPickerOpenExisting class="mt-2 mx-0 mt-sm-0 mx-sm-3" @pickerSelectedAFile="$emit('gPickerFileSelected')"/>
   </div>
 </template>
 

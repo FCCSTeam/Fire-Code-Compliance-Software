@@ -1,5 +1,5 @@
 <template>
-  <div id="userpage">
+  <div id="userpage" class="position-relative">
     <NavBar />
     <b-jumbotron header-level="4" bg-variant="white">
       <template #header> Project FCCS </template>
@@ -13,7 +13,7 @@
           Lets begin! Would you like to create a new inspection report or open
           an existing one?
         </p>
-        <GPickerContainer />
+        <GPickerContainer @gPickerFileSelected="toggleOverlay()"/>
         <p class="text-muted my-3">Note: <i>It is recommended to use your device in landscape mode when using the report editor</i></p>
       </div>
       <hr class="my-4" />
@@ -43,6 +43,8 @@
         </p>
       </div>
     </b-jumbotron>
+      <b-overlay id="loading-overlay" :show="showLoadingOverlay" no-wrap z-index="1040" variant="light" spinner-variant="primary">
+      </b-overlay>
   </div>
 </template>
 
@@ -62,8 +64,14 @@ export default {
   data() {
     return {
       currentUser: getActiveUser(),
+      showLoadingOverlay: false,
     };
   },
+  methods : {
+    toggleOverlay(){
+      this.showLoadingOverlay = !this.showLoadingOverlay
+    }
+  }
 };
 </script>
 
@@ -73,5 +81,8 @@ export default {
 }
 .jumboText {
   font-size: 120%;
+}
+#loading-overlay{
+  height: 100vh !important;
 }
 </style>

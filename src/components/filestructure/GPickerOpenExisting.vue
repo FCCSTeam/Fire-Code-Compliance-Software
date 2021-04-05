@@ -81,7 +81,7 @@ export default {
         setAuth(token)
         gapi.load("picker", () => {
         //console.log("Picker Loaded");
-          this.pickerApiLoaded = true;
+          this.pickerApiLoaded = true;  
           this.createPicker();
           console.log('THIS MADE  PICKER1')
         });
@@ -92,10 +92,10 @@ export default {
     createPicker() {
       //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
-        var picker = new google.picker.PickerBuilder()
-          .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
+        var picker = new google.picker.PickerBuilder().setSize(1051,650)
+          .enableFeature(google.picker.Feature.SUPPORT_TEAM_DRIVES)
+          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableTeamDrives(true).setMimeTypes("application/json"))
           .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
-          .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
           .setOAuthToken(this.oauthToken)
           .setDeveloperKey(this.developerKey)
           .setCallback(this.pickerCallback)
@@ -107,6 +107,8 @@ export default {
     async pickerCallback(data) {
       //console.log("PickerCallback", data);
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
+        //tell parent that a file has been selected and is loading
+        this.$emit("pickerSelectedAFile");
         //get only first document of array of selected docs
         this.parentId = data.docs[0].id
         var doc = data[google.picker.Response.DOCUMENTS][0];
