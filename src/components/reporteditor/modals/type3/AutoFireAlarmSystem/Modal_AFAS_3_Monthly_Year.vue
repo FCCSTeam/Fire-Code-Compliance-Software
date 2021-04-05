@@ -1,5 +1,8 @@
 <template>
   <div class="modalAFASMonthlyYear">
+    <div>
+      <AFAS_Monthly2020 />
+    </div>
     <div v-if="isCreate">
       <CreateEntryButton @trigger="$refs[getUniqueID].show()" />
     </div>
@@ -195,12 +198,14 @@ import {
 } from "@/js/reporteditor/ModalData.js";
 import ModalButton from "@/components/reporteditor/modals/ModalButton.vue";
 import CreateEntryButton from "@/components/reporteditor/CreateEntryButton.vue";
+import AFAS_Monthly2020 from "@/components/reporteditor/standards/Type3Code_legends/AFAS_Monthly2020.vue"
 
 export default {
   name: "Modal_AFAS_3_Monthly_Year",
   components: {
     ModalButton,
     CreateEntryButton,
+    AFAS_Monthly2020,
   },
   props: {
     uniqueID: {
