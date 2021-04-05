@@ -138,7 +138,7 @@ export default {
     createPicker() {
       //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
-        var picker = new google.picker.PickerBuilder()
+        var picker = new google.picker.PickerBuilder().setSize(1051,650)
           .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
           .enableFeature(google.picker.Feature.SUPPORT_TEAM_DRIVES)
           .addView(
