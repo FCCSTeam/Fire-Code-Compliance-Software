@@ -22,7 +22,7 @@
 export default {
     methods : {
         handleOk(){
-            this.$router.replace({ name: "Home" });
+            this.$router.replace({ name: "Userpage" });
         }
     },
     computed : {

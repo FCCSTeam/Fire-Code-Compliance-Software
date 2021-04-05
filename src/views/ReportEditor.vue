@@ -21,16 +21,29 @@
         id="sidebar-bottom-buttons"
         class="d-flex flex-column align-items-center"
       >
+        <b-overlay
+          :show="showSaveSpinner"
+          rounded
+          spinner-type="grow"
+          opacity="0.6"
+          spinner-variant="primary"
+          class="d-inline-block"
+        >
+          <b-button
+            variant="light"
+            class="d-flex flex-column align-items-center mb-2"
+            @click="saveButtonClicked()"
+          >
+            <b-icon class="sidemenu-button my-1" icon="cloud-arrow-up"></b-icon>
+            <span class="sidemenu-button-text text-secondary">SAVE</span>
+          </b-button>
+        </b-overlay>
+
         <b-button
           variant="light"
-          class="d-flex flex-column align-items-center mb-2"
-          @click="saveButtonClicked()"
+          class="d-flex flex-column align-items-center"
+          @click="$router.replace({ name: 'TypeOneGridView' })"
         >
-          <b-icon class="sidemenu-button my-1" icon="cloud-arrow-up"></b-icon>
-          <span class="sidemenu-button-text text-secondary">SAVE</span>
-        </b-button>
-
-        <b-button variant="light" class="d-flex flex-column align-items-center" @click="$router.replace({ name: 'TypeOneGridView' })">
           <b-icon
             class="sidemenu-button my-1 py-1"
             icon="box-arrow-up"
@@ -53,7 +66,20 @@
         static
         auto-hide-delay="1750"
       >
-        <span class="py-2 px-1 text-secondary">File successfully saved to Drive.</span>
+        <span class="py-2 px-1 text-secondary"
+          >File successfully saved to Drive.</span
+        >
+      </b-toast>
+      <b-toast
+        id="save-failure-toast"
+        title="Saving Failure"
+        variant="danger"
+        static
+        auto-hide-delay="3000"
+      >
+        <span class="py-2 px-1 text-secondary">
+          {{ savingFailToastText }}
+        </span>
       </b-toast>
     </div>
   </div>
@@ -61,7 +87,12 @@
 
 <script>
 import Navbar from "@/components/prefabs/navbar/RE_Navbar.vue";
-import { getFileContent, getFileId, getName } from "@/js/filestructure/storeFile.js";
+import {
+  getFileContent,
+  getFileId,
+  getName,
+  fileOnSystem,
+} from "@/js/filestructure/storeFile.js";
 
 import {
   getRecordBooks,
@@ -70,6 +101,8 @@ import {
   initRecordBook,
   saveRecordBooks,
 } from "@/js/reporteditor/RecordBookData.js";
+import { patchFile } from "@/js/filestructure/UpdateFile.js";
+
 import Sidebar from "@/components/reporteditor/sidemenu/Sidebar.vue";
 
 //imports for tab views
@@ -83,14 +116,18 @@ export default {
   data() {
     return {
       activeTab: getActiveTab(),
+      showSaveSpinner: false,
+      savingFailToastText: "",
     };
   },
   mounted() {
     //initTabs
     setActiveTab(getRecordBooks()[0]);
     this.retrieveActiveTab();
-    //check loaded file for errors
-    this.checkFile()
+    //check if loadedf file is now on the system
+    if (!fileOnSystem()) {
+      alert("No file loaded! Please relaunch the report editor");
+    }
     //initData
     this.initData();
   },
@@ -100,17 +137,42 @@ export default {
     retrieveActiveTab() {
       this.activeTab = getActiveTab();
     },
-    checkFile() {
-      if (!(getFileContent() && getFileId() && getName() )) {
-        alert("No file loaded! Please relaunch the report editor")
+    initData() {
+      let response = initRecordBook();
+      if (response.error)
+      {
+        alert("Error Loading the File: \n" + response.error);
+        this.$router.push("/userpage")
       }
     },
-    initData() {
-      initRecordBook();
+    async saveButtonClicked() {
+      this.toggleSaveSpinner();
+      let error = null;
+
+      //Perform the save
+      if (fileOnSystem()) {
+        saveRecordBooks(); //saves the record book locally
+        let response = await patchFile(); //Uploads the local FCCS file to the drive
+        if (response.error) {
+          error = "Error saving to Drive!";
+        }
+      } else {
+        error = "No file on system! Please relaunch the Report Editor";
+      }
+
+      if (error)
+      {
+          this.savingFailToastText = error
+          this.$bvToast.show("save-failure-toast");
+      }
+      else
+      {
+          this.$bvToast.show("save-success-toast");
+      }
+      this.toggleSaveSpinner();
     },
-    saveButtonClicked() {
-      saveRecordBooks();
-      this.$bvToast.show("save-success-toast");
+    toggleSaveSpinner() {
+      this.showSaveSpinner = !this.showSaveSpinner;
     },
   },
 };
