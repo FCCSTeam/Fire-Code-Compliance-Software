@@ -107,6 +107,8 @@ export default {
     async pickerCallback(data) {
       //console.log("PickerCallback", data);
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
+        //tell parent that a file has been selected and is loading
+        this.$emit("pickerSelectedAFile");
         //get only first document of array of selected docs
         this.parentId = data.docs[0].id
         var doc = data[google.picker.Response.DOCUMENTS][0];

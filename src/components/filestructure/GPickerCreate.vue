@@ -164,6 +164,8 @@ export default {
     //callback from the picker
     async pickerCallback(data) {
       if (data[google.picker.Response.ACTION] === google.picker.Action.PICKED) {
+        //Tell the parent that we are loading the file
+        this.$emit("pickerSelectedAFile");
         this.fileResult.parentId = data.docs[0].id;
         console.log("the parentid is:", this.fileResult.parentId)
         this.makeFile(this.fileResult);
