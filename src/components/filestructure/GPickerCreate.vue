@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import templateFile from '@/data/FCCS.json'
+import templateFile from '@/data/FCCS_template.json'
 import { setFile, setParent } from "@/js/filestructure/storeFile.js";
 import {setAuth} from "@/js/filestructure/UpdateFile.js" 
 export default {
