@@ -5,7 +5,7 @@
       <Entry
         :ignoreFlag="true"
         :entryData="entry"
-        :previewScope="2"
+        :previewScope="3"
         @deleteEntry="deleteEntry(index)"
         v-if="index >= getHeaderOffset"
       >
