@@ -175,52 +175,58 @@
   import { Workbook } from "@syncfusion/ej2-excel-export";             
   import { GridPlugin, Toolbar, ExcelExport } from "@syncfusion/ej2-vue-grids"; // add Resize here?
   import { getFileContent } from '@/js/filestructure/storeFile.js'
+  import { 
+        getFireDeptAcc, 
+        getFireHaz, 
+        getHighBuild, 
+        getMeansEgg, 
+        getServEquip, 
+        getSmokeAlarm, 
+        getStandHose
+ } from "@/js/exporter/exportFlags.js";
   import { uploadFile, callPicker } from '@/js/filestructure/UpdateFile.js'
   import { fire_dept_access, fire_hazards, high_buildings, means_egress, service_equipment, smoke_alarms, standpipe_hose } from '@/../src/data/FCCS.json'
-
   Vue.use(GridPlugin);
   export default {
     name: 'TypeOneGrid',
     components: {},
-
     data() {
       return {
-
-        showGrid: true,
+        //export flags
+        // ex_fire_dept_access: getFireDeptAcc(),
+        // ex_fire_hazards: getFireHaz(),
+        // ex_high_buildings: getHighBuild(),
+        // ex_means_egress: getMeansEgg(),
+        // ex_service_equipment: getServEquip(),
+        // ex_smoke_alarms: getSmokeAlarm(),
+        // ex_standpipe_hose: getSta(),
+        showGrid: false,
         
         //import all the data here
         //1st doc
         firDepAcc_s1: getFileContent().fire_dept_access.monthly,
         firDepAcc_s2: getFileContent().fire_dept_access.locations,
-
         //2nd doc
         firHaz_s1: getFileContent().fire_hazards.monthly,
         firHaz_s2: getFileContent().fire_hazards.locations,
-
         //3rd doc
         HighBld_s1: getFileContent().high_buildings.monthly,
         HighBld_s2: getFileContent().high_buildings.locations,
-
         //4th doc
         meanEgr_s1: getFileContent().means_egress.monthly,
         meanEgr_s2: getFileContent().means_egress.locations,
-
         // //5th doc
         servEquip_s1: getFileContent().service_equipment.monthly,
         servEquip_s2: getFileContent().service_equipment.locations,
-
         // //6th doc
         smokeAlarm_s1: getFileContent().smoke_alarms.monthly,
         smokeAlarm_s2: getFileContent().smoke_alarms.locations,
-
         // //7th doc
         stdPipe_s1: getFileContent().standpipe_hose.monthly,
         stdPipe_s2: getFileContent().standpipe_hose.locations,
-
         toolbarOptions: ['ExcelExport']
       };
     },
-
     methods: {
       typeOneExport(data1, data2, gridOne, gridTwo, reportName) {
           let appendExcelExportProperties = { 
@@ -242,7 +248,6 @@
           }); 
         }); 
       }, 
-
       exportAllTypeOne: function() {
         this.exportFireDept();
         this.exportFireHaz();
@@ -253,46 +258,82 @@
         this.exportStandPipe();
       },
 
+      exportSelectedTypeOne() {
+        console.log(getFireDeptAcc(), "Is t1 grid working ex plz")
+      if (getFireDeptAcc()) {
+        console.log(this.ex_fire_dept_access, "Is t1 grid working ex allah")
+        this.exportFireDept();
+      }
+
+      if (getFireHaz()) {
+        this.exportFireHaz();
+      }
+
+      if (getHighBuild()) {
+        this.exportHighBld();
+      }
+
+      if (getMeansEgg()) {
+        this.exportMeanEg();
+      }
+
+      if (getServEquip()) {
+        this.exportServEqp();
+      }
+
+      if (getSmokeAlarm()) {
+        this.exportSmokeAlarms();
+      }
+
+      if (getStandHose()) {
+        this.exportStandPipe();
+      }
+    },
+
       //Single document export methods
       exportFireDept: function() {
         console.log(getFileContent())
         this.typeOneExport(this.firDepAcc_s1, this.firDepAcc_s2, this.$refs.firDepAcc_g1, this.$refs.firDepAcc_g2, "Fire Department Access - Record Book");
       },
-
       exportFireHaz: function() {
         this.typeOneExport(this.firHaz_s1, this.firHaz_s2, this.$refs.firHaz_g1, this.$refs.firHaz_g2, "Fire Hazards - Record Book");
       },
-
       exportHighBld: function() {
         this.typeOneExport(this.HighBld_s1, this.HighBld_s2, this.$refs.HighBld_g1, this.$refs.HighBld_g2, "High Buildings - Record Book");
       },
-
       exportMeanEg: function() {
         this.typeOneExport(this.meanEgr_s1, this.meanEgr_s2, this.$refs.meanEgr_g1, this.$refs.meanEgr_g2, "Means of Egress and Fire Separation - Record Book");
       },
-
       exportServEqp: function() {
         this.typeOneExport(this.servEquip_s1, this.servEquip_s2, this.$refs.servEquip_g1, this.$refs.servEquip_g2, "Service Equipment, Ducts, Chimneys and Smoke Venting - Record Book");
       },
-
       exportSmokeAlarms: function() {
         this.typeOneExport(this.smokeAlarm_s1, this.smokeAlarm_s2, this.$refs.smokeAlarm_g1, this.$refs.smokeAlarm_g2, "Smoke Alarms - Record Book");
       },
-
       exportStandPipe: function() {
         this.typeOneExport(this.stdPipe_s1, this.stdPipe_s2, this.$refs.stdPipe_g1, this.$refs.stdPipe_g2, "Standpipe Hose Systems - Record Book");
       },
+
+    //   resetExportFlags() {
+    //   this.ex_fire_dept_access = false;
+    //   this.ex_fire_hazards = false;
+    //   this.ex_high_buildings = false;
+    //   this.ex_means_egress = false;
+    //   this.ex_service_equipment = false;
+    //   this.ex_smoke_alarms = false;
+    //   this.ex_standpipe_hose = false;
+    // },
+
+
         
       //toggle visibility method
       toggleGrid() {
         this.showGrid = !this.showGrid
       },
-
     },
     provide: {
       grid: [Toolbar, ExcelExport] //Resize]
     }
-
   }
 </script>
 

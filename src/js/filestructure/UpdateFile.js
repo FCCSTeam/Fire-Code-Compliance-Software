@@ -6,39 +6,56 @@ var developerKey = "AIzaSyDtPr9R3LNpcMHxp4ZL7sZAJuRDPgRSe0I"
 var auth = null
 var pickerApiLoaded = false;
 
-const setAuth = (token) =>
-{
+const setAuth = (token) => {
     auth = token
 }
 
-const getAuth = () =>
-{
+const getAuth = () => {
     return auth
 }
 
-const patchFile = () =>
-{
+const patchFile = async () => {
     let content = getFileContent()
     let id = getFileId()
-    var request = gapi.client.request(
-        {
-            path: "/upload/drive/v3/files/" + id,
-            method: "PATCH", 
-            params: {uploadType: "media"}, 
-            body: content
+    const STATUS_OK = 200;
+    let response = await new Promise((callback) => {
+        let token = { error: null, statusCode: null }
+        var request = gapi.client.request(
+            {
+                path: "/upload/drive/v3/files/" + id,
+                method: "PATCH",
+                params: { uploadType: "media" },
+                body: content
+            })
+        request.execute(function (resp, rawResp) {
+            let HTTPResponse = JSON.parse(rawResp);
+            if (HTTPResponse.gapiRequest.data) {
+                let statusCode = HTTPResponse.gapiRequest.data.status
+                if (statusCode != STATUS_OK) {
+                    token.error = "There was en error with the PATCH request"
+                    token.statusCode = statusCode
+                }
+            }
+            else
+            {
+                token.error = "Error parsing the PATCH response"
+            }
+            callback(token);
         })
-        request.execute(function (resp)
-        {
-            //return error token 
-            console.log(resp)
-        })
+    }).then((token) => {
+        return token;       
+    })
+    return response
 }
 
 const createPicker = () =>
 {
-    var picker = new google.picker.PickerBuilder()
+    var UploadView = new google.picker.DocsUploadView().setIncludeFolders(true)
+
+    var picker = new google.picker.PickerBuilder().setSize(1051,650)
     .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
-    .addView(new google.picker.DocsUploadView())
+    .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
+    .addView(UploadView)
     // .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
     // .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
     .setOAuthToken(getAuth())
@@ -49,26 +66,23 @@ const createPicker = () =>
 
 }
 
-const pickerCallback = (data) =>
-{
+const pickerCallback = (data) => {
 
 }
 
-const callPicker = () =>
-{
+const callPicker = () => {
     gapi.load("picker", () => {
         //console.log("Picker Loaded");
-          pickerApiLoaded = true;
-          createPicker();
-          console.log('THIS MADE  PICKER1')
-        });
+        pickerApiLoaded = true;
+        createPicker();
+        console.log('THIS MADE  PICKER1')
+    });
 }
 
-const uploadFile = (file, name) =>
-{
+const uploadFile = (file, name) => {
     let id = getParent()
     console.log('the folder ID is: ', id)
-    
+
     let fileMetadata = {
         name: name,
         mimeType: 'application/vnd.google-apps.spreadsheet'
@@ -82,7 +96,7 @@ const uploadFile = (file, name) =>
 
 
 
-    gapi.client.load("drive", "v3", function() {
+    gapi.client.load("drive", "v3", function () {
         console.log('inside gapi')
         gapi.client.drive.files.create({
             name: fileMetadata.name,
@@ -90,8 +104,8 @@ const uploadFile = (file, name) =>
             parents: [id],
             resource: fileMetadata,
             media: media,
-            params: {uploadType: "media"},
-            fields: "id",                       
+            params: { uploadType: "media" },
+            fields: "id",
         }).execute()
         // .then(function(result){
         //     var request = gapi.client.request({
@@ -109,4 +123,4 @@ const uploadFile = (file, name) =>
 }
 
 
-export {patchFile, uploadFile, setAuth, callPicker}
+export { patchFile, uploadFile, setAuth, callPicker }

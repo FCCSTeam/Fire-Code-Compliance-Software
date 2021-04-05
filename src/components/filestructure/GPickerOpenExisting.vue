@@ -92,7 +92,7 @@ export default {
     createPicker() {
       //console.log("Create Picker", google.picker);
       if (this.pickerApiLoaded && this.oauthToken) {
-        var picker = new google.picker.PickerBuilder()
+        var picker = new google.picker.PickerBuilder().setSize(1051,650)
           .enableFeature(google.picker.Feature.SUPPORT_TEAM_DRIVES)
           .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableTeamDrives(true).setMimeTypes("application/json"))
           .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
