@@ -154,7 +154,7 @@ export default {
         saveRecordBooks(); //saves the record book locally
         let response = await patchFile(); //Uploads the local FCCS file to the drive
         if (response.error) {
-          error = "Error saving to Drive!";
+          error = "Error saving to Drive!  If you have unsaved changes, try exporting the file";
         }
       } else {
         error = "No file on system! Please relaunch the Report Editor";
