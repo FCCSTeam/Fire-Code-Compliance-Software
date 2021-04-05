@@ -48,17 +48,21 @@ const patchFile = async () => {
     return response
 }
 
-const createPicker = () => {
-    var picker = new google.picker.PickerBuilder()
-        .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
-        .addView(new google.picker.DocsUploadView())
-        // .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
-        // .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
-        .setOAuthToken(getAuth())
-        .setDeveloperKey(developerKey)
-        .setCallback(pickerCallback)
-        .build();
-    picker.setVisible(true);
+const createPicker = () =>
+{
+    var UploadView = new google.picker.DocsUploadView().setIncludeFolders(true)
+
+    var picker = new google.picker.PickerBuilder().setSize(1051,650)
+    .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
+    .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
+    .addView(UploadView)
+    // .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
+    // .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
+    .setOAuthToken(getAuth())
+    .setDeveloperKey(developerKey)
+    .setCallback(pickerCallback)
+    .build();
+  picker.setVisible(true);
 
 }
 
