@@ -7,8 +7,8 @@
 </template>
 
 <script>
-// import { mdbTbl, mdbTblHead, mdbTblBody } from "mdbvue";
 export default {
+  name : 'MEFS_1_Code',
   data() {
     return {
       items: [

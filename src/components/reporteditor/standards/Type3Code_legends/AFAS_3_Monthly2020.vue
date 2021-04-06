@@ -36,6 +36,7 @@
 
 <script>
 export default {
+    name : 'AFAS_3_Monthly2020',
     data(){
         
     }

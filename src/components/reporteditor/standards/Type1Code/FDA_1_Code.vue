@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// import { mdbTbl, mdbTblHead, mdbTblBody } from "mdbvue";
 export default {
   name : 'FDA_1_Code',
   data() {

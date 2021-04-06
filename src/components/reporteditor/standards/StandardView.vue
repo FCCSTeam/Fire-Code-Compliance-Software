@@ -25,6 +25,20 @@ import SA_1_Code from "@/components/reporteditor/standards/Type1Code/SA_1_Code.v
 import SEDCSV_1_Code from "@/components/reporteditor/standards/Type1Code/SEDCSV_1_Code.vue"
 import SHS_1_Code from "@/components/reporteditor/standards/Type1Code/SHS_1_Code.vue"
 
+import ASS_2_Code from "@/components/reporteditor/standards/Type2Code/ASS_2_Code.vue"
+import ELFPS_2_Code from "@/components/reporteditor/standards/Type2Code/ELFPS_2_Code.vue"
+import FWS_2_Code from "@/components/reporteditor/standards/Type2Code/FWS_2_Code.vue"
+
+import AFAS_3_Code_Legends from "@/components/reporteditor/standards/Type3Code/AFAS_3_Code_Legends.vue"
+import AFAS_3_Code_Tests from "@/components/reporteditor/standards/Type3Code/AFAS_3_Code_Tests.vue"
+import FE_3_Code_NFPA2007 from "@/components/reporteditor/standards/Type3Code/FE_3_Code_NFPA2007.vue"
+import FE_3_Code_NFPA2018 from "@/components/reporteditor/standards/Type3Code/FE_3_Code_NFPA2018.vue"
+import FE_3_Code_OFC from "@/components/reporteditor/standards/Type3Code/FE_3_Code_OFC.vue"
+
+import AFAS_3_Devices from "@/components/reporteditor/standards/Type3Code_legends/AFAS_3_Devices.vue"
+import AFAS_3_Monthly from "@/components/reporteditor/standards/Type3Code_legends/AFAS_3_Monthly.vue"
+import AFAS_3_Monthly2020 from "@/components/reporteditor/standards/Type3Code_legends/AFAS_3_Monthly2020.vue"
+
 export default {
   components: {
     FDA_1_Code,
@@ -33,7 +47,18 @@ export default {
     MEFS_1_Code,
     SA_1_Code,
     SEDCSV_1_Code,
-    SHS_1_Code
+    SHS_1_Code,
+    ASS_2_Code,
+    ELFPS_2_Code,
+    FWS_2_Code,
+    AFAS_3_Code_Legends,
+    AFAS_3_Code_Tests,
+    FE_3_Code_NFPA2007,
+    FE_3_Code_NFPA2018,
+    FE_3_Code_OFC,
+    AFAS_3_Devices,
+    AFAS_3_Monthly,
+    AFAS_3_Monthly2020,
   },
   props: {
     pages: {

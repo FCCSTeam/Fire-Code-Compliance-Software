@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  name : 'SEDCSV_1_Code',
   data() {
     return {
       items: [

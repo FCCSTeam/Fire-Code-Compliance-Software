@@ -32,6 +32,7 @@
 
 <script>
 export default {
+  name : 'AFAS_3_Devices',
 
 }
 </script>

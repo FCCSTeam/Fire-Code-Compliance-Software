@@ -48,6 +48,7 @@
 
 <script>
 export default {
+    name : 'AFAS_3_Monthly',
 
 }
 </script>

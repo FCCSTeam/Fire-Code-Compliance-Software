@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name : 'SHS_1_Code',
   data() {
     return {
       items: [
