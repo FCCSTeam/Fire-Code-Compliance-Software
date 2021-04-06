@@ -78,6 +78,7 @@
 export default {
   data() {
     return {
+      name : 'AFAS_3_Code_Legends',
       items: [
         {
           Device: "FACP",

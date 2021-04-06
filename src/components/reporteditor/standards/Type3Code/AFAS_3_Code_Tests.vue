@@ -10,7 +10,7 @@
     </div>
     <div>
       <b-table fixed striped hover :items="items">
-        <template #thead-top="data">
+        <template>
           <b-tr>
             <!-- <b-th > </b-th> -->
             <b-th colspan="3">Service Equipment, Ducts and Chimneys</b-th>
@@ -20,7 +20,7 @@
     </div>
     <div>
       <b-table fixed striped hover :items="items2">
-        <template #thead-top="data">
+        <template>
           <b-tr>
             <!-- <b-th > </b-th> -->
             <b-th colspan="3">Fire Alarm System</b-th>
@@ -35,6 +35,7 @@
 export default {
   data() {
     return {
+      name: 'AFAS_3_Code_Tests',
       items: [
         {
           Duration: "Daily",

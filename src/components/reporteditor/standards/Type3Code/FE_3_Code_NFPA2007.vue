@@ -319,7 +319,7 @@
     </div>
     <div>
       <b-table fixed striped hover :items="items2">
-          <template #thead-top="data">
+          <template>
           <b-tr>
             <!-- <b-th > </b-th> -->
             <b-th colspan="3">Table 8.3.1 Hydrostatic Test Interval for Extinguishers</b-th>
@@ -361,6 +361,7 @@
 export default {
   data() {
     return {
+      name: 'FE_3_Code_NFPA2007',
       items: [
         {
           Extinguisher_Type: "Stored-pressure loaded-stream and antifreeze ",
