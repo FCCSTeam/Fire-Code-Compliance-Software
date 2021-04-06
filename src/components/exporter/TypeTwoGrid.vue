@@ -1,8 +1,6 @@
 <!-- Vue component containing blank grid structure of type one -->
 <template>
   <div id="typeTwoGrid">
-    <br>
-    
     <!-- Document 1 (Fire Water Supplies) -->
     <!-- <h1>Fire Water Supplies</h1> -->
     <!-- Doc 1, Sheet 1: Monthly -->
@@ -16,7 +14,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
     <!-- Doc 1, Sheet 2: Locations-->
     <ejs-grid ref='fireWater_g2' id='SecondGrid' :dataSource='fireWater_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireWater' v-show='showFireWater'>
       <e-columns>
@@ -25,9 +22,6 @@
         <e-column field="remarks" headerText="Remarks" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-    <br>
-
     <!-- Document 2 (Auto-Sprinkler) -->
     <!-- <h1>Auto-Sprinkler</h1> -->
     <!-- Doc 1, Sheet 1: Weekly -->
@@ -41,7 +35,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
     <!-- Doc 1, Sheet 2: 2-6-Monthly -->
     <ejs-grid ref='auto_sprinkler_g2' id='FourthGrid' :dataSource='auto_sprinkler_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportAutoSprinkler' v-show="showAutoSprinkler">
       <e-columns>
@@ -53,7 +46,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-    
     <!-- Doc 1, Sheet 3: Locations-->
     <ejs-grid ref='auto_sprinkler_g3' id='FifthGrid' :dataSource='auto_sprinkler_s3' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportAutoSprinkler' v-show="showAutoSprinkler">
       <e-columns>
@@ -62,9 +54,6 @@
         <e-column field="remarks" headerText="Remarks" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-    <br>
-
     <!-- <h1>Emergency Lighting</h1> -->
     <!-- Doc 1, Sheet 1: Weekly -->
     <ejs-grid ref='emergency_lighting_g1' id='SixthGrid' :dataSource='emergency_lighting_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportEmergencyLighting' v-show="showEmergencyLighting">
@@ -77,7 +66,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
     <!-- Doc 1, Sheet 2: Monthly -->
     <ejs-grid ref='emergency_lighting_g2' id='SeventhGrid' :dataSource='emergency_lighting_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportEmergencyLighting' v-show="showEmergencyLighting">
       <e-columns>
@@ -89,7 +77,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-    
     <!-- Doc 1, Sheet 3: Locations-->
     <ejs-grid ref='emergency_lighting_g3' id='EighthGrid' :dataSource='emergency_lighting_s3' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportEmergencyLighting' v-show="showEmergencyLighting">
       <e-columns>
@@ -98,8 +85,6 @@
         <e-column field="remarks" headerText="Remark" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-
   </div>
 </template>
 

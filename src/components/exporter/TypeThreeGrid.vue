@@ -1,13 +1,8 @@
 <template>
     <div id="typeThreeGrid">
-        <br>
-
         <!-- Document 1 (Automatic Fire Alarm Systems) -->
         <!-- <h1>Automatic Fire Alarm Systems</h1> -->
-        
-        <br>
-
-        <h2>Legend</h2>
+        <!-- <h2>Legend-->
         <!-- Doc 1, Sheet 1: Legend_Devices-->
         <ejs-grid ref='fire_alarm_g1' id='FirstGrid' :dataSource='fire_alarm_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
@@ -17,8 +12,7 @@
                 <e-column field="modelNum" headerText="Model Number" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
-
-        <h2>Monthly Year</h2>
+        <!-- <h2>Monthly Year-->
         <!-- Header Titles sometimes are too long-->
         <ejs-grid ref='fire_alarm_g3' id='ThirdGrid' :dataSource='fire_alarm_s3' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
@@ -38,9 +32,7 @@
                 <e-column field="sig" headerText="sig" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
-
-        <h2>Monthly</h2>
-
+        <!-- <h2>Monthly-->
         <ejs-grid ref='fire_alarm_g5' id='FifthGrid' :dataSource='fire_alarm_s5' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
                 <e-column field="week" headerText="Week" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
@@ -61,9 +53,7 @@
                 <e-column field="sig" headerText="Signature" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
-
-        <h2>Devices</h2>
-
+        <!-- <h2>Devices-->
          <ejs-grid ref='fire_alarm_g8' id='EighthGrid' :dataSource='fire_alarm_s8' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
                 <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
@@ -77,9 +67,7 @@
                 <e-column field="remarks" headerText="Remarks" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
-        
-        <h2>Locations</h2>
-
+        <!-- <h2>Locations-->
         <ejs-grid ref='fire_alarm_g9' id='NinthGrid' :dataSource='fire_alarm_s9' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireAlarm' v-show="showGrid">
             <e-columns>
                 <e-column field="location" headerText="Location" textAlign="Left" width=120 :isPrimaryKey='true'></e-column>
@@ -87,9 +75,6 @@
                 <e-column field="remark" headerText="Remark" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
-
-        <br>
-
         <!-- <h1>Fire Extinguishers</h1> -->
         <!-- Doc 2, Sheet 1: Monthly -->
         <ejs-grid ref='firExt_g1' id='SixthGrid' :dataSource='firExt_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireExtinguisher' v-show="showGrid">
@@ -100,7 +85,6 @@
                 <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
             </e-columns>
         </ejs-grid>
-
         <!-- Doc 2, Sheet 2: Locations-->
         <ejs-grid ref='firExt_g2' id='SeventhGrid' :dataSource='firExt_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireExtinguisher' v-show='showGrid'>
         <e-columns>

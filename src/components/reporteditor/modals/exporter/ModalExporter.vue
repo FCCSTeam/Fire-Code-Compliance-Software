@@ -1,6 +1,16 @@
 <template>
 <div>
-<b-button v-b-modal.modal-exporter>Launch demo modal</b-button>
+        <b-button
+          variant="light"
+          class="d-flex flex-column align-items-center"
+          v-b-modal.modal-exporter
+        >
+          <b-icon
+            class="sidemenu-button my-1 py-1"
+            icon="box-arrow-up"
+          ></b-icon>
+          <span class="sidemenu-button-text text-secondary">EXPORT</span>
+        </b-button>
   <b-modal 
   id="modal-exporter"
   title="Choose Reports to Export"
@@ -46,17 +56,30 @@
     <b-form-checkbox v-model="check_fire_extinguishers" name="check-button" switch>
       Fire Extinguishers
     </b-form-checkbox>
-
+    <p></p>
     <span class="text-danger">Please remember to save before exporting</span>
+   <p></p>
     <!--TODO: Row not finalized, fix it tomorrow :)-->
-        <b-row align-h="end">
+    <b-row cols="12">
+      <b-col cols="12">
+        <b-button variant= "secondary" @click="exportSelectedReports()">Export Selected</b-button>
+      </b-col>
+      <b-col cols="12" class="mt-1">
+        <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
+      </b-col>
+    </b-row>
+      
+    
+
+        
+        <!-- <b-row align-h="end">
           <b-col cols="6">
-            <b-button variant= "primary" @click="exportSelectedReports()">Export Selections</b-button>
+            
           </b-col>
           <b-col cols="6">
               <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
           </b-col>
-        </b-row>
+        </b-row> -->
     <!-- <b-button variant= "primary" @click="exportSelectedReports()">Export Selections</b-button>
     <b-button @click="exportSelectedReports()">Export All Reports</b-button> --> 
     <div slot="modal-footer">

@@ -1,8 +1,6 @@
 <!-- Vue component containing blank grid structure of type one -->
 <template>
   <div id="typeOneGrid">
-    <br>
-
     <!-- Document 1 (Fire Department Access) -->
     <!-- <h1>Fire Department Access</h1> -->
     <!-- Doc 1, Sheet 1: Monthly -->
@@ -23,9 +21,6 @@
         <e-column field="remarks" headerText="Remarks" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-    
-    <br>
-
     <!-- Document 2 (Fire Hazards) -->
     <!-- <h1>Fire Hazards</h1> -->
     <!-- Doc 2, Sheet 1: Monthly -->
@@ -38,7 +33,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
     <!-- Doc 2, Sheet 2: Locations-->
     <ejs-grid ref='firHaz_g2' id='FourthGrid' :dataSource='firHaz_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireHaz' v-show='showGrid'>
       <e-columns>
@@ -47,9 +41,6 @@
         <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-    <br>
-
     <!-- Document 3 (High Buildings) -->
     <!-- <h1>High Buildings</h1> -->
     <!-- Doc 3, Sheet 1: Monthly -->
@@ -62,7 +53,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
     <!-- Doc 3, Sheet 2: Locations-->
     <ejs-grid ref='HighBld_g2' id='SixthGrid' :dataSource='HighBld_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportHighBld' v-show='showGrid'>
       <e-columns>
@@ -71,9 +61,6 @@
         <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-    <br>
-
     <!-- Document 4 (Means of Egress and Fire Separation) -->    
     <!-- <h1>Means of Egress and Fire Separation</h1> -->
     <!-- Doc 4, Sheet 1: Monthly -->
@@ -86,7 +73,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
     <!-- Doc 4, Sheet 2: Locations-->
     <ejs-grid ref='meanEgr_g2' id='EighthGrid' :dataSource='meanEgr_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportMeanEg' v-show='showGrid'>
       <e-columns>
@@ -95,9 +81,6 @@
         <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-    <br>
-
     <!-- Document 5 (Service Equipment, Ducts, ....) -->    
     <!-- <h1>Service Equipment, Ducts, Chimneys and Smoke Venting - Record Book</h1> -->
     <!-- Doc 5, Sheet 1: Monthly -->
@@ -110,7 +93,6 @@
         <e-column field="remark" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
     <!-- Doc 5, Sheet 2: Locations-->
     <ejs-grid ref='servEquip_g2' id='TenthGrid' :dataSource='servEquip_s2' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportServEqp' v-show='showGrid'>
       <e-columns>
@@ -119,9 +101,6 @@
         <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-    <br>
-
     <!-- Document 6 (Smoke Alarms - Record Book) -->    
     <!-- <h1>Smoke Alarms - Record Book</h1> -->
     <!-- Doc 6, Sheet 1: Monthly -->
@@ -143,9 +122,6 @@
         <e-column field="remarks" headerText="" textAlign="Left" width=120></e-column>
       </e-columns>
     </ejs-grid>
-
-    <br>
-
     <!-- Document 7 (Standpipe Hose Systems) -->    
     <!-- <h1>Standpipe Hose Systems</h1> -->
     <!-- Doc 7, Sheet 1: Monthly -->
