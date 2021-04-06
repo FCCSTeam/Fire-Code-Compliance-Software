@@ -66,9 +66,9 @@
 
 <script>
 export default {
+  name: 'FE_3_Code_OFC',
   data() {
     return {
-      name: 'FE_3_Code_OFC',
       items: [
         {
           Fire_Code_Reference_Number: "6.2.7.2.",

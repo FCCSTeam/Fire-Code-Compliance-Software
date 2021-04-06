@@ -758,9 +758,9 @@ Weight scales used for the maintenance and recharge of fire extinguishers shall 
 
 <script>
 export default {
+  name: 'FE_3_Code_NFPA2018',
   data() {
     return {
-      name: 'FE_3_Code_NFPA2018',
       items: [
         {
           Extinguisher_Type: "Stored-pressure loaded stream and antifreeze",

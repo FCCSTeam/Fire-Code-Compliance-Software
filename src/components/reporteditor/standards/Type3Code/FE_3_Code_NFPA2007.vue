@@ -359,9 +359,9 @@
 
 <script>
 export default {
+  name: 'FE_3_Code_NFPA2007',
   data() {
     return {
-      name: 'FE_3_Code_NFPA2007',
       items: [
         {
           Extinguisher_Type: "Stored-pressure loaded-stream and antifreeze ",
