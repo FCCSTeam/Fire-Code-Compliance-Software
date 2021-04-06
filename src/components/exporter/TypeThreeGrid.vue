@@ -3,7 +3,7 @@
         <br>
 
         <!-- Document 1 (Automatic Fire Alarm Systems) -->
-        <h1>Automatic Fire Alarm Systems</h1>
+        <!-- <h1>Automatic Fire Alarm Systems</h1> -->
         
         <br>
 
@@ -90,7 +90,7 @@
 
         <br>
 
-        <h1>Fire Extinguishers</h1>
+        <!-- <h1>Fire Extinguishers</h1> -->
         <!-- Doc 2, Sheet 1: Monthly -->
         <ejs-grid ref='firExt_g1' id='SixthGrid' :dataSource='firExt_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireExtinguisher' v-show="showGrid">
             <e-columns>
@@ -122,7 +122,12 @@
     import Vue from "vue"; 
     import { Workbook } from "@syncfusion/ej2-excel-export";             
     import { GridPlugin, Toolbar, ExcelExport } from "@syncfusion/ej2-vue-grids";
-    import { auto_fire_alarm_system, fire_extinguishers } from '@/../src/data/FCCS.json'
+    import { getFileContent } from '@/js/filestructure/storeFile.js'
+    import { 
+        getAutoFireAlarm, 
+        getFireExt
+    } from "@/js/exporter/exportFlags.js";
+    // import { auto_fire_alarm_system, fire_extinguishers } from '@/../src/data/FCCS.json'
 
     
     Vue.use(GridPlugin);
@@ -132,34 +137,28 @@
 
         data() {
             return {
-                showGrid: true,
+                showGrid: false,
 
-                //Fire Alarm Data
-                fire_alarm_s1: auto_fire_alarm_system.legends,
-                fire_alarm_s2: auto_fire_alarm_system.legends_notes,
-                fire_alarm_s3: auto_fire_alarm_system.monthly_year,
-                fire_alarm_s4: auto_fire_alarm_system.monthly_year_notes,
-                fire_alarm_s5: auto_fire_alarm_system.monthly,
-                fire_alarm_s6: auto_fire_alarm_system.monthly_notes,
-                fire_alarm_s7: auto_fire_alarm_system.devices_notes,
-                fire_alarm_s8: auto_fire_alarm_system.devices,
-                fire_alarm_s9: auto_fire_alarm_system.locations,
+                //Fire Alarm Data (TODO: remove legends and notes from grid + export)
+                fire_alarm_s1: getFileContent().auto_fire_alarm_system.legends,
+                fire_alarm_s2: getFileContent().auto_fire_alarm_system.legends_notes,
+                fire_alarm_s3: getFileContent().auto_fire_alarm_system.monthly_year,
+                fire_alarm_s4: getFileContent().auto_fire_alarm_system.monthly_year_notes,
+                fire_alarm_s5: getFileContent().auto_fire_alarm_system.monthly,
+                fire_alarm_s6: getFileContent().auto_fire_alarm_system.monthly_notes,
+                fire_alarm_s7: getFileContent().auto_fire_alarm_system.devices_notes,
+                fire_alarm_s8: getFileContent().auto_fire_alarm_system.devices,
+                fire_alarm_s9: getFileContent().auto_fire_alarm_system.locations,
 
                 //Fire Extinguisher Data
-                firExt_s1: fire_extinguishers.monthly,
-                firExt_s2: fire_extinguishers.locations,
+                firExt_s1: getFileContent(). fire_extinguishers.monthly,
+                firExt_s2: getFileContent(). fire_extinguishers.locations,
 
                 toolbarOptions: ['ExcelExport']
             };
         },
 
-        methods: {
-            exportAllTypeThree: function() {
-                //TODO: call all exports here
-                this.exportFireAlarm();
-                this.exportFireExtinguisher();
-            },
-            
+        methods: {            
             //Fire Alarm Exporting
             fireAlarmExport(data1, data3, data5, data8, data9, gridOne, gridThree, gridFive, gridEight, gridNine, reportName) {
                 let appendExcelExportProperties = { 
@@ -233,11 +232,27 @@
             exportFireExtinguisher: function() {
                 this.fireExtinguisherExport(this.firExt_s1, this.firExt_s2, this.$refs.firExt_g1, this.$refs.firExt_g2);
             },
-
-            //toggle visibility method
-            toggleGrid() {
-            this.showGrid = !this.showGrid
+            
+            //export all type 3
+            exportAllTypeThree: function() {
+                this.exportFireAlarm();
+                this.exportFireExtinguisher();
             },
+            
+            //export selected type 3
+            exportSelectedTypeThree() {
+                if (getAutoFireAlarm()) {
+                    this.exportFireAlarm();
+                }
+
+                if (getFireExt()) {
+                    this.exportFireExtinguisher();
+                }
+            }
+            //toggle visibility method
+            // toggleGrid() {
+            // this.showGrid = !this.showGrid
+            // },
         },
         provide: {
             grid: [Toolbar, ExcelExport ] //Resize]

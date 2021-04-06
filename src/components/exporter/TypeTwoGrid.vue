@@ -4,7 +4,7 @@
     <br>
     
     <!-- Document 1 (Fire Water Supplies) -->
-    <h1>Fire Water Supplies</h1>
+    <!-- <h1>Fire Water Supplies</h1> -->
     <!-- Doc 1, Sheet 1: Monthly -->
     <ejs-grid ref='fireWater_g1' id='FirstGrid' :dataSource='fireWater_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireWater' v-show="showFireWater">
       <e-columns>
@@ -29,7 +29,7 @@
     <br>
 
     <!-- Document 2 (Auto-Sprinkler) -->
-    <h1>Auto-Sprinkler</h1>
+    <!-- <h1>Auto-Sprinkler</h1> -->
     <!-- Doc 1, Sheet 1: Weekly -->
     <ejs-grid ref='auto_sprinkler_g1' id='ThirdGrid' :dataSource='auto_sprinkler_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportAutoSprinkler' v-show="showAutoSprinkler">
       <e-columns>
@@ -65,7 +65,7 @@
 
     <br>
 
-    <h1>Emergency Lighting</h1>
+    <!-- <h1>Emergency Lighting</h1> -->
     <!-- Doc 1, Sheet 1: Weekly -->
     <ejs-grid ref='emergency_lighting_g1' id='SixthGrid' :dataSource='emergency_lighting_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportEmergencyLighting' v-show="showEmergencyLighting">
       <e-columns>
@@ -107,7 +107,13 @@
   import Vue from "vue"; 
   import { Workbook } from "@syncfusion/ej2-excel-export";             
   import { GridPlugin, Toolbar, ExcelExport } from "@syncfusion/ej2-vue-grids"; // add Resize here?
-  import { fire_water_supplies, auto_sprinkler, emergency_lighting } from '@/../src/data/FCCS.json';
+  import { getFileContent } from '@/js/filestructure/storeFile.js'
+  import { 
+        getAutoSprinkler,
+        getEmergencyLight,
+        getFireWaterSupp
+ } from "@/js/exporter/exportFlags.js";
+  // import { fire_water_supplies, auto_sprinkler, emergency_lighting } from '@/../src/data/FCCS.json';
 
   Vue.use(GridPlugin);
   export default {
@@ -117,26 +123,26 @@
     data() {
       return {
 
-        showGrid: true,
-        showFireWater: true,
-        showAutoSprinkler: true,
-        showEmergencyLighting: true,
+        // showGrid: false,
+        showFireWater: false,
+        showAutoSprinkler: false,
+        showEmergencyLighting: false,
         
         //import all the data here
 
         //1st
-        fireWater_s1: fire_water_supplies.weekly6Monthly,
-        fireWater_s2: fire_water_supplies.locations,
+        fireWater_s1: getFileContent().fire_water_supplies.weekly6Monthly,
+        fireWater_s2: getFileContent().fire_water_supplies.locations,
 
         //2nd
-        auto_sprinkler_s1: auto_sprinkler.weekly,
-        auto_sprinkler_s2: auto_sprinkler.monthly, //Should be 2-6-Monthly, but I can't start with numbers for variable names
-        auto_sprinkler_s3: auto_sprinkler.locations,
+        auto_sprinkler_s1: getFileContent().auto_sprinkler.weekly,
+        auto_sprinkler_s2: getFileContent().auto_sprinkler.monthly, //Should be 2-6-Monthly, but I can't start with numbers for variable names
+        auto_sprinkler_s3: getFileContent().auto_sprinkler.locations,
 
         //3rd
-        emergency_lighting_s1: emergency_lighting.weekly,
-        emergency_lighting_s2: emergency_lighting.monthly,
-        emergency_lighting_s3: emergency_lighting.locations,
+        emergency_lighting_s1: getFileContent().emergency_lighting.weekly,
+        emergency_lighting_s2: getFileContent().emergency_lighting.monthly,
+        emergency_lighting_s3: getFileContent().emergency_lighting.locations,
 
         toolbarOptions: ['ExcelExport']
       };
@@ -243,36 +249,50 @@
         );
       },
 
+      exportSelectedTypeTwo() {
+      if (getAutoSprinkler()) {
+        this.exportAutoSprinkler();
+      }
+
+      if (getEmergencyLight()) {
+        this.exportEmergencyLighting();
+      }
+
+      if (getFireWaterSupp()) {
+        this.exportFireWater();
+      }
+    },
+
       exportAllTypeTwo: function() {
         this.exportFireWater();
         this.exportAutoSprinkler();
         this.exportEmergencyLighting();
-      },
-        
-      //toggle visibility method
-      toggleFireWater() {
-        this.showFireWater = !this.showFireWater;
-      },
-
-      toggleAutoSprinkler() {
-        this.showAutoSprinkler = !this.showAutoSprinkler;
-      },
-
-      toggleEmergencyLighting() {
-        this.showEmergencyLighting = !this.showEmergencyLighting;
-      },
-
-      toggleGrid() {
-        this.toggleFireWater();
-        this.toggleAutoSprinkler();
-        this.toggleEmergencyLighting();
-      },
-
-      showAll() {
-        this.showFireWater = true;
-        this.showAutoSprinkler = true;
-        this.showEmergencyLighting = true;
       }
+        
+      //toggle visibility method 
+      // toggleFireWater() {
+      //   this.showFireWater = !this.showFireWater;
+      // },
+
+      // toggleAutoSprinkler() {
+      //   this.showAutoSprinkler = !this.showAutoSprinkler;
+      // },
+
+      // toggleEmergencyLighting() {
+      //   this.showEmergencyLighting = !this.showEmergencyLighting;
+      // },
+
+      // toggleGrid() {
+      //   this.toggleFireWater();
+      //   this.toggleAutoSprinkler();
+      //   this.toggleEmergencyLighting();
+      // },
+
+      // showAll() {
+      //   this.showFireWater = true;
+      //   this.showAutoSprinkler = true;
+      //   this.showEmergencyLighting = true;
+      // }
 
     },
     

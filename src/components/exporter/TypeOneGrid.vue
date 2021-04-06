@@ -4,7 +4,7 @@
     <br>
 
     <!-- Document 1 (Fire Department Access) -->
-    <h1>Fire Department Access</h1>
+    <!-- <h1>Fire Department Access</h1> -->
     <!-- Doc 1, Sheet 1: Monthly -->
     <ejs-grid ref='firDepAcc_g1' id='FirstGrid' :dataSource='firDepAcc_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireDept' v-show="showGrid">
       <e-columns>
@@ -27,7 +27,7 @@
     <br>
 
     <!-- Document 2 (Fire Hazards) -->
-    <h1>Fire Hazards</h1>
+    <!-- <h1>Fire Hazards</h1> -->
     <!-- Doc 2, Sheet 1: Monthly -->
     <ejs-grid ref='firHaz_g1' id='ThirdGrid' :dataSource='firHaz_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportFireHaz' v-show="showGrid">
       <e-columns>
@@ -51,7 +51,7 @@
     <br>
 
     <!-- Document 3 (High Buildings) -->
-    <h1>High Buildings</h1>
+    <!-- <h1>High Buildings</h1> -->
     <!-- Doc 3, Sheet 1: Monthly -->
     <ejs-grid ref='HighBld_g1' id='FifthGrid' :dataSource='HighBld_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportHighBld' v-show="showGrid">
       <e-columns>
@@ -75,7 +75,7 @@
     <br>
 
     <!-- Document 4 (Means of Egress and Fire Separation) -->    
-    <h1>Means of Egress and Fire Separation</h1>
+    <!-- <h1>Means of Egress and Fire Separation</h1> -->
     <!-- Doc 4, Sheet 1: Monthly -->
     <ejs-grid ref='meanEgr_g1' id='SeventhGrid' :dataSource='meanEgr_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportMeanEg' v-show="showGrid">
       <e-columns>
@@ -99,7 +99,7 @@
     <br>
 
     <!-- Document 5 (Service Equipment, Ducts, ....) -->    
-    <h1>Service Equipment, Ducts, Chimneys and Smoke Venting - Record Book</h1>
+    <!-- <h1>Service Equipment, Ducts, Chimneys and Smoke Venting - Record Book</h1> -->
     <!-- Doc 5, Sheet 1: Monthly -->
     <ejs-grid ref='servEquip_g1' id='NinthGrid' :dataSource='servEquip_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportServEqp' v-show="showGrid">
       <e-columns>
@@ -123,7 +123,7 @@
     <br>
 
     <!-- Document 6 (Smoke Alarms - Record Book) -->    
-    <h1>Smoke Alarms - Record Book</h1>
+    <!-- <h1>Smoke Alarms - Record Book</h1> -->
     <!-- Doc 6, Sheet 1: Monthly -->
     <ejs-grid ref='smokeAlarm_g1' id='EleventhGrid' :dataSource='smokeAlarm_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportSmokeAlarms' v-show="showGrid">
       <e-columns>
@@ -147,7 +147,7 @@
     <br>
 
     <!-- Document 7 (Standpipe Hose Systems) -->    
-    <h1>Standpipe Hose Systems</h1>
+    <!-- <h1>Standpipe Hose Systems</h1> -->
     <!-- Doc 7, Sheet 1: Monthly -->
     <ejs-grid ref='stdPipe_g1' id='ThriteenthGrid' :dataSource='stdPipe_s1' :toolbar='toolbarOptions' :allowExcelExport='true' :toolbarClick='exportStandPipe' v-show="showGrid">
       <e-columns>
@@ -185,7 +185,7 @@
         getStandHose
  } from "@/js/exporter/exportFlags.js";
   import { uploadFile, callPicker } from '@/js/filestructure/UpdateFile.js'
-  import { fire_dept_access, fire_hazards, high_buildings, means_egress, service_equipment, smoke_alarms, standpipe_hose } from '@/../src/data/FCCS.json'
+  // import { fire_dept_access, fire_hazards, high_buildings, means_egress, service_equipment, smoke_alarms, standpipe_hose } from '@/../src/data/FCCS.json'
   Vue.use(GridPlugin);
   export default {
     name: 'TypeOneGrid',
@@ -259,9 +259,7 @@
       },
 
       exportSelectedTypeOne() {
-        console.log(getFireDeptAcc(), "Is t1 grid working ex plz")
       if (getFireDeptAcc()) {
-        console.log(this.ex_fire_dept_access, "Is t1 grid working ex allah")
         this.exportFireDept();
       }
 

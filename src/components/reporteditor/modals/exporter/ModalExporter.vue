@@ -7,7 +7,7 @@
   @close="handleClose"
   :no-close-on-backdrop="true"
   >
-
+<!-- Type 1 -->
     <b-form-checkbox v-model="check_fire_dept_access" name="check-button" switch>
       Fire Department Access
     </b-form-checkbox>
@@ -29,19 +29,44 @@
     <b-form-checkbox v-model="check_standpipe_hose" name="check-button" switch>
       Standpipe Hose Systems
     </b-form-checkbox>
-    <br>
+    <!-- Type 2 -->
+    <b-form-checkbox v-model="check_auto_sprinkler" name="check-button" switch>
+      Automatic Sprinkler Systems
+    </b-form-checkbox>
+    <b-form-checkbox v-model="check_emergency_lighting" name="check-button" switch>
+      Emergency Lighting
+    </b-form-checkbox>
+    <b-form-checkbox v-model="check_fire_water_supplies" name="check-button" switch>
+      Fire Water Supplies
+    </b-form-checkbox>
+    <!-- Type 3 -->
+    <b-form-checkbox v-model="check_auto_fire_alarm_system" name="check-button" switch>
+      Automatic Fire Alarm Systems
+    </b-form-checkbox>
+    <b-form-checkbox v-model="check_fire_extinguishers" name="check-button" switch>
+      Fire Extinguishers
+    </b-form-checkbox>
 
-    <b-button @click="exportSelectedReports()">Export Selections</b-button>
-    <!-- <b-button @click="holder()">Export All Reports</b-button> -->
-    <br>
     <span class="text-danger">Please remember to save before exporting</span>
-    <br>
+    <!--TODO: Row not finalized, fix it tomorrow :)-->
+        <b-row align-h="end">
+          <b-col cols="6">
+            <b-button variant= "primary" @click="exportSelectedReports()">Export Selections</b-button>
+          </b-col>
+          <b-col cols="6">
+              <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
+          </b-col>
+        </b-row>
+    <!-- <b-button variant= "primary" @click="exportSelectedReports()">Export Selections</b-button>
+    <b-button @click="exportSelectedReports()">Export All Reports</b-button> --> 
     <div slot="modal-footer">
-        <b-button @click="callGooglePicker()">Upload to Drive</b-button>
+        <b-button variant="primary" @click="callGooglePicker()">Upload to Drive</b-button>
     </div>
 
   </b-modal>
   <TypeOneGrid ref="childref1"></TypeOneGrid>
+  <TypeTwoGrid ref="childref2"></TypeTwoGrid>
+  <TypeThreeGrid ref="childref3"></TypeThreeGrid>
 </div>
 </template>
 
@@ -49,6 +74,8 @@
 
 <script>
 import TypeOneGrid from '@/components/exporter/TypeOneGrid.vue'
+import TypeTwoGrid from '@/components/exporter/TypeTwoGrid.vue'
+import TypeThreeGrid from '@/components/exporter/TypeThreeGrid.vue'
 import { uploadFile, callPicker } from '@/js/filestructure/UpdateFile.js'
 import { 
     //TODO: add the rest of the types flags
@@ -58,10 +85,15 @@ import {
         setMeansEgg, 
         setServEquip, 
         setSmokeAlarm, 
-        setStandHose
+        setStandHose,
+        setAutoSprinkler,
+        setEmergencyLight,
+        setFireWaterSupp,
+        setAutoFireAlarm,
+        setFireExt
  } from "@/js/exporter/exportFlags.js";
 export default {
-    components: { TypeOneGrid },
+    components: { TypeOneGrid, TypeTwoGrid, TypeThreeGrid },
     data() {
         return {
         //checkbox flags for each document 
@@ -74,7 +106,7 @@ export default {
         check_standpipe_hose: false,
         check_fire_water_supplies: false,
         check_auto_sprinkler: false,
-        check_emergenxy_lighting: false,
+        check_emergency_lighting: false,
         check_auto_fire_alarm_system: false,
         check_fire_extinguishers: false
         }
@@ -90,7 +122,7 @@ export default {
             this.check_standpipe_hose = false,
             this.check_fire_water_supplies = false,
             this.check_auto_sprinkler = false,
-            this.check_emergenxy_lighting = false,
+            this.check_emergency_lighting = false,
             this.check_auto_fire_alarm_system = false,
             this.check_fire_extinguishers = false
         },
@@ -107,7 +139,22 @@ export default {
             setServEquip(this.check_service_equipment);
             setSmokeAlarm(this.check_smoke_alarms);
             setStandHose(this.check_standpipe_hose);
-            this.$refs.childref1.exportSelectedTypeOne()
+            setAutoSprinkler(this.check_auto_sprinkler);
+            setEmergencyLight(this.check_emergency_lighting);
+            setFireWaterSupp(this.check_fire_water_supplies);
+            setAutoFireAlarm(this.check_auto_fire_alarm_system);
+            setFireExt(this.check_fire_extinguishers);
+
+            this.$refs.childref1.exportSelectedTypeOne();
+            this.$refs.childref2.exportSelectedTypeTwo();
+            this.$refs.childref3.exportSelectedTypeThree();
+
+        },
+
+        exportAll() {
+            this.$refs.childref1.exportAllTypeOne();
+            this.$refs.childref2.exportAllTypeTwo();
+            this.$refs.childref3.exportAllTypeThree();
         },
 
         callGooglePicker() {
