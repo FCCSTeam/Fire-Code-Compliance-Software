@@ -7,7 +7,7 @@
   @close="handleClose"
   :no-close-on-backdrop="true"
   >
-  
+
     <b-form-checkbox v-model="check_fire_dept_access" name="check-button" switch>
       Fire Department Access
     </b-form-checkbox>
@@ -29,17 +29,16 @@
     <b-form-checkbox v-model="check_standpipe_hose" name="check-button" switch>
       Standpipe Hose Systems
     </b-form-checkbox>
+    <br>
 
     <b-button @click="exportSelectedReports()">Export Selections</b-button>
-    
+    <!-- <b-button @click="holder()">Export All Reports</b-button> -->
     <br>
     <span class="text-danger">Please remember to save before exporting</span>
     <br>
-    <template #modal-footer="{ callGooglePicker }">
-      
-      <!-- Emulate built in modal footer ok and cancel button actions -->
+    <div slot="modal-footer">
         <b-button @click="callGooglePicker()">Upload to Drive</b-button>
-    </template>
+    </div>
 
   </b-modal>
   <TypeOneGrid ref="childref1"></TypeOneGrid>
