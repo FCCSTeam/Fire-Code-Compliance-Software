@@ -5,7 +5,7 @@
     </div> -->
     <div>
       <b-table fixed striped hover :items="items" >
-        <template #thead-top="data">
+        <template>
           <b-tr>
             <!-- <b-th > </b-th> -->
             <b-th colspan="3">Emergency Lighting Equipment</b-th>
@@ -15,7 +15,7 @@
     </div>
     <div>
       <b-table fixed striped hover :items="items2" >
-        <template #thead-top="data">
+        <template >
           <b-tr>
             <!-- <b-th > </b-th> -->
             <b-th colspan="3">Emergency Power System</b-th>
@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  name : 'ELFPS_2_Code',
   data() {
     return {
       items: [

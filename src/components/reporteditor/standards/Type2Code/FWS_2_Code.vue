@@ -9,6 +9,7 @@
 <script>
 // import { mdbTbl, mdbTblHead, mdbTblBody } from "mdbvue";
 export default {
+  name : 'FWS_2_Code',
   data() {
     return {
       items: [
