@@ -48,6 +48,7 @@ const patchFile = async () => {
     return response
 }
 
+//adding createpicker
 const createPicker = () =>
 {
     var UploadView = new google.picker.DocsUploadView().setIncludeFolders(true)
@@ -56,8 +57,6 @@ const createPicker = () =>
     .enableFeature(google.picker.Feature.SUPPORT_DRIVES)
     .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
     .addView(UploadView)
-    // .addView(new google.picker.DocsView().setParent('root').setIncludeFolders(true).setMimeTypes("application/json"))
-    // .addView(new google.picker.DocsView(google.picker.ViewId.DOCS).setEnableDrives(true).setMimeTypes("application/json"))
     .setOAuthToken(getAuth())
     .setDeveloperKey(developerKey)
     .setCallback(pickerCallback)
