@@ -54,6 +54,16 @@ export default {
       {
         //this entry uses a flag to show/hide info
         this.entryData.flag = false;
+        //we do not want to change the values for these keys in the source file
+        const constantPairs = ["week", "key", "flag"]
+        //default the entry information
+        for (const key in this.entryData)
+        {
+          if (!constantPairs.includes(key))
+          {
+            this.entryData[key] = ""
+          }
+        }
       }
     }
   }
