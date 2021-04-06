@@ -76,9 +76,9 @@
 
 <script>
 export default {
+  name : 'AFAS_3_Code_Legends',
   data() {
     return {
-      name : 'AFAS_3_Code_Legends',
       items: [
         {
           Device: "FACP",

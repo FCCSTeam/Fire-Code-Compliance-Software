@@ -33,9 +33,9 @@
 
 <script>
 export default {
+  name: 'AFAS_3_Code_Tests',
   data() {
     return {
-      name: 'AFAS_3_Code_Tests',
       items: [
         {
           Duration: "Daily",
