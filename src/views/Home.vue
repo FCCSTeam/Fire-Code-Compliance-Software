@@ -31,6 +31,9 @@
     </b-container>
 
     <LoginModal ref="loginModalComponent"/>
+    <div class="footer">
+      <p> Made with love from Team FCCS</p>
+    </div>
   </div>
 </template>
 
@@ -65,5 +68,13 @@ export default {
 .image-icon {
   width: auto;
   height: 100%;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: gray;
+   text-align: center;
 }
 </style>

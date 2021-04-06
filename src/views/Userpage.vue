@@ -45,6 +45,9 @@
     </b-jumbotron>
       <b-overlay id="loading-overlay" :show="showLoadingOverlay" no-wrap z-index="1040" variant="light" spinner-variant="primary">
       </b-overlay>
+    <div class="footer">
+      <p> Made with love from Team FCCS</p>
+    </div>
   </div>
 </template>
 
@@ -84,5 +87,13 @@ export default {
 }
 #loading-overlay{
   height: 100vh !important;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: gray;
+   text-align: center;
 }
 </style>
