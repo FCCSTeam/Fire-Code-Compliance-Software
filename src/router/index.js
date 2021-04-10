@@ -7,6 +7,7 @@ import UserSettings from '../views/UserSettings.vue'
 import PageNotFound from '../views/PageNotFound.vue'
 import ReportEditor from '../views/ReportEditor.vue'
 import TypeOneGridView from '../views/TypeOneGridView.vue'
+import ExportPage from '../views/ExportPage.vue'
 
 import TestView from '../views/TestView.vue'
 
@@ -86,15 +87,17 @@ const routes = [
     beforeEnter: requireAuth
   },
   {
+    path: '/exportpage',
+    name: 'ExportPage',
+    component: ExportPage,
+  },
+  {
     path: '/testview',
     name: 'TestView',
     component: TestView,
   },
-  {
-    path: '/typeonegridview',
-    name: 'TypeOneGridView',
-    component: TypeOneGridView,
-  },
+
+  
   //make this the last one!
   {
     path: "*", 

@@ -39,18 +39,18 @@
           </b-button>
         </b-overlay>
 
-        <!-- <b-button
+        <b-button
           variant="light"
           class="d-flex flex-column align-items-center"
-          @click="$router.replace({ name: 'TypeOneGridView' })"
+          @click="$router.replace({ name: 'ExportPage' })"
         >
           <b-icon
             class="sidemenu-button my-1 py-1"
             icon="box-arrow-up"
           ></b-icon>
           <span class="sidemenu-button-text text-secondary">EXPORT</span>
-        </b-button> -->
-        <ModalExporter/>
+        </b-button>
+        
       </div>
     </div>
 
@@ -110,11 +110,11 @@ import Sidebar from "@/components/reporteditor/sidemenu/Sidebar.vue";
 import Type1View from "@/components/reporteditor/tabviews/Type1View.vue";
 import Type2View from "@/components/reporteditor/tabviews/Type2View.vue";
 import Type3View from "@/components/reporteditor/tabviews/Type3View.vue";
-import ModalExporter from "@/components/reporteditor/modals/exporter/ModalExporter.vue"
+// import ModalExporter from "@/components/reporteditor/modals/exporter/ModalExporter.vue"
 
 export default {
   name: "ReportEditor",
-  components: { Navbar, Sidebar, Type1View, Type2View, Type3View, ModalExporter },
+  components: { Navbar, Sidebar, Type1View, Type2View, Type3View },
   data() {
     return {
       activeTab: getActiveTab(),

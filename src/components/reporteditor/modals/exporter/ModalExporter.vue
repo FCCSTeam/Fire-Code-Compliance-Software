@@ -1,6 +1,6 @@
 <template>
 <div>
-        <b-button
+        <!-- <b-button
           variant="light"
           class="d-flex flex-column align-items-center"
           v-b-modal.modal-exporter
@@ -10,12 +10,10 @@
             icon="box-arrow-up"
           ></b-icon>
           <span class="sidemenu-button-text text-secondary">EXPORT</span>
-        </b-button>
-  <b-modal 
+        </b-button> -->
+  <b-form 
   id="modal-exporter"
   title="Choose Reports to Export"
-  @close="handleClose"
-  :no-close-on-backdrop="true"
   >
 <!-- Type 1 -->
     <b-form-checkbox v-model="check_fire_dept_access" name="check-button" switch>
@@ -68,6 +66,7 @@
         <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
       </b-col>
     </b-row>
+
       
     
 
@@ -82,14 +81,18 @@
         </b-row> -->
     <!-- <b-button variant= "primary" @click="exportSelectedReports()">Export Selections</b-button>
     <b-button @click="exportSelectedReports()">Export All Reports</b-button> --> 
-    <div slot="modal-footer">
+    <!-- <div slot="modal-footer">
         <b-button variant="primary" @click="callGooglePicker()">Upload to Drive</b-button>
-    </div>
+    </div> -->
+      <b-col cols="12" class="mt-1">
+        <b-button variant="primary" @click="callGooglePicker()">Upload to Drive</b-button>
+      </b-col>
+    
 
-  </b-modal>
-  <TypeOneGrid ref="childref1"></TypeOneGrid>
-  <TypeTwoGrid ref="childref2"></TypeTwoGrid>
-  <TypeThreeGrid ref="childref3"></TypeThreeGrid>
+  </b-form>
+  <TypeOneGrid ref="childref1" v-if="t1_ready_export" :key="t1_grid_key"></TypeOneGrid>
+  <TypeTwoGrid ref="childref2" v-if="t2_ready_export" :key="t2_grid_key"></TypeTwoGrid>
+  <TypeThreeGrid ref="childref3" v-if="t3_ready_export" :key="t3_grid_key"></TypeThreeGrid>
 </div>
 </template>
 
@@ -119,6 +122,16 @@ export default {
     components: { TypeOneGrid, TypeTwoGrid, TypeThreeGrid },
     data() {
         return {
+        //initialize render keys to refresh vue component
+        t1_grid_key: 0,
+        t2_grid_key: 0,
+        t3_grid_key: 0,
+
+        //initialize v-if booleans to trigger when to load component
+        t1_ready_export: false,
+        t2_ready_export: false,
+        t3_ready_export: false,
+
         //checkbox flags for each document 
         check_fire_dept_access: false,
         check_fire_hazards: false,
@@ -135,6 +148,12 @@ export default {
         }
     }, 
     methods: {
+      forceRerenderGrids() {
+        this.t1_grid_key += 1;
+        this.t2_grid_key += 1;
+        this.t3_grid_key += 1;
+
+      },
         defaultModal() {
             this.check_fire_dept_access = false,
             this.check_fire_hazards = false,
@@ -155,6 +174,8 @@ export default {
     },
 
         exportSelectedReports() {
+
+
             setFireDeptAcc(this.check_fire_dept_access);
             setFireHaz(this.check_fire_hazards);
             setHighBuild(this.check_high_buildings);
@@ -168,6 +189,7 @@ export default {
             setAutoFireAlarm(this.check_auto_fire_alarm_system);
             setFireExt(this.check_fire_extinguishers);
 
+            
             this.$refs.childref1.exportSelectedTypeOne();
             this.$refs.childref2.exportSelectedTypeTwo();
             this.$refs.childref3.exportSelectedTypeThree();
@@ -191,7 +213,14 @@ export default {
     },
 
     mounted() {
+    this.t1_ready_export = true;
+    this.t2_ready_export = true
+    this.t3_ready_export = true
+    this.forceRerenderGrids();
     this.defaultModal();
+    
+
+    
   },
 
 }
