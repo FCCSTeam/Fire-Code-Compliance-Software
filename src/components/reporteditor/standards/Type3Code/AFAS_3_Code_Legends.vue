@@ -31,16 +31,6 @@
       </b-table>
       </b-card>
     </div>
-    <div>
-      <b-table fixed striped hover :items="items2">
-        <template>
-          <b-tr>
-            <!-- <b-th > </b-th> -->
-            <b-th colspan="3">Fire Alarm System</b-th>
-          </b-tr>
-        </template>
-      </b-table>
-    </div>
     <div >
       <p class="notes">
         <b>Notes</b>

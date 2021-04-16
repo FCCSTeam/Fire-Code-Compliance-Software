@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="d-flex justify-content-center align-items-center container ">
         <!-- <b-button
           variant="light"
           class="d-flex flex-column align-items-center"
@@ -11,85 +11,87 @@
           ></b-icon>
           <span class="sidemenu-button-text text-secondary">EXPORT</span>
         </b-button> -->
-  <b-form 
-  id="modal-exporter"
-  title="Choose Reports to Export"
-  >
-<!-- Type 1 -->
-    <b-form-checkbox v-model="check_fire_dept_access" name="check-button" switch>
-      Fire Department Access
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_fire_hazards" name="check-button" switch>
-      Fire Hazards
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_high_buildings" name="check-button" switch>
-      High Buildings
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_means_egress" name="check-button" switch>
-      Means of Egress and Fire Separation
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_service_equipment" name="check-button" switch>
-      Service Equipment, Ducks, Chimneys and Smoke Venting
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_smoke_alarms" name="check-button" switch>
-      Smoke Alarms
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_standpipe_hose" name="check-button" switch>
-      Standpipe Hose Systems
-    </b-form-checkbox>
-    <!-- Type 2 -->
-    <b-form-checkbox v-model="check_auto_sprinkler" name="check-button" switch>
-      Automatic Sprinkler Systems
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_emergency_lighting" name="check-button" switch>
-      Emergency Lighting
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_fire_water_supplies" name="check-button" switch>
-      Fire Water Supplies
-    </b-form-checkbox>
-    <!-- Type 3 -->
-    <b-form-checkbox v-model="check_auto_fire_alarm_system" name="check-button" switch>
-      Automatic Fire Alarm Systems
-    </b-form-checkbox>
-    <b-form-checkbox v-model="check_fire_extinguishers" name="check-button" switch>
-      Fire Extinguishers
-    </b-form-checkbox>
-    <p></p>
-    <span class="text-danger">Please remember to save before exporting</span>
-   <p></p>
-    <!--TODO: Row not finalized, fix it tomorrow :)-->
-    <b-row cols="12">
-      <b-col cols="12">
-        <b-button variant= "secondary" @click="exportSelectedReports()">Export Selected</b-button>
-      </b-col>
-      <b-col cols="12" class="mt-1">
-        <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
-      </b-col>
-    </b-row>
-
-      
-    
+  <b-card>
+    <b-form 
+    id="modal-exporter"
+    title="Choose Reports to Export"
+    >
+    <!-- Type 1 -->
+      <b-form-checkbox v-model="check_fire_dept_access" name="check-button" switch>
+        Fire Department Access
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_fire_hazards" name="check-button" switch>
+        Fire Hazards
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_high_buildings" name="check-button" switch>
+        High Buildings
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_means_egress" name="check-button" switch>
+        Means of Egress and Fire Separation
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_service_equipment" name="check-button" switch>
+        Service Equipment, Ducks, Chimneys and Smoke Venting
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_smoke_alarms" name="check-button" switch>
+        Smoke Alarms
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_standpipe_hose" name="check-button" switch>
+        Standpipe Hose Systems
+      </b-form-checkbox>
+      <!-- Type 2 -->
+      <b-form-checkbox v-model="check_auto_sprinkler" name="check-button" switch>
+        Automatic Sprinkler Systems
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_emergency_lighting" name="check-button" switch>
+        Emergency Lighting
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_fire_water_supplies" name="check-button" switch>
+        Fire Water Supplies
+      </b-form-checkbox>
+      <!-- Type 3 -->
+      <b-form-checkbox v-model="check_auto_fire_alarm_system" name="check-button" switch>
+        Automatic Fire Alarm Systems
+      </b-form-checkbox>
+      <b-form-checkbox v-model="check_fire_extinguishers" name="check-button" switch>
+        Fire Extinguishers
+      </b-form-checkbox>
+      <p></p>
+      <span class="text-danger">Please remember to save before exporting</span>
+      <p></p>
+      <!--TODO: Row not finalized, fix it tomorrow :)-->
+      <b-row cols="12">
+        <b-col cols="12">
+          <b-button variant= "secondary" @click="exportSelectedReports()">Export Selected</b-button>
+        </b-col>
+        <b-col cols="12" class="mt-1">
+          <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
+        </b-col>
+        <b-col cols="12" class="mt-1">
+          <b-button variant="primary" @click="callGooglePicker()">Upload to Drive</b-button>
+        </b-col>
+      </b-row>
 
         
-        <!-- <b-row align-h="end">
-          <b-col cols="6">
-            
-          </b-col>
-          <b-col cols="6">
-              <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
-          </b-col>
-        </b-row> -->
-    <!-- <b-button variant= "primary" @click="exportSelectedReports()">Export Selections</b-button>
-    <b-button @click="exportSelectedReports()">Export All Reports</b-button> --> 
-    <!-- <div slot="modal-footer">
-        <b-button variant="primary" @click="callGooglePicker()">Upload to Drive</b-button>
-    </div> -->
-      <b-col cols="12" class="mt-1">
-        <b-button variant="primary" @click="callGooglePicker()">Upload to Drive</b-button>
-      </b-col>
-    
+      
 
-  </b-form>
+          
+          <!-- <b-row align-h="end">
+            <b-col cols="6">
+              
+            </b-col>
+            <b-col cols="6">
+                <b-button variant= "primary" @click="exportAll()">Export All Reports</b-button>
+            </b-col>
+          </b-row> -->
+      <!-- <b-button variant= "primary" @click="exportSelectedReports()">Export Selections</b-button>
+      <b-button @click="exportSelectedReports()">Export All Reports</b-button> --> 
+      <!-- <div slot="modal-footer">
+          <b-button variant="primary" @click="callGooglePicker()">Upload to Drive</b-button>
+      </div> -->
+     
+
+    </b-form>
+  </b-card>
   <TypeOneGrid ref="childref1" v-if="t1_ready_export" :key="t1_grid_key"></TypeOneGrid>
   <TypeTwoGrid ref="childref2" v-if="t2_ready_export" :key="t2_grid_key"></TypeTwoGrid>
   <TypeThreeGrid ref="childref3" v-if="t3_ready_export" :key="t3_grid_key"></TypeThreeGrid>
