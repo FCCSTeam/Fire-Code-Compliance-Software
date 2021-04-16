@@ -8,6 +8,7 @@ import PageNotFound from '../views/PageNotFound.vue'
 import ReportEditor from '../views/ReportEditor.vue'
 import TypeOneGridView from '../views/TypeOneGridView.vue'
 import ExportPage from '../views/ExportPage.vue'
+import Credits from '../views/Credits.vue'
 
 import TestView from '../views/TestView.vue'
 
@@ -96,8 +97,12 @@ const routes = [
     name: 'TestView',
     component: TestView,
   },
+  {
+    path: '/credits',
+    name: 'Credits',
+    component: Credits,
+  },
 
-  
   //make this the last one!
   {
     path: "*", 
