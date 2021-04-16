@@ -45,9 +45,9 @@
     </b-jumbotron>
       <b-overlay id="loading-overlay" :show="showLoadingOverlay" no-wrap z-index="1040" variant="light" spinner-variant="primary">
       </b-overlay>
-    <div class="footer">
-      <p> Made with love from Team FCCS</p>
-    </div>
+    <!-- <footer class="footer">
+      Made with love by Team FCCS
+    </footer> -->
   </div>
 </template>
 
@@ -89,11 +89,11 @@ export default {
   height: 100vh !important;
 }
 .footer {
-   position: fixed;
+   position: absolute;
    left: 0;
-   bottom: 0;
    width: 100%;
    color: gray;
+   margin-top: 250px;
    text-align: center;
 }
 </style>

@@ -31,9 +31,9 @@
     </b-container>
 
     <LoginModal ref="loginModalComponent"/>
-    <div class="footer">
-      <p> Made with love from Team FCCS</p>
-    </div>
+    <!-- <footer class="footer">
+      Made with love by Team FCCS
+    </footer> -->
   </div>
 </template>
 
@@ -75,6 +75,7 @@ export default {
    bottom: 0;
    width: 100%;
    color: gray;
+   margin-top: 250px;
    text-align: center;
 }
 </style>
