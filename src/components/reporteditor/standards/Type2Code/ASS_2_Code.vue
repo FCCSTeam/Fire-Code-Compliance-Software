@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name : 'ASS_2_Code',
   data() {
     return {
       items: [
