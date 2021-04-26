@@ -16,15 +16,6 @@
         </b-navbar-brand>
       </b-navbar-brand>
 
-        <div v-if="error">
-          <span class="text-danger"> 
-            {{error}}
-          </span>
-        </div>
-        <div v-else>
-          <span class="text-secondary">Now Editing: <span class="text-muted font-italic">{{ getFileName }}</span></span>
-        </div>
-
         <b-navbar-nav class="ml-auto">
             <Modal_RE_Navbar_Exit />
         </b-navbar-nav>
@@ -36,33 +27,12 @@
 </template>
 
 <script>
-import { getName } from "@/js/filestructure/storeFile.js"
-
 import Modal_RE_Navbar_Exit from '@/components/prefabs/navbar/modals/Modal_RE_Navbar_Exit.vue'
 
 export default {
   name: "NavBar",
   components : {
     Modal_RE_Navbar_Exit
-  },
-  data() {
-    return {
-      error: null,
-    };
-  },
-  computed : {
-    getFileName(){
-      if (getName())
-      {
-        this.error = null;
-        return getName()
-      }
-      else
-      {
-        this.error = "No File Detected! Please relaunch the editor."
-        return ""
-      }
-    }
   },
 };
 </script>
