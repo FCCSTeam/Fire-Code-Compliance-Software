@@ -2,7 +2,7 @@
   <div id="home">
     <Navbar />
     <b-container class="my-5 mx-1" fluid="true">
-      <b-row id="title-row" class="" fluid>
+      <b-row id="title-row" class="">
         <b-col class="col-1 mx-0 py-0"></b-col>
         <b-col class="col-xs-auto d-flex justify-content-center">
           <div class="header-container">
@@ -18,8 +18,7 @@
                 Compliance Software
               </h1>
             </div>
-            <h3 class="text-muted my-0">
-              Fire code building inspections made easy through the web
+            <h3 class="text-muted my-0 pl-0">Fire code building inspections made easy through the web
             </h3>
             <b-button class="my-2 py-2 px-3" variant="primary" @click="showLoginModal()"
               >Sign in</b-button
@@ -67,7 +66,7 @@ export default {
 }
 .image-icon {
   width: auto;
-  height: 100%;
+  height: 100px;
 }
 .footer {
    position: fixed;
